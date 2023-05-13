@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Lista de Veiculos";
+}
+
+<div class="text-center">
+    <h1 class="display-1">CarZone</h1>
+    <p class="display-6">Lista de Veiculos</p>
+    <br />
+    <a class="btn btn-outline-danger btn-sm" asp-controller="Veiculos" asp-action="Criar">Adicionar Veiculos</a>
+    <br />
+    <br />
+</div>
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Final Placa</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Volkswagen</td>
+                <td>Gol CL 1.8</td>
+                <td>1985</td>
+                <td>R$ 38.000</td>
+                <td>22</td>
+                <td>A venda</td>
+                <td>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="Editar">Editar</a>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Mercedes-Benz</td>
+                <td>GLC 250</td>
+                <td>2020</td>
+                <td>R$ 251.898</td>
+                <td>30</td>
+                <td> A venda </td>
+                <td>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="Editar">Editar</a>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Chrysler</td>
+                <td>300c</td>
+                <td>2015</td>
+                <td>R$ 248.000</td>
+                <td>37</td>
+                <td>Vendido</td>
+                <td>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="Editar">Editar</a>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Lista de Modelos";
+}
+
+<div class="text-center">
+    <p class="display-6">Lista de Modelos</p>
+    <br />
+    <a class="btn btn-outline-danger btn-sm" asp-controller="ModeloVeiculos" asp-action="AdicionarModelo">Adicionar Modelo</a>
+    <br />
+    <br />
+
+
+    <div class="text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome de Modelo</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>GOL 1.8 GLI</td>
+                    <td>Volkswagen</td>
+                    <td>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="EditarModelo">Editar</a>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>GLA 250</td>
+                    <td>Mercedes-Benz</td>
+                    <td>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="EditarModelo">Editar</a>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>300c</td>
+                    <td>Chrysler</td>
+                    <td>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="EditarModelo">Editar</a>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

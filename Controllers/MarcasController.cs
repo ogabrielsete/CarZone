@@ -2,19 +2,19 @@
 
 namespace CarZone.Controllers
 {
-    public class VendasController : Controller
+    public class MarcasController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult CadastrarVenda()
+        public IActionResult AddMarca()
         {
             return View();
         }
 
-        public IActionResult EditarVenda()
+        public IActionResult EditarMarca()
         {
             return View();
         }
@@ -22,5 +22,6 @@ namespace CarZone.Controllers
         {
             return View();
         }
+
     }
 }

@@ -1,9 +1,9 @@
 ﻿namespace CarZone.Models
 {
-    public class Financiamento
+    public class Pagamento
     {
-        public int FinanciamentoId { get; set; }
-        public string NomeFinanciamento { get; set; }
+        public int PagamentoId { get; set; }
+        public string NomePagamento { get; set; }
         public string CategoriaVeiculo { get; set; }
         public int Meses { get; set; }
     }

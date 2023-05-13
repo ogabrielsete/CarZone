@@ -2,22 +2,23 @@
 
 namespace CarZone.Controllers
 {
-    public class VendasController : Controller
+    public class ClientesController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult CadastrarVenda()
+        public IActionResult CadastrarCliente()
         {
             return View();
         }
 
-        public IActionResult EditarVenda()
+        public IActionResult AlterarCliente()
         {
             return View();
         }
+
         public IActionResult ApagarConfirmacao()
         {
             return View();

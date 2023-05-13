@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Tipos de Pagamentos";
+}
+
+<div class="text-center">
+    <p class="display-6">Lista de Pagamentos</p>
+    <br />
+    <a class="btn btn-outline-danger btn-sm" asp-controller="Pagamentos" asp-action="CriarPagamento">Criar Pagamento</a>
+    <br />
+    <br />
+
+
+    <div class="text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Pagamento</th>
+                    <th scope="col">Categoria Veiculo</th>
+                    <th scope="col">Meses</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Financiamento</td>
+                    <td>Carro</td>
+                    <td>84</td>
+                    <td>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="EditarPagamento">Editar</a>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Financiamento</td>
+                    <td>Moto</td>
+                    <td>24</td>
+                    <td>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="EditarPagamento">Editar</a>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>A vista</td>
+                    <td>Carro</td>
+                    <td>0</td>
+                    <td>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="EditarMarca">Editar</a>
+                        <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

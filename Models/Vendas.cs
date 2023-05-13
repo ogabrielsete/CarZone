@@ -6,7 +6,7 @@
         public int DataVenda { get; set; }
 
 
-        public int FinanciamentoId { get; set; }
+        public int PagamentoId { get; set; }
 
 
         public int VeiculoId { get; set; }

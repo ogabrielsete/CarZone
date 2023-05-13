@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Pagamento";
+}
+
+<div class="text-center">
+
+    <p class="display-6">Editar método de pagamento</p>
+    <br />
+
+
+    <form asp-controller="Pagamentos" asp-action="EditarPagamento" method="post">
+
+        <div class="d-none">
+            <label for="id"></label>
+            @* aqui vai o id       <input type="number" asp-for= />*@
+        </div>
+
+        @*aqui vai o dropdown de marca*@
+        <div class="row mb-3">
+            <label for="Marca" class="col-sm-2 col-form-label">Método de Pgto</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="marca">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="modeloVeiculo" class="col-sm-2 col-form-label">Modelo</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="modeloVeiculo">
+            </div>
+        </div>
+
+    </form>
+    <br />
+    <button type="submit" class="btn btn-primary">Editar Método</button>
+    <a class="btn btn-primary" asp-controller="Pagamentos" asp-action="Index">Voltar</a>
+
+</div>

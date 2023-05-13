@@ -2,7 +2,7 @@
 
 namespace CarZone.Controllers
 {
-    public class VeiculoController : Controller
+    public class VeiculosController : Controller
     {
         public IActionResult Index()
         {

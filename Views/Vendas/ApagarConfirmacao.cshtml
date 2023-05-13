@@ -1,5 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Excluir Venda";
 }
+
+<div class="text-center">
+
+    <p class="display-5"> Deseja excluir a venda?</p>
+    <br />
+    <button type="button" class="btn btn-outline-danger">Excluir</button>
+    <a type="button" class="btn btn-outline-secondary" asp-controller="Vendas" asp-action="Index">Cancelar</a>
+</div>

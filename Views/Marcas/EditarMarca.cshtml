@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Editar Marca";
+}
+
+<div class="text-center">
+
+    <p class="display-4">Editar Marca</p>
+    <br />
+
+
+    <form asp-controller="Marca" asp-action="EditarMarca" method="post">
+
+
+        <div class="d-none">
+            <label for="id"></label>
+            @* aqui vai o id       <input type="number" asp-for= />*@
+        </div>
+
+        <div class="d-flex flex-column align-items-center">
+            <div class="text-center">
+                <h6 class="" for="nomeMarca">
+                    Nome da Marca
+
+                </h6>
+
+                <input type="text" class="form-control">
+            </div>
+        </div>
+    </form>
+    <br />
+    <button type="submit" class="btn btn-primary">Editar Marca</button>
+    <a class="btn btn-primary" asp-controller="Marcas" asp-action="Index">Voltar</a>
+
+</div>

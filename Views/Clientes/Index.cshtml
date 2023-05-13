@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<div class="text-center">
+    <h1 class="display-1">CarZone</h1>
+    <p class="display-6">Lista de Clientes</p>
+    <br />
+    <a class="btn btn-outline-danger btn-sm" asp-controller="Clientes" asp-action="CadastrarCliente">Cadastrar Cliente</a>
+    <br />
+    <br />
+</div>
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Endereço</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Walter</td>
+                <td>443.543.310-85</td>
+                <td>(11) 96498-1932</td>
+                <td>Bento Gonçalves, 23 - Piracaia</td>
+                <td>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="AlterarCliente">Editar</a>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="ApagarConfirmacao">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jessico</td>
+                <td>772.23.432-11</td>
+                <td>(11) 95968-1233</td>
+                <td>G. Deodoro, 323 - S.J. Campos</td>
+                <td>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="AlterarCliente">Editar</a>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="ApagarConfirmacao">Apagar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>

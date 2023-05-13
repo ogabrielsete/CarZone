@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Lista de Marcas";
+}
+
+<div class="text-center">
+    <p class="display-6">Lista de Marcas</p>
+    <br />
+    <a class="btn btn-outline-danger btn-sm" asp-controller="Marcas" asp-action="AddMarca">Adicionar Marca</a>
+    <br />
+    <br />
+
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome da Marca</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Volkswagen</td>
+                <td>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="EditarMarca">Editar</a>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="ApagarConfirmacao">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Mercedes-Benz</td>
+                <td>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="EditarMarca">Editar</a>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="ApagarConfirmacao">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Chrysler</td>
+                <td>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="EditarMarca">Editar</a>
+                    <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="ApagarConfirmacao">Apagar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
