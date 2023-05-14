@@ -1,3 +1,6 @@
+using CarZone.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CarZone
 {
     public class Program
@@ -8,6 +11,10 @@ namespace CarZone
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            var connectionString = builder.Configuration.GetConnectionString("DataBase");
+            builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(options =>
+                options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True"));
 
             var app = builder.Build();
 

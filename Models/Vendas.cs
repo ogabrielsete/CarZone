@@ -1,8 +1,11 @@
-﻿namespace CarZone.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CarZone.Models
 {
     public class Vendas
     {
-        public int IdVendas { get; set; }
+        [Key]
+        public int Id { get; set; }
         public int DataVenda { get; set; }
 
 

@@ -2,7 +2,7 @@
 {
     public class ModeloVeiculos
     {
-        public int IdModelos { get; set; }
+        public int Id { get; set; }
         public string NomeModelo { get; set; }
 
 
