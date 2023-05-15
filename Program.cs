@@ -1,4 +1,5 @@
 using CarZone.Data;
+using CarZone.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarZone
@@ -15,6 +16,7 @@ namespace CarZone
             var connectionString = builder.Configuration.GetConnectionString("DataBase");
             builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(options =>
                 options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True"));
+            builder.Services.AddScoped<IVeiculosRepositorio, VeiculosRepositorio>();
 
             var app = builder.Build();
 

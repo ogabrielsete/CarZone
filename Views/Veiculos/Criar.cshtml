@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Veiculos
+@{
     ViewData["Title"] = "Adicionar Veiculo";
 }
 
@@ -12,7 +13,7 @@
 
     <div class="d-none">
         <label for="id"></label>
-        @* aqui vai o id       <input type="number" asp-for= />*@
+        <input type="number" asp-for="Id" />
     </div>
 
     @*aqui vai o dropdown de marca*@
@@ -22,7 +23,7 @@
             <input type="text" class="form-control" id="marca">
         </div>
     </div>
-
+    @*aqui vai o dropdown de modelos disponiveis*@
     <div class="row mb-3">
         <label for="modeloVeiculo" class="col-sm-2 col-form-label">Modelo</label>
         <div class="col-sm-10">
@@ -33,21 +34,21 @@
     <div class="row mb-3">
         <label for="anoVeiculo" class="col-sm-2 col-form-label">Ano</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="anoVeiculo">
+            <input type="number" class="form-control" id="anoVeiculo" asp-for="Ano" />
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="precoVeiculo" class="col-sm-2 col-form-label">Preço</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" id="precoVeiculo">
+            <input type="any" class="form-control" id="precoVeiculo" asp-for="Preco">
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="veiculoPlaca" class="col-sm-2 col-form-label">Placa</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" id="veiculoPlaca">
+            <input type="any" class="form-control" id="veiculoPlaca" asp-for="Placa">
         </div>
     </div>
 
@@ -55,12 +56,12 @@
     <div class="row mb-3">
         <label for="statusVeiculo" class="col-sm-2 col-form-label">Status</label>
         <div class="col-sm-10">
-            <input type="" class="form-control" id="statusVeiculo">
+            <input type="" class="form-control" id="statusVeiculo" asp-for="StatusVenda">
         </div>
     </div>
 
-
-
+    <div>
+        <button type="submit" class="btn btn-primary" asp-controller="Veiculos" asp-action="Criar" formmethod="post">Adicionar</button>
+        <a class="btn btn-primary" asp-controller="Veiculos" asp-action="Index">Voltar</a>
+    </div>
 </form>
-<button type="submit" class="btn btn-primary">Adicionar</button>
-<a class="btn btn-primary" asp-controller="Veiculos" asp-action="Index">Voltar</a>

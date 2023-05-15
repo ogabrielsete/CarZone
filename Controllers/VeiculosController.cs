@@ -1,9 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarZone.Models;
+using CarZone.Repositorio;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CarZone.Controllers
 {
     public class VeiculosController : Controller
     {
+        private readonly IVeiculosRepositorio _veiculosRepositorio;
+        public VeiculosController(IVeiculosRepositorio veiculosRepositorio)
+        {
+            _veiculosRepositorio = veiculosRepositorio;
+        }
         public IActionResult Index()
         {
             return View();
@@ -21,6 +28,13 @@ namespace CarZone.Controllers
         public IActionResult ApagarConfirmacao()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Criar (Veiculos veiculos)
+        {
+            _veiculosRepositorio.Adicionar(veiculos);
+            return RedirectToAction("Index");
         }
     }
 }

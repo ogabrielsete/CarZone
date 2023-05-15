@@ -10,9 +10,12 @@ namespace CarZone.Models
         public int Placa { get; set; }
 
         public int Ano { get; set; }
+        public double Preco { get; set; }
 
         public bool StatusVenda { get; set; }
 
-        public int MarcaId { get; set; } 
+        
+        public int MarcaId { get; set; }
+        //public virtual Marcas Marca { get; set; }
     }
 }

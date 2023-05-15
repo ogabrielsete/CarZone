@@ -3,6 +3,7 @@ using CarZone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarZone.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20230514215751_AddColunaPrecoVeiculosModel")]
+    partial class AddColunaPrecoVeiculosModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,9 +65,14 @@ namespace CarZone.Migrations
                     b.Property<int>("ModeloVeiculosId")
                         .HasColumnType("int");
 
+                    b.Property<int>("VeiculoId")
+                        .HasColumnType("int");
+
                     b.HasKey("MarcaId");
 
                     b.HasIndex("ModeloVeiculosId");
+
+                    b.HasIndex("VeiculoId");
 
                     b.ToTable("MarcasDB");
                 });
@@ -136,9 +143,6 @@ namespace CarZone.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MarcaId")
-                        .IsUnique();
-
                     b.ToTable("VeiculosDB");
                 });
 
@@ -185,18 +189,15 @@ namespace CarZone.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ModeloVeiculos");
-                });
-
-            modelBuilder.Entity("CarZone.Models.Veiculos", b =>
-                {
-                    b.HasOne("CarZone.Models.Marcas", "Marca")
-                        .WithOne("Veiculo")
-                        .HasForeignKey("CarZone.Models.Veiculos", "MarcaId")
+                    b.HasOne("CarZone.Models.Veiculos", "Veiculo")
+                        .WithMany()
+                        .HasForeignKey("VeiculoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Marca");
+                    b.Navigation("ModeloVeiculos");
+
+                    b.Navigation("Veiculo");
                 });
 
             modelBuilder.Entity("CarZone.Models.Vendas", b =>
@@ -216,12 +217,6 @@ namespace CarZone.Migrations
                     b.Navigation("Cliente");
 
                     b.Navigation("Veiculos");
-                });
-
-            modelBuilder.Entity("CarZone.Models.Marcas", b =>
-                {
-                    b.Navigation("Veiculo")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("CarZone.Models.ModeloVeiculos", b =>
