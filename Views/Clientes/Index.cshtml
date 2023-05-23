@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Cliente>
+@{
     ViewData["Title"] = "Lista de Clientes";
 }
 
@@ -25,26 +26,21 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row">1</th>
-                <td>Walter</td>
-                <td>443.543.310-85</td>
-                <td>(11) 96498-1932</td>
-                <td>Bento Gonçalves, 23 - Piracaia</td>
-                <td>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="AlterarCliente">Editar</a>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="ApagarConfirmacao">Apagar</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jessico</td>
-                <td>772.23.432-11</td>
-                <td>(11) 95968-1233</td>
-                <td>G. Deodoro, 323 - S.J. Campos</td>
-                <td>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="AlterarCliente">Editar</a>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="ApagarConfirmacao">Apagar</a>
-                </td>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (Cliente cliente in Model)
+                    {
+                        <th scope="row">@cliente.Id</th>
+                        <td>@cliente.Nome</td>
+                        <td>@cliente.CPF</td>
+                        <td>@cliente.Telefone</td>
+                        <td>@cliente.Endereco</td>
+                        <td>
+                            <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="AlterarCliente">Editar</a>
+                            <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="ApagarConfirmacao">Apagar</a>
+                        </td>
+                    }
+                }
             </tr>
         </tbody>
     </table>

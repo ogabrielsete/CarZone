@@ -4,6 +4,7 @@ namespace CarZone.Repositorio
 {
     public interface IVendasRepositorio
     {
-        Vendas Adicionar(Vendas vendidos);
+        List<Venda> GetAll();
+        Venda Adicionar(Venda vendidos);
     }
 }

@@ -17,6 +17,12 @@ namespace CarZone
             builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(options =>
                 options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True"));
             builder.Services.AddScoped<IVeiculosRepositorio, VeiculosRepositorio>();
+            builder.Services.AddScoped<IMarcasRepositorio, MarcasRepositorio>();
+            builder.Services.AddScoped<IModeloVeiculosRepositorio, ModeloVeiculosRepositorio>();
+            builder.Services.AddScoped<IMarcasRepositorio, MarcasRepositorio>();
+            builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            builder.Services.AddScoped<IVendasRepositorio, VendasRepositorio>();
+
 
             var app = builder.Build();
 

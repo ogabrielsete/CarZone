@@ -1,4 +1,6 @@
-﻿using CarZone.Models;
+﻿//using CarZone.Data.Map;
+using CarZone.Data.Map;
+using CarZone.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarZone.Data
@@ -7,15 +9,31 @@ namespace CarZone.Data
     {
         public BancoContext(DbContextOptions<BancoContext> options) : base(options)
         {
-            
+
         }
 
         public DbSet<Cliente> ClientesDB { get; set; }
-        public DbSet<Vendas> VendasDB { get; set; }
-        public DbSet<Veiculos> VeiculosDB { get; set; }
-        public DbSet<Marcas> MarcasDB { get; set; }
-        public DbSet<ModeloVeiculos> ModeloVeiculosDB { get; set; }
+        public DbSet<Venda> VendasDB { get; set; }
+        public DbSet<Veiculo> VeiculosDB { get; set; }
+        public DbSet<Marca> MarcasDB { get; set; }
+        public DbSet<ModeloVeiculo> ModeloVeiculosDB { get; set; }
         public DbSet<Pagamento> PagamentosDB { get; set; }
 
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder options) =>
+        //    options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True");
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ModeloVeiculoMap());
+            modelBuilder.ApplyConfiguration(new VeiculosMap());
+            modelBuilder.ApplyConfiguration(new VendasMap());
+            modelBuilder.ApplyConfiguration(new MarcasMap());
+            modelBuilder.ApplyConfiguration(new PagamentoMap());
+            modelBuilder.ApplyConfiguration(new ClientesMap());
+
+
+
+        }
     }
 }

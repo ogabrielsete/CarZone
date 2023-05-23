@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Veiculo>
+@{
     ViewData["Title"] = "Lista de Veiculos";
 }
 
@@ -26,45 +27,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Volkswagen</td>
-                <td>Gol CL 1.8</td>
-                <td>1985</td>
-                <td>R$ 38.000</td>
-                <td>22</td>
-                <td>A venda</td>
-                <td>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="Editar">Editar</a>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="ApagarConfirmacao">Apagar</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Mercedes-Benz</td>
-                <td>GLC 250</td>
-                <td>2020</td>
-                <td>R$ 251.898</td>
-                <td>30</td>
-                <td> A venda </td>
-                <td>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="Editar">Editar</a>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="ApagarConfirmacao">Apagar</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Chrysler</td>
-                <td>300c</td>
-                <td>2015</td>
-                <td>R$ 248.000</td>
-                <td>37</td>
-                <td>Vendido</td>
-                <td>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="Editar">Editar</a>
-                    <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="ApagarConfirmacao">Apagar</a>
-                </td>
-            </tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (Veiculo veiculos in Model)
+                {
+                    <tr>
+                        <th scope="row">@veiculos.Id</th>
+                        <td>@veiculos.MarcaId</td>
+                        <td>@veiculos.ModeloVeiculo</td>
+                        <td>@veiculos.Ano</td>
+                        <td>@veiculos.Preco</td>
+                        <td>@veiculos.Placa</td>
+                        <td>@veiculos.StatusVenda</td>
+                        <td>
+                            <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="Editar">Editar</a>
+                            <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 </div>

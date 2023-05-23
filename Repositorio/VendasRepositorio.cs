@@ -10,11 +10,19 @@ namespace CarZone.Repositorio
         {
             _bancoContext = bancoContext;
         }
-        public Vendas Adicionar(Vendas vendidos)
+
+        public List<Venda> GetAll()
+        {
+            return _bancoContext.VendasDB.ToList();
+        }
+
+        public Venda Adicionar(Venda vendidos)
         {
             _bancoContext.VendasDB.Add(vendidos);
             _bancoContext.SaveChanges();
             return vendidos;
         }
+
+        
     }
 }

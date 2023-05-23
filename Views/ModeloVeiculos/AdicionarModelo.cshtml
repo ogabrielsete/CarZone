@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ModeloVeiculo
+@{
     ViewData["Title"] = "Adicionar Modelo";
 }
 
@@ -6,27 +7,33 @@
 
     <p class="display-6">Adicionar Modelo</p>
     <br />
+</div>
 
+    <form asp-controller="ModeloVeiculos" asp-action="Criar" method="post">
 
-    <form asp-controller="ModeloVeiculos" asp-action="AdicionarModelo" method="post">
-
-
+        <div class="row">
         <div class="d-none">
             <label for="id"></label>
-            @* aqui vai o id       <input type="number" asp-for= />*@
-        </div>
-
-        <div class="d-flex flex-column align-items-center">
-            <div class="text-center">
-                <h3 for="nomeMarca">Nome do Modelo</h3>
-                <input type="text" class="form-control">
-            </div>
+            <input type="number" asp-for="Id" />
         </div>
 
 
+        <div class="col-6">
+            <label for="Marcas"> Marcas </label>
+            <select name="MarcaId" asp-for="MarcaId" class=" form-control" asp-items="@ViewBag.Marcas"></select>
+        </div>
+        <br />
+
+        <div class="col-6">
+            <label for="Modelo"> Modelo</label>
+            <input type="text" asp-for="Modelo" class="form-control" placeholder="Insira o nome do Modelo" />
+        </div>
+        
+       
+    </div>
+    <div class="text-center">
+        <br />
+            <button type="submit" class="btn btn-primary">Adicionar Modelo</button>
+            <a class="btn btn-primary" asp-controller="ModeloVeiculos" asp-action="Index">Voltar</a>
+        </div>
     </form>
-    <br />
-    <button type="submit" class="btn btn-primary">Adicionar Modelo</button>
-    <a class="btn btn-primary" asp-controller="ModeloVeiculos" asp-action="Index">Voltar</a>
-
-</div>

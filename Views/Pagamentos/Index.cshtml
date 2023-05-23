@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Pagamento>
+@{
     ViewData["Title"] = "Tipos de Pagamentos";
 }
 
@@ -22,36 +23,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Financiamento</td>
-                    <td>Carro</td>
-                    <td>84</td>
-                    <td>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="EditarPagamento">Editar</a>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="ApagarConfirmacao">Apagar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Financiamento</td>
-                    <td>Moto</td>
-                    <td>24</td>
-                    <td>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="EditarPagamento">Editar</a>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="ApagarConfirmacao">Apagar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>A vista</td>
-                    <td>Carro</td>
-                    <td>0</td>
-                    <td>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="EditarMarca">Editar</a>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="ApagarConfirmacao">Apagar</a>
-                    </td>
-                </tr>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (Pagamento pag in Model)
+                    {
+                        <tr>
+                            <th scope="row">@pag.Id</th>
+                            <td>@pag.NomePagamento</td>
+                            <td>@pag.CategoriaVeiculo</td>
+                            <td>@pag.Meses</td>
+                            <td>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="EditarPagamento">Editar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-action="ApagarConfirmacao">Apagar</a>
+                            </td>
+                        </tr>
+                    }
+                }
             </tbody>
         </table>
     </div>

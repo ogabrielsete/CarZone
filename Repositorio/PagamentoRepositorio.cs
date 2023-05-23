@@ -10,11 +10,19 @@ namespace CarZone.Repositorio
         {
             _bancoContext = bancoContext;
         }
+
+        public List<Pagamento> GetAll()
+        {
+            return _bancoContext.PagamentosDB.ToList();
+        }
+
         public Pagamento Adicionar(Pagamento pgto)
         {
             _bancoContext.PagamentosDB.Add(pgto);
             _bancoContext.SaveChanges();
             return pgto;
         }
+
+        
     }
 }

@@ -3,6 +3,7 @@ using CarZone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarZone.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20230523122715_atualizacao001")]
+    partial class atualizacao001
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,30 +32,24 @@ namespace CarZone.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CPF")
-                        .HasMaxLength(11)
-                        .HasColumnType("INT")
-                        .HasColumnName("CPF");
+                        .HasColumnType("int");
 
                     b.Property<string>("Endereco")
                         .IsRequired()
-                        .HasMaxLength(125)
-                        .HasColumnType("VARCHAR(125)")
+                        .HasColumnType("VARCHAR")
                         .HasColumnName("Endereço");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR(80)")
-                        .HasColumnName("Nome");
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Name");
 
                     b.Property<int>("Telefone")
-                        .HasMaxLength(11)
-                        .HasColumnType("INT")
-                        .HasColumnName("Telefone");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cliente", (string)null);
+                    b.ToTable("Cliente");
                 });
 
             modelBuilder.Entity("CarZone.Models.Marca", b =>
@@ -89,7 +85,7 @@ namespace CarZone.Migrations
                     b.Property<string>("Modelo")
                         .IsRequired()
                         .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR(80)")
+                        .HasColumnType("VARCHAR(80)")
                         .HasColumnName("Modelo");
 
                     b.HasKey("Id");
@@ -111,19 +107,16 @@ namespace CarZone.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Meses")
-                        .HasMaxLength(3)
-                        .HasColumnType("INT")
-                        .HasColumnName("Meses");
+                        .HasColumnType("int");
 
                     b.Property<string>("NomePagamento")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("VARCHAR(20)")
-                        .HasColumnName("Nome");
+                        .HasColumnType("VARCHAR")
+                        .HasColumnName("Pagamento");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pagamento", (string)null);
+                    b.ToTable("Pagamento");
                 });
 
             modelBuilder.Entity("CarZone.Models.Veiculo", b =>

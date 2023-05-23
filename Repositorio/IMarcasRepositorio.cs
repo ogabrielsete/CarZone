@@ -4,6 +4,7 @@ namespace CarZone.Repositorio
 {
     public interface IMarcasRepositorio
     {
-        Marcas Adicionar(Marcas marcas);
+        Marca Adicionar(Marca marcas);
+        List<Marca> GetAll();
     }
 }

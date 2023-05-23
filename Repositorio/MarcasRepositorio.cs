@@ -10,11 +10,16 @@ namespace CarZone.Repositorio
         {
             _bancoContext = bancoContext;
         }
-        public Marcas Adicionar(Marcas marcas)
+        public Marca Adicionar(Marca marcas)
         {
             _bancoContext.MarcasDB.Add(marcas);
             _bancoContext.SaveChanges();
             return marcas;
+        }
+
+        public List<Marca> GetAll()
+        {
+            return _bancoContext.MarcasDB.ToList();
         }
     }
 }
