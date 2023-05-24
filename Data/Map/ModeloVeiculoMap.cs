@@ -20,21 +20,18 @@ namespace CarZone.Data.Map
                 .UseIdentityColumn();
 
             // Propriedades
-            builder.Property(x => x.Modelo)
-                .IsRequired()
+            builder.Property(x => x.NomeModelo)
                 .HasColumnName("Modelo")
                 .HasColumnType("NVARCHAR")
-                .HasMaxLength(80);
+                .HasMaxLength(100);      
 
-            // Relacionamentos
+
+            //  Relacionamentos
             builder.HasOne(x => x.Marca)
                 .WithMany(x => x.Modelos)
-                .HasConstraintName("FK_Modelo_Marca")
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(x => x.MarcaId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-           
-                
-                
         }
     }
 }

@@ -10,28 +10,21 @@ namespace CarZone.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [Required]
-        [Column("Placa", TypeName = "VARCHAR")]
         public string Placa { get; set; }
-
-        [Required]
         public int Ano { get; set; }
-
-        [Required]
         public double Preco { get; set; }
-
         public StatusVenda StatusVenda { get; set; }
 
-        [ForeignKey("MarcaId")]
+
         public int MarcaId { get; set; }
         public Marca Marca { get; set; }
 
-        [ForeignKey("Modelo Id")]
-        public int ModelosId { get; set; }
-        public ModeloVeiculo ModeloVeiculo { get; set; }
 
-        
+        public int ModeloId { get; set; }
+        public ModeloVeiculo Modelo { get; set; }
+
+
+        public Venda Venda { get; set; }
 
 
     }

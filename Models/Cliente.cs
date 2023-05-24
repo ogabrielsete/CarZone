@@ -9,13 +9,10 @@ namespace CarZone.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [Required]
-        [MinLength(3)]
-        [Column("Name", TypeName ="NVARCHAR")]
         public string Nome { get; set; }
 
         [Required]
+        [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$", ErrorMessage = "CPF inválido.")]
         public int CPF { get; set; }
 
         [Required]
@@ -23,6 +20,9 @@ namespace CarZone.Models
         public string Endereco { get; set; }
 
         [Required]
+        [RegularExpression(@"^\(\d{2}\)\s*\d{4,5}-\d{4}$", ErrorMessage = "O campo Telefone deve estar no formato (99) 99999-9999.")]
         public int Telefone { get; set; }
+
+        public ICollection<Venda>  Vendas { get; set; }
     }
 }

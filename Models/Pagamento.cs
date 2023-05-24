@@ -14,6 +14,7 @@ namespace CarZone.Models
         [Required]
         [Column("Pagamento", TypeName = "VARCHAR")]
         public string NomePagamento { get; set; }
+
         public int Meses { get; set; }
 
         public CategoriaVeiculo CategoriaVeiculo { get; set; }

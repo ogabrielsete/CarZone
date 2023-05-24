@@ -15,16 +15,20 @@ namespace CarZone.Data.Map
             builder.HasKey(x => x.Id);
 
             // Identity
-            builder.Property(x => x.Id)
-                .ValueGeneratedOnAdd()
-                .UseIdentityColumn();
+            //builder.Property(x => x.Id)
+            //    .ValueGeneratedOnAdd()
+            //    .UseIdentityColumn();
 
             // Propriedades
+            builder.Property(x => x.Id)
+                .HasColumnName("Id")
+                .HasColumnType("int");
+
             builder.Property(x => x.Nome)
                 .IsRequired()
                 .HasColumnName("Nome")
                 .HasColumnType("NVARCHAR")
-                .HasMaxLength(80);
+                .HasMaxLength(100);
 
             builder.Property(x => x.CPF)
                 .IsRequired()
@@ -43,9 +47,6 @@ namespace CarZone.Data.Map
                .HasColumnName("Telefone")
                .HasColumnType("INT")
                .HasMaxLength(11);
-
-            // Relacionamentos
-           
         }
     }
 }

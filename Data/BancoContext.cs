@@ -1,5 +1,4 @@
-﻿//using CarZone.Data.Map;
-using CarZone.Data.Map;
+﻿using CarZone.Data.Map;
 using CarZone.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,9 +30,6 @@ namespace CarZone.Data
             modelBuilder.ApplyConfiguration(new MarcasMap());
             modelBuilder.ApplyConfiguration(new PagamentoMap());
             modelBuilder.ApplyConfiguration(new ClientesMap());
-
-
-
         }
     }
 }

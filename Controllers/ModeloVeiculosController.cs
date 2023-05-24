@@ -38,7 +38,6 @@ namespace CarZone.Controllers
         [HttpPost]
         public IActionResult Criar (ModeloVeiculo modelo)
         {
-
             _modeloVeiculosRepositorio.Adicionar(modelo);
             return RedirectToAction("Index");
         }

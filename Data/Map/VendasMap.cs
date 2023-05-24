@@ -27,10 +27,23 @@ namespace CarZone.Data.Map
                 .HasColumnType("int")
                 .HasMaxLength(10);
 
-            // Relacionamentos
-            builder.HasOne(x => x.Cliente);
-            builder.HasOne(x => x.Pagamento);
-            builder.HasOne(x => x.Veiculo);
+            // Relacionamentos com a tabela "Clientes"
+            builder.HasOne(x => x.Cliente)
+                .WithMany()
+                .HasForeignKey(x => x.ClienteId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relacionamentos com a tabela "Pagamentos"
+            builder.HasOne(x => x.Pagamento)
+                .WithMany()
+                .HasForeignKey(x => x.PagamentoId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relacionamentos com a tabela "Veiculos"
+            builder.HasOne(x => x.Veiculo)
+                .WithMany()
+                .HasForeignKey(x => x.VeiculoId)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
     }

@@ -9,15 +9,15 @@ namespace CarZone.Data.Map
         public void Configure(EntityTypeBuilder<Marca> builder)
         {
             // Tabela
-            builder.ToTable("Marca");
+            builder.ToTable("Marcas");
 
             // Chave Primaria
             builder.HasKey(x => x.Id);
 
             // Identity
-            builder.Property(x => x.Id)
-                .ValueGeneratedOnAdd()
-                .UseIdentityColumn();
+            //builder.property(x => x.id)
+            //    .valuegeneratedonadd()
+            //    .useidentitycolumn();
 
             // Propriedades
             builder.Property(x => x.Nome)
