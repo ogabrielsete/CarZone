@@ -17,7 +17,7 @@ namespace CarZone.Repositorio
             return modelo;  
         }
 
-        public List<ModeloVeiculo> GetAll(int marcaId)
+        public List<ModeloVeiculo> GetAll()
         {
             return _bancoContext.ModeloVeiculosDB.ToList();
         }

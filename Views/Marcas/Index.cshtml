@@ -11,31 +11,33 @@
     <br />
 
 
-<div class="text-center">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome da Marca</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                    @if (Model != null && Model.Any())
+    <div class="text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome da Marca</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (Marca marcas in Model)
                     {
-                        foreach (Marca marcas in Model)
-                        {
+                        <tr>
                             <th scope="row">@marcas.Id</th>
                             <td>@marcas.Nome</td>
                             <td>
                                 <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="EditarMarca">Editar</a>
                                 <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="ApagarConfirmacao">Apagar</a>
                             </td>
-                        }
+                        </tr>
                     }
-                </tr>
-        </tbody>
-    </table>
-</div>
+                }
+
+            </tbody>
+        </table>
+    </div>
 </div>

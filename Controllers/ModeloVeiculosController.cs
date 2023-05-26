@@ -17,7 +17,8 @@ namespace CarZone.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            List<ModeloVeiculo> mostrarModelos = _modeloVeiculosRepositorio.GetAll();
+            return View(mostrarModelos);
         }
         public IActionResult AdicionarModelo()
         {

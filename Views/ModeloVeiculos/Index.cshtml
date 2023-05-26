@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<ModeloVeiculo>
+@{
     ViewData["Title"] = "Lista de Modelos";
 }
 
@@ -21,33 +22,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>GOL 1.8 GLI</td>
-                    <td>Volkswagen</td>
-                    <td>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="EditarModelo">Editar</a>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="ApagarConfirmacao">Apagar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>GLA 250</td>
-                    <td>Mercedes-Benz</td>
-                    <td>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="EditarModelo">Editar</a>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="ApagarConfirmacao">Apagar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>300c</td>
-                    <td>Chrysler</td>
-                    <td>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="EditarModelo">Editar</a>
-                        <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="ApagarConfirmacao">Apagar</a>
-                    </td>
-                </tr>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (ModeloVeiculo modelo in Model)
+                    {
+                        <tr>
+                            <th scope="row">@modelo.Id</th>
+                            <td>@modelo.NomeModelo</td>
+                            @*usar view model para mostrar a marca invés do id*@
+                            <td>@modelo.MarcaId</td> 
+                            <td>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="EditarModelo">Editar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                            </td>
+                        </tr>
+                    }
+                }
             </tbody>
         </table>
     </div>

@@ -25,11 +25,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            
                 @if (Model != null && Model.Any())
                 {
                     foreach (Cliente cliente in Model)
-                    {
+                {
+                    <tr>
                         <th scope="row">@cliente.Id</th>
                         <td>@cliente.Nome</td>
                         <td>@cliente.CPF</td>
@@ -39,8 +40,9 @@
                             <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="AlterarCliente">Editar</a>
                             <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-action="ApagarConfirmacao">Apagar</a>
                         </td>
-                    }
+                    </tr>
                 }
-            </tr>
+                }
+
         </tbody>
     </table>

@@ -23,8 +23,8 @@ namespace CarZone.Data.Map
             // Propriedades
             builder.Property(x => x.NomePagamento)
                        .IsRequired()
-                       .HasColumnName("Nome")
-                       .HasColumnType("VARCHAR")
+                       .HasColumnName("NomePagamento")
+                       .HasColumnType("NVARCHAR")
                        .HasMaxLength(100);
 
             builder.Property(x => x.Meses)
@@ -37,6 +37,7 @@ namespace CarZone.Data.Map
                 .IsRequired()
                 .HasColumnName("Categoria")
                 .HasColumnType("int");
+        
         }
     }
 }

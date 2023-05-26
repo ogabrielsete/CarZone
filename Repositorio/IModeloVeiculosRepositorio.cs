@@ -4,7 +4,7 @@ namespace CarZone.Repositorio
 {
     public interface IModeloVeiculosRepositorio
     {
-        List<ModeloVeiculo> GetAll(int marcaId);
+        List<ModeloVeiculo> GetAll();
         ModeloVeiculo Adicionar(ModeloVeiculo modelo);
 
 

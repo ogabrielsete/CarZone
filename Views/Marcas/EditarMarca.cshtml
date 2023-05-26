@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Marca
+@{
     ViewData["Title"] = "Editar Marca";
 }
 
@@ -8,12 +9,12 @@
     <br />
 
 
-    <form asp-controller="Marca" asp-action="EditarMarca" method="post">
+    <form asp-controller="Marcas" asp-action="EditarMarca" method="post">
 
 
         <div class="d-none">
             <label for="id"></label>
-            @* aqui vai o id       <input type="number" asp-for= />*@
+                <input type="number" asp-for="Id"/>
         </div>
 
         <div class="d-flex flex-column align-items-center">
