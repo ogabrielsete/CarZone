@@ -9,7 +9,7 @@ namespace CarZone.Models
     public class Venda
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int DataVenda { get; set; }
 
@@ -24,8 +24,8 @@ namespace CarZone.Models
 
 
 
-        public int VeiculoId { get; set; }
-        public Veiculo Veiculo { get; set; }
+        public int ModeloId { get; set; }
+        public ModeloVeiculo Modelo { get; set; }
 
     }
 }

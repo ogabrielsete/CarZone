@@ -20,7 +20,7 @@ namespace CarZone.Controllers
 
         }
         public IActionResult Index()
-        {
+        {// usar view model para mostrar marcas e modelos
             List<Veiculo> mostrarVeiculos = _veiculosRepositorio.GetAll();
             return View(mostrarVeiculos);
         }

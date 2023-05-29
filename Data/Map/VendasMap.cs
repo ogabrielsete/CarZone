@@ -28,10 +28,10 @@ namespace CarZone.Data.Map
                 .HasMaxLength(10);
 
             // Relacionamentos com a tabela "Clientes"
-            builder.HasOne(x => x.Cliente)
-                .WithMany()
-                .HasForeignKey(x => x.ClienteId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder.HasOne(x => x.Cliente)
+            //    .WithMany()
+            //    .HasForeignKey(x => x.ClienteId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
             // Relacionamentos com a tabela "Pagamentos"
             builder.HasOne(x => x.Pagamento)
@@ -40,9 +40,9 @@ namespace CarZone.Data.Map
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Relacionamentos com a tabela "Veiculos"
-            builder.HasOne(x => x.Veiculo)
+            builder.HasOne(x => x.Modelo)
                 .WithMany()
-                .HasForeignKey(x => x.VeiculoId)
+                .HasForeignKey(x => x.ModeloId)
                 .OnDelete(DeleteBehavior.Restrict);
 
         }

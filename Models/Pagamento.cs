@@ -17,6 +17,7 @@ namespace CarZone.Models
 
         public int Meses { get; set; }
 
+        // Será deletado
         public CategoriaVeiculo CategoriaVeiculo { get; set; }
     }
 }

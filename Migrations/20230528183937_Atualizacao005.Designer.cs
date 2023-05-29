@@ -3,6 +3,7 @@ using CarZone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarZone.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20230528183937_Atualizacao005")]
+    partial class Atualizacao005
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,19 +188,20 @@ namespace CarZone.Migrations
                         .HasColumnType("int")
                         .HasColumnName("DataVenda");
 
-                    b.Property<int>("ModeloId")
+                    b.Property<int>("PagamentoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PagamentoId")
+                    b.Property<int>("VeiculoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
-                    b.HasIndex("ModeloId");
-
                     b.HasIndex("PagamentoId");
+
+                    b.HasIndex("VeiculoId")
+                        .IsUnique();
 
                     b.ToTable("Venda", (string)null);
                 });
@@ -241,23 +244,23 @@ namespace CarZone.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarZone.Models.ModeloVeiculo", "Modelo")
-                        .WithMany()
-                        .HasForeignKey("ModeloId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("CarZone.Models.Pagamento", "Pagamento")
                         .WithMany()
                         .HasForeignKey("PagamentoId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarZone.Models.Veiculo", "Veiculo")
+                        .WithOne("Venda")
+                        .HasForeignKey("CarZone.Models.Venda", "VeiculoId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Cliente");
 
-                    b.Navigation("Modelo");
-
                     b.Navigation("Pagamento");
+
+                    b.Navigation("Veiculo");
                 });
 
             modelBuilder.Entity("CarZone.Models.Cliente", b =>
@@ -268,6 +271,12 @@ namespace CarZone.Migrations
             modelBuilder.Entity("CarZone.Models.Marca", b =>
                 {
                     b.Navigation("Modelos");
+                });
+
+            modelBuilder.Entity("CarZone.Models.Veiculo", b =>
+                {
+                    b.Navigation("Venda")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
