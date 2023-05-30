@@ -32,8 +32,8 @@
                             @*usar view model para mostrar a marca invés do id*@
                             <td>@modelo.MarcaId</td> 
                             <td>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="EditarModelo">Editar</a>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-action="ApagarConfirmacao">Apagar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-route-id="@modelo.Id" asp-action="EditarModelo">Editar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-route-id="@modelo.Id" asp-action="ApagarConfirmacao">Apagar</a>
                             </td>
                         </tr>
                     }

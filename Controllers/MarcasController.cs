@@ -22,9 +22,10 @@ namespace CarZone.Controllers
             return View();
         }
 
-        public IActionResult EditarMarca()
+        public IActionResult EditarMarca(int id)
         {
-            return View();
+            Marca editarMarca = _marcasRepositorio.ListarPorId(id);
+            return View(editarMarca);
         }
         public IActionResult ApagarConfirmacao()
         {
@@ -38,5 +39,16 @@ namespace CarZone.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [HttpPost]
+        public IActionResult Editar (Marca marcas)
+        {
+            if (ModelState.IsValid)
+            {
+                _marcasRepositorio.Atualizar(marcas);
+                return RedirectToAction("Index");
+            }
+            return View("Index", marcas);
+        }
     }
 }

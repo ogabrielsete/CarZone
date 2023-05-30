@@ -15,38 +15,44 @@ namespace CarZone.Data.Map
             builder.HasKey(x => x.Id);
 
             // Identity
-            //builder.Property(x => x.Id)
-            //    .ValueGeneratedOnAdd()
-            //    .UseIdentityColumn();
+            builder.Property(x => x.Id)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
+
 
             // Propriedades
             builder.Property(x => x.Id)
                 .HasColumnName("Id")
-                .HasColumnType("int");
+                .HasColumnType("int")
+                .ValueGeneratedOnAdd(); 
 
             builder.Property(x => x.Nome)
-                .IsRequired()
                 .HasColumnName("Nome")
                 .HasColumnType("NVARCHAR")
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .IsRequired();
 
             builder.Property(x => x.CPF)
-                .IsRequired()
                 .HasColumnName("CPF")
-                .HasColumnType("INT")
-                .HasMaxLength(11);
+                .HasColumnType("varchar")
+                .HasMaxLength(11)
+                .IsRequired()
+                .HasAnnotation("RegularExpression", @"\d{11}")
+                .HasAnnotation("RegularExpressionErrorMessage", "O CPF deve conter apenas dígitos.");
 
             builder.Property(x => x.Endereco)
-               .IsRequired()
                .HasColumnName("Endereço")
                .HasColumnType("VARCHAR")
-               .HasMaxLength(125);
+               .HasMaxLength(125)
+               .IsRequired();
 
             builder.Property(x => x.Telefone)
-               .IsRequired()
                .HasColumnName("Telefone")
-               .HasColumnType("INT")
-               .HasMaxLength(11);
+               .HasColumnType("varchar")
+               .HasMaxLength(11)
+               .IsRequired()
+               .HasAnnotation("RegularExpression", @"\d{11}")
+                .HasAnnotation("RegularExpressionErrorMessage", "O telefone deve conter apenas dígitos.");
         }
     }
 }

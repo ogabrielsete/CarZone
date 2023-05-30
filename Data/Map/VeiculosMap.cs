@@ -53,7 +53,7 @@ namespace CarZone.Data.Map
             builder.HasOne(x => x.Modelo)
                 .WithMany()
                 .HasForeignKey(x => x.ModeloId)
-                .OnDelete(DeleteBehavior.Restrict);  
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
     }

@@ -1,51 +1,52 @@
-﻿@{
-    ViewData["Title"] = "Alterar dados de Cliente";
+﻿@model Cliente
+@{
+    ViewData["Title"] = "Alterar Cliente";
 }
 
 <div class="text-center">
 
-    <p class="display-6">Alterar dados de Cliente</p>
+    <p class="display-6">Alterar Cliente</p>
     <br />
 </div>
 
-<form class="row mb-3" asp-controller="Clientes" asp-action="AlterarCliente" method="post">
+<form class="row mb-3" asp-controller="Clientes" asp-action="Alterar" method="post">
 
-    <div class="d-none">
-        <label for="id"></label>
-        @* aqui vai o id       <input type="number" asp-for= />*@
-    </div>
-
+    <input type="hidden" asp-for="Id"/>
 
     <div class="row mb-3">
         <label for="nome" class="col-sm-2 col-form-label">Nome</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="nome">
+            <input type="text" class="form-control" id="nome" asp-for="Nome">
         </div>
     </div>
 
+   
     <div class="row mb-3">
         <label for="cpfCliente" class="col-sm-2 col-form-label">CPF</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="cpfCliente">
+            <input type="number" asp-for="CPF" class="form-control">
         </div>
     </div>
+
 
     <div class="row mb-3">
         <label for="telefoneCliente" class="col-sm-2 col-form-label">Telefone</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="telefoneCliente">
+            <input type="any" asp-for="Telefone" class="form-control" placeholder="(99) 99999-9999">
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="enderecoCliente" class="col-sm-2 col-form-label">Endereço</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" id="enderecoCliente">
+            <input type="any" asp-for="Endereco" class="form-control">
         </div>
     </div>
 
 
 
+    <div>
+        <button type="submit" class="btn btn-primary">Alterar Cliente</button>
+        <a class="btn btn-primary" asp-controller="Clientes" asp-action="Index">Voltar</a>
+    </div>
 </form>
-<button type="submit" class="btn btn-primary">Alterar Cliente</button>
-<a class="btn btn-primary" asp-controller="Clientes" asp-action="Index">Voltar</a>

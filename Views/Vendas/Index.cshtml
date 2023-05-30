@@ -24,23 +24,27 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                @if (Model != null && Model.Any())
+
+            @if (Model != null && Model.Any())
+            {
+                foreach (Venda sell in Model)
                 {
-                    foreach (Venda sell in Model)
-                    {
+                    <tr>
                         <th scope="row">@sell.Id</th>
-                        <td>@sell.DataVenda</td>
+                        <td>
+                            @Html.DisplayFor( x => sell.DataVenda, "{0:dd/MM/yyyy}")
+                        </td>
                         <td>@sell.PagamentoId</td>
                         <td>@sell.ModeloId</td>
-                        <td>@sell.Cliente</td>
+                        <td>@sell.ClienteId</td>
                         <td>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-action="EditarVenda">Editar</a>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-action="ApagarConfirmacao">Apagar</a>
+                            <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="EditarVenda">Editar</a>
+                            <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="ApagarConfirmacao">Apagar</a>
                         </td>
-                    }
+                    </tr>
                 }
-            </tr>
+            }
+
         </tbody>
     </table>
 </div>

@@ -26,8 +26,8 @@ namespace CarZone.Data.Map
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(80);
 
-            
-            
+
+
         }
     }
 }

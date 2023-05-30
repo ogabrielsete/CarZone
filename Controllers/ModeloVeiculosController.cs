@@ -10,7 +10,7 @@ namespace CarZone.Controllers
         private readonly IModeloVeiculosRepositorio _modeloVeiculosRepositorio;
         private readonly IMarcasRepositorio _marcasRepositorio;
         public ModeloVeiculosController(IModeloVeiculosRepositorio modeloVeiculosRepositorio,
-            IMarcasRepositorio marcasRepositorio )
+            IMarcasRepositorio marcasRepositorio)
         {
             _modeloVeiculosRepositorio = modeloVeiculosRepositorio;
             _marcasRepositorio = marcasRepositorio;
@@ -27,9 +27,12 @@ namespace CarZone.Controllers
             return View();
         }
 
-        public IActionResult EditarModelo()
+        public IActionResult EditarModelo(int id)
         {
-            return View();
+            var dropdown = _marcasRepositorio.GetAll();
+            ViewBag.Marcas = new SelectList(dropdown, "Id", "Nome");
+            ModeloVeiculo editarmodelo = _modeloVeiculosRepositorio.ListarPorId(id);
+            return View(editarmodelo);
         }
         public IActionResult ApagarConfirmacao()
         {
@@ -37,11 +40,16 @@ namespace CarZone.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar (ModeloVeiculo modelo)
+        public IActionResult Criar(ModeloVeiculo modelo)
         {
             _modeloVeiculosRepositorio.Adicionar(modelo);
             return RedirectToAction("Index");
         }
-        
+
+        public IActionResult Editar(ModeloVeiculo modelo)
+        {
+            _modeloVeiculosRepositorio.Atualizar(modelo);
+            return RedirectToAction("Index");
+        }
     }
 }

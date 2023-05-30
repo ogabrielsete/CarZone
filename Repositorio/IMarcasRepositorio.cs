@@ -4,7 +4,10 @@ namespace CarZone.Repositorio
 {
     public interface IMarcasRepositorio
     {
-        Marca Adicionar(Marca marcas);
         List<Marca> GetAll();
+        Marca ListarPorId(int id);
+        Marca Adicionar(Marca marcas);
+        Marca Atualizar(Marca marcas);
+
     }
 }

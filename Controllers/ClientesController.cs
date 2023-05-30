@@ -22,9 +22,10 @@ namespace CarZone.Controllers
             return View();
         }
 
-        public IActionResult AlterarCliente()
+        public IActionResult AlterarCliente(int id)
         {
-            return View();
+            Cliente cliente = _clienteRepositorio.ListarPorId(id);
+            return View(cliente);
         }
 
         public IActionResult ApagarConfirmacao()
@@ -35,8 +36,21 @@ namespace CarZone.Controllers
         [HttpPost]
         public IActionResult Criar(Cliente cliente)
         {
-            _clienteRepositorio.Adicionar(cliente);
-            return View("Index");
+
+                _clienteRepositorio.Adicionar(cliente);
+                return RedirectToAction("Index");
+            
+        }
+
+        [HttpPost]
+        public IActionResult Alterar(Cliente cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                _clienteRepositorio.Atualizar(cliente);
+                return RedirectToAction("Index");
+            }
+            return View("Index", cliente);
         }
     }
 }

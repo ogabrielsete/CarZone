@@ -11,10 +11,8 @@
 
 <form class="row mb-3" asp-controller="Veiculos" asp-action="Criar" method="post">
 
-    <div class="d-none">
-        <label for="id"></label>
-        <input type="number" asp-for="Id" />
-    </div>
+    <input type="hidden" asp-for="Id" />
+
 
     <div class="row mb-3">
         <label for="Marcas"> Marcas </label>
@@ -60,7 +58,7 @@
             <option value="2">Entregue</option>
         </select>
     </div>
-    <br/>
+    <br />
 
     <div>
         <button type="submit" class="btn btn-primary" asp-controller="Veiculos" asp-action="Criar" formmethod="post">Adicionar</button>

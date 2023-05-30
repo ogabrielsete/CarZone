@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Veiculo
+@{
     ViewData["Title"] = "Alterar Veiculo";
 }
 
@@ -8,59 +9,61 @@
     <br />
 </div>
 
-<form class="row mb-3" asp-controller="Veiculos" asp-action="Criar" method="post">
+<form class="row mb-3" asp-controller="Veiculos" asp-action="Atualizar" method="post">
 
-    <div class="d-none">
-        <label for="id"></label>
-        @* aqui vai o id       <input type="number" asp-for= />*@
-    </div>
+    <input type="hidden" asp-for="Id" />
 
-    @*aqui vai o dropdown de marca*@
-    <div class="row mb-3">
-        <label for="Marca" class="col-sm-2 col-form-label">Marca</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="marca">
-        </div>
-    </div>
 
     <div class="row mb-3">
-        <label for="modeloVeiculo" class="col-sm-2 col-form-label">Modelo</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="modeloVeiculo">
-        </div>
+        <label for="Marcas"> Marcas </label>
+        <select name="MarcaId" asp-for="MarcaId" class="form-control" asp-items="@ViewBag.Marcas"></select>
     </div>
+    <br />
+
+    <div class="row mb-3">
+        <label for="Modelos"> Modelos </label>
+        <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos"></select>
+    </div>
+    <br />
 
     <div class="row mb-3">
         <label for="anoVeiculo" class="col-sm-2 col-form-label">Ano</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="anoVeiculo">
+            <input type="number" class="form-control" id="anoVeiculo" asp-for="Ano" />
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="precoVeiculo" class="col-sm-2 col-form-label">Preço</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" id="precoVeiculo">
+            <input type="any" class="form-control" id="precoVeiculo" asp-for="Preco">
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="veiculoPlaca" class="col-sm-2 col-form-label">Placa</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" id="veiculoPlaca">
-        </div>
-    </div>
-
-    @*aqui vai o drop down de status*@
-    <div class="row mb-3">
-        <label for="statusVeiculo" class="col-sm-2 col-form-label">Status</label>
-        <div class="col-sm-10">
-            <input type="" class="form-control" id="statusVeiculo">
+            <input type="any" class="form-control" id="veiculoPlaca" asp-for="Placa">
         </div>
     </div>
 
 
+    <div class="btn-group" button-type="button">
+        <label asp-for="StatusVenda" button type="button" class="btn btn-primary">Status Veiculo </label>
+        <select asp-for="StatusVenda" button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 
+            <span class="visually-hidden">Toggle Dropdown</span>
+            <option value="0">Disponivel</option>
+            <option value="1">Vendido</option>
+            <option value="2">Entregue</option>
+        </select>
+        <br />
+    </div>
+
+
+    <div class="text-center">
+        <br />
+        <button type="submit" class="btn btn-primary">Alterar</button>
+        <a class="btn btn-primary" asp-controller="Veiculos" asp-action="Index">Voltar</a>
+    </div>
 </form>
-<button type="submit" class="btn btn-primary">Alterar</button>
-<a class="btn btn-primary" asp-controller="Veiculos" asp-action="Index">Voltar</a>

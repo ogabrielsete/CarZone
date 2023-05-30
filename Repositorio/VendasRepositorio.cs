@@ -16,6 +16,11 @@ namespace CarZone.Repositorio
             return _bancoContext.VendasDB.ToList();
         }
 
+        public Venda ListarPorId(int id)
+        {
+            return _bancoContext.VendasDB.FirstOrDefault(x => x.Id == id);
+        }
+
         public Venda Adicionar(Venda vendidos)
         {
             _bancoContext.VendasDB.Add(vendidos);
@@ -23,6 +28,20 @@ namespace CarZone.Repositorio
             return vendidos;
         }
 
-        
+        public Venda Atualizar(Venda vendidos)
+        {
+            Venda sellDB = ListarPorId(vendidos.Id);
+            if (sellDB == null) throw new Exception("Houve erro na atualização da venda");
+
+            sellDB.PagamentoId = vendidos.PagamentoId;
+            sellDB.ModeloId = vendidos.ModeloId;
+            sellDB.ClienteId = vendidos.ClienteId;
+
+            _bancoContext.VendasDB.Update(sellDB);
+            _bancoContext.SaveChanges();
+
+            return sellDB;
+
+        }
     }
 }

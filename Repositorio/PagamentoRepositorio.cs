@@ -10,6 +10,10 @@ namespace CarZone.Repositorio
         {
             _bancoContext = bancoContext;
         }
+        public Pagamento ListarPorId(int id)
+        {
+            return _bancoContext.PagamentosDB.FirstOrDefault(x => x.Id == id);
+        }
 
         public List<Pagamento> GetAll()
         {
@@ -23,6 +27,19 @@ namespace CarZone.Repositorio
             return pgto;
         }
 
-        
+        public Pagamento Atualizar(Pagamento pgto)
+        {
+            Pagamento pagDB = ListarPorId(pgto.Id);
+            if (pagDB == null) throw new Exception("Houve erro na atualização do Pagamento");
+
+            pagDB.NomePagamento = pgto.NomePagamento;
+            pagDB.Meses = pgto.Meses;
+            pagDB.CategoriaVeiculo = pgto.CategoriaVeiculo;
+
+            _bancoContext.PagamentosDB.Update(pagDB);
+            _bancoContext.SaveChanges();
+
+            return pagDB;
+        }
     }
 }

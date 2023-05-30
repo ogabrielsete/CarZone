@@ -37,7 +37,7 @@ namespace CarZone.Data.Map
                 .IsRequired()
                 .HasColumnName("Categoria")
                 .HasColumnType("int");
-        
+
         }
     }
 }

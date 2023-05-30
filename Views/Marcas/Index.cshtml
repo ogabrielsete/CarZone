@@ -30,8 +30,8 @@
                             <th scope="row">@marcas.Id</th>
                             <td>@marcas.Nome</td>
                             <td>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="EditarMarca">Editar</a>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-action="ApagarConfirmacao">Apagar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-route-id="@marcas.Id" asp-action="EditarMarca">Editar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-route-id="@marcas.Id" asp-action="ApagarConfirmacao">Apagar</a>
                             </td>
                         </tr>
                     }

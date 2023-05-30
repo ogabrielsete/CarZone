@@ -11,6 +11,11 @@ namespace CarZone.Repositorio
             _bancoContext = bancoContext;
         }
 
+        public Cliente ListarPorId(int id)
+        {
+            return _bancoContext.ClientesDB.FirstOrDefault(x => x.Id == id);
+        }
+
         public List<Cliente> GetAll()
         {
             return _bancoContext.ClientesDB.ToList();
@@ -23,6 +28,24 @@ namespace CarZone.Repositorio
             return cliente;
         }
 
-        
+
+
+        public Cliente Atualizar(Cliente attCliente)
+        {
+            Cliente clienteDB = ListarPorId(attCliente.Id);
+
+            if (clienteDB == null) throw new Exception("Houve erro na atualização do Cliente");
+
+            clienteDB.Nome = attCliente.Nome;
+            clienteDB.CPF = attCliente.CPF;
+            clienteDB.Telefone = attCliente.Telefone;
+            clienteDB.Endereco = attCliente.Endereco;
+
+            _bancoContext.ClientesDB.Update(clienteDB);
+            _bancoContext.SaveChanges();
+
+            return clienteDB;
+
+        }
     }
 }

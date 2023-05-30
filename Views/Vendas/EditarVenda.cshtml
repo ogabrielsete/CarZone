@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Venda
+@{
     ViewData["Title"] = "Editar Venda";
 }
 
@@ -8,47 +9,35 @@
     <br />
 </div>
 
-<form class="row mb-3" asp-controller="Vendas" asp-action="EditarVenda" method="post">
+<form class="row mb-3" asp-controller="Vendas" asp-action="Editar" method="post">
 
-    <div class="d-none">
-        <label for="id"></label>
-        @* aqui vai o id       <input type="number" asp-for= />*@
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row mb-3">
+        @Html.DisplayFor( x => Model.DataVenda, "{0:dd/MM/yyyy}")
     </div>
 
+    <div class="row mb-3">
+        <label for="pagamento"> Pagamento </label>
+        <select name="PagamentoId" asp-for="PagamentoId" class="form-control" asp-items="@ViewBag.Pag"></select>
+    </div>
+
+    <div class="row mb-3">
+        <label for="modelo"> Modelo </label>
+        <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos"></select>
+    </div>
+
+
+    <div class="row mb-3">
+        <label for="cliente"> Cliente </label>
+        <select name="ClienteId" asp-for="ClienteId" class="form-control" asp-items="@ViewBag.Clientes"></select>
+    </div>
+    <br />
+    <br />
     
-    @*mostrar data de venda sem poder editar*@
-
-    <div class="row mb-3">
-        <label for="financiamento" class="col-sm-2 col-form-label">Financiamento</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="financiamento">
-        </div>
+    <div>
+    <button type="submit" class="btn btn-primary">Alterar</button>
+    <a class="btn btn-primary" asp-controller="Vendas" asp-action="Index">Voltar</a>
     </div>
-
-    <div class="row mb-3">
-        <label for="Veiculo" class="col-sm-2 col-form-label">Veiculo</label>
-        <div class="col-sm-10">
-            <input type="number" class="form-control" id="Veiculo">
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="Cliente" class="col-sm-2 col-form-label">Cliente</label>
-        <div class="col-sm-10">
-            <input type="any" class="form-control" id="Cliente">
-        </div>
-    </div>
-
-    @*aqui vai o drop down de status*@
-    <div class="row mb-3">
-        <label for="statusVenda" class="col-sm-2 col-form-label">Status</label>
-        <div class="col-sm-10">
-            <input type="" class="form-control" id="statusVeiculo">
-        </div>
-    </div>
-
-
-
 </form>
-<button type="submit" class="btn btn-primary">Alterar</button>
-<a class="btn btn-primary" asp-controller="Vendas" asp-action="Index">Voltar</a>

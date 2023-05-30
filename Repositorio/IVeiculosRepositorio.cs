@@ -5,6 +5,8 @@ namespace CarZone.Repositorio
     public interface IVeiculosRepositorio
     {
         List<Veiculo> GetAll();
-        Veiculo Adicionar (Veiculo veiculos);
+        Veiculo ListarPorId(int id);
+        Veiculo Adicionar(Veiculo veiculos);
+        Veiculo Atualizar (Veiculo veiculos);
     }
 }

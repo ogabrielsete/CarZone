@@ -1,5 +1,4 @@
-﻿using CarZone.Data.Map;
-using CarZone.Models;
+﻿using CarZone.Models;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -42,9 +41,19 @@ namespace CarZone.Controllers
             return View();
         }
 
-        public IActionResult EditarVenda()
+        public IActionResult EditarVenda(int id)
         {
-            return View();
+            var dropDownCliente = _clienteRepositorio.GetAll();
+            ViewBag.Clientes = new SelectList(dropDownCliente, "Id", "Nome");
+
+            var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+            ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
+
+            var dropDownPagamentos = _pagamentosRepositorio.GetAll();
+            ViewBag.Pag = new SelectList(dropDownPagamentos, "Id", "NomePagamento");
+
+            Venda editarVenda = _vendasRepositorio.ListarPorId(id);
+            return View(editarVenda);
         }
         public IActionResult ApagarConfirmacao()
         {
@@ -55,7 +64,14 @@ namespace CarZone.Controllers
         public IActionResult Criar(Venda vendas)
         {
             _vendasRepositorio.Adicionar(vendas);
-            return View("Index");
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Editar (Venda vendas)
+        {
+            _vendasRepositorio.Atualizar(vendas);
+            return RedirectToAction("Index");
         }
     }
 }

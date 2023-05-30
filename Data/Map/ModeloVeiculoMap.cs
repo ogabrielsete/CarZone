@@ -23,7 +23,7 @@ namespace CarZone.Data.Map
             builder.Property(x => x.NomeModelo)
                 .HasColumnName("Modelo")
                 .HasColumnType("NVARCHAR")
-                .HasMaxLength(100);      
+                .HasMaxLength(100);
 
 
             //  Relacionamentos

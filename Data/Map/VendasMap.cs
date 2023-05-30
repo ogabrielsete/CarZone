@@ -13,7 +13,7 @@ namespace CarZone.Data.Map
             builder.ToTable("Venda");
 
             // Primária
-            builder.HasKey( x => x.Id );
+            builder.HasKey(x => x.Id);
 
             // Identity
             builder.Property(x => x.Id)
@@ -24,7 +24,7 @@ namespace CarZone.Data.Map
             builder.Property(x => x.DataVenda)
                 .IsRequired()
                 .HasColumnName("DataVenda")
-                .HasColumnType("int")
+                .HasColumnType("datetime")
                 .HasMaxLength(10);
 
             // Relacionamentos com a tabela "Clientes"

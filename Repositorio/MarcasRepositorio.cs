@@ -10,6 +10,18 @@ namespace CarZone.Repositorio
         {
             _bancoContext = bancoContext;
         }
+
+        public List<Marca> GetAll()
+        {
+            return _bancoContext.MarcasDB.ToList();
+        }
+
+        public Marca ListarPorId(int id)
+        {
+            return _bancoContext.MarcasDB.FirstOrDefault(x => x.Id == id);
+        }
+
+
         public Marca Adicionar(Marca marcas)
         {
             _bancoContext.MarcasDB.Add(marcas);
@@ -17,9 +29,18 @@ namespace CarZone.Repositorio
             return marcas;
         }
 
-        public List<Marca> GetAll()
+        public Marca Atualizar(Marca marcas)
         {
-            return _bancoContext.MarcasDB.ToList();
+            Marca marcaDB = ListarPorId(marcas.Id);
+            if (marcaDB == null) throw new Exception("Houve erro na atualização da marca");
+
+            marcaDB.Nome = marcas.Nome;
+
+            _bancoContext.Update(marcaDB);
+            _bancoContext.SaveChanges();
+
+            return marcaDB;
         }
+
     }
 }

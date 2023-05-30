@@ -9,27 +9,24 @@
     <br />
 
 
-    <form asp-controller="Marcas" asp-action="EditarMarca" method="post">
+    <form asp-controller="Marcas" asp-action="Editar" method="post">
 
 
-        <div class="d-none">
-            <label for="id"></label>
-                <input type="number" asp-for="Id"/>
-        </div>
-
+        <input type="hidden" asp-for="Id" />
         <div class="d-flex flex-column align-items-center">
             <div class="text-center">
-                <h6 class="" for="nomeMarca">
-                    Nome da Marca
-
-                </h6>
-
-                <input type="text" class="form-control">
+                <h6 class="" for="nomeMarca">Nome da Marca</h6>
+                <input type="text" class="form-control" asp-for="Nome">
             </div>
         </div>
-    </form>
+
+        
+        @*Não deveria estar aqui*@
+        <input type="hidden" asp-for="Modelos" />
+
+
     <br />
     <button type="submit" class="btn btn-primary">Editar Marca</button>
     <a class="btn btn-primary" asp-controller="Marcas" asp-action="Index">Voltar</a>
-
+    </form>
 </div>
