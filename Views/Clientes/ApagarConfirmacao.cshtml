@@ -1,11 +1,14 @@
-﻿@{
+﻿@model Cliente
+@{
     ViewData["Title"] = "Excluir Cliente";
 }
 
+<form asp-controller="Clientes" asp-action="Apagar">
 <div class="text-center">
 
-    <p class="display-6"> Deseja excluir o cliente (x) ?</p>
+    <p class="display-6"> Deseja excluir o cliente @Model.Nome?</p>
     <br />
     <button type="button" class="btn btn-outline-danger">Excluir</button>
     <a type="button" class="btn btn-outline-secondary" asp-controller="Clientes" asp-action="Index">Cancelar</a>
 </div>
+</form>

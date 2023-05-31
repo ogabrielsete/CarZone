@@ -42,5 +42,14 @@ namespace CarZone.Repositorio
             return marcaDB;
         }
 
+        public bool Apagar(int id)
+        {
+            Marca marcas = ListarPorId(id);
+            if (marcas == null) throw new Exception("Houve erro na exclusão da Marca");
+
+            _bancoContext.MarcasDB.Remove(marcas);
+            _bancoContext.SaveChanges();
+            return true;
+        }
     }
 }

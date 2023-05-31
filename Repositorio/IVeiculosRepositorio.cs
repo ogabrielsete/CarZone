@@ -8,5 +8,6 @@ namespace CarZone.Repositorio
         Veiculo ListarPorId(int id);
         Veiculo Adicionar(Veiculo veiculos);
         Veiculo Atualizar (Veiculo veiculos);
+        bool Apagar(int id);
     }
 }

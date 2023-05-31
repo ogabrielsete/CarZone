@@ -8,6 +8,7 @@ namespace CarZone.Repositorio
         Marca ListarPorId(int id);
         Marca Adicionar(Marca marcas);
         Marca Atualizar(Marca marcas);
+        bool Apagar(int id);
 
     }
 }

@@ -45,5 +45,12 @@ namespace CarZone.Controllers
             _pagamentosRepositorio.Atualizar(criarPagamento);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult Apagar(int id)
+        {
+            // _pagamentosRepositorio.Atualizar(id);
+            return RedirectToAction("Index");
+        }
     }
 }

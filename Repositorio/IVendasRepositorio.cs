@@ -8,5 +8,6 @@ namespace CarZone.Repositorio
         Venda ListarPorId (int id);
         Venda Adicionar(Venda vendidos);
         Venda Atualizar(Venda vendidos);
+        bool Apagar(int id);
     }
 }

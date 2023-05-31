@@ -47,5 +47,15 @@ namespace CarZone.Repositorio
             return clienteDB;
 
         }
+
+        public bool Apagar(int id)
+        {
+            Cliente clienteDB = ListarPorId(id);
+            if (clienteDB == null) throw new Exception("Houve erro na exclusão do Cliente");
+
+            _bancoContext.ClientesDB.Remove(clienteDB);
+            _bancoContext.SaveChanges();
+            return true;
+        }
     }
 }

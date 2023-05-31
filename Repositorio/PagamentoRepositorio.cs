@@ -41,5 +41,15 @@ namespace CarZone.Repositorio
 
             return pagDB;
         }
+
+        public bool Apagar(int id)
+        {
+            Pagamento pag = ListarPorId(id);
+            if (pag == null) throw new Exception("Houve erro na exclusão da Marca");
+
+            _bancoContext.PagamentosDB.Remove(pag);
+            _bancoContext.SaveChanges();
+            return true;
+        }
     }
 }

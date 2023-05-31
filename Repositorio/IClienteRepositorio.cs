@@ -8,7 +8,7 @@ namespace CarZone.Repositorio
         List<Cliente> GetAll();
         Cliente Atualizar(Cliente attCliente);
         Cliente Adicionar(Cliente cliente);
-        
+        bool Apagar(int id);
 
     }
 }

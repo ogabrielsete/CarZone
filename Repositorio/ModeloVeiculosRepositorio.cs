@@ -42,5 +42,15 @@ namespace CarZone.Repositorio
 
             return modeloDB;
         }
+
+        public bool Apagar(int id)
+        {
+            ModeloVeiculo modelo = ListarPorId(id);
+            if (modelo == null) throw new Exception("Houve erro na exclusão do modelo de veículo");
+
+            _bancoContext.ModeloVeiculosDB.Remove(modelo);
+            _bancoContext.SaveChanges();
+            return true;
+        }
     }
 }

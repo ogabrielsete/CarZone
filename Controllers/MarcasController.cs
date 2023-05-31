@@ -50,5 +50,12 @@ namespace CarZone.Controllers
             }
             return View("Index", marcas);
         }
+
+        [HttpPost]
+        public IActionResult Apagar(int id)
+        {
+            _marcasRepositorio.Atualizar(id);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -51,5 +51,12 @@ namespace CarZone.Controllers
             _modeloVeiculosRepositorio.Atualizar(modelo);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult Apagar(int id)
+        {
+            // apagar _modeloVeiculosRepositorio.Atualizar(id);
+            return RedirectToAction("Index");
+        }
     }
 }
