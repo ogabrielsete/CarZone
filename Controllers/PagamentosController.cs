@@ -27,10 +27,17 @@ namespace CarZone.Controllers
             Pagamento editarPag = _pagamentosRepositorio.ListarPorId(id);
             return View(editarPag);
         }
-        public IActionResult ApagarConfirmacao()
+        public IActionResult ApagarConfirmacao(int id)
         {
-            return View();
+            Pagamento pag = _pagamentosRepositorio.ListarPorId(id);
+            return View(pag);
         }
+        public IActionResult Apagar(int id)
+        {
+            _pagamentosRepositorio.Apagar(id);
+            return RedirectToAction("Index");
+        }
+
 
         [HttpPost]
         public IActionResult Criar(Pagamento criarPagamento)
@@ -46,11 +53,5 @@ namespace CarZone.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult Apagar(int id)
-        {
-            // _pagamentosRepositorio.Atualizar(id);
-            return RedirectToAction("Index");
-        }
     }
 }

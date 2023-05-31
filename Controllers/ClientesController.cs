@@ -34,6 +34,12 @@ namespace CarZone.Controllers
             return View(cliente);
         }
 
+        public IActionResult Apagar(int id)
+        {
+            _clienteRepositorio.Apagar(id);
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         public IActionResult Criar(Cliente cliente)
         {
@@ -48,12 +54,7 @@ namespace CarZone.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult Apagar(int id)
-        {
-            _clienteRepositorio.Apagar(id);
-            return RedirectToAction("Index");
-        }
+
 
     }
 }

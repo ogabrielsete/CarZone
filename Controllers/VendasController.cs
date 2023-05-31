@@ -55,10 +55,18 @@ namespace CarZone.Controllers
             Venda editarVenda = _vendasRepositorio.ListarPorId(id);
             return View(editarVenda);
         }
-        public IActionResult ApagarConfirmacao()
+
+        public IActionResult ApagarConfirmacao(int id)
         {
-            return View();
+            Venda vendas = _vendasRepositorio.ListarPorId(id);
+            return View(vendas);
         }
+        public IActionResult Apagar(int id)
+        {
+            _vendasRepositorio.Apagar(id);
+            return RedirectToAction("Index");
+        }
+
 
         [HttpPost]
         public IActionResult Criar(Venda vendas)
@@ -71,13 +79,6 @@ namespace CarZone.Controllers
         public IActionResult Editar (Venda vendas)
         {
             _vendasRepositorio.Atualizar(vendas);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public IActionResult Apagar(int id)
-        {
-            // _vendasRepositorio.Atualizar(id);
             return RedirectToAction("Index");
         }
     }

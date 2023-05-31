@@ -27,9 +27,16 @@ namespace CarZone.Controllers
             Marca editarMarca = _marcasRepositorio.ListarPorId(id);
             return View(editarMarca);
         }
-        public IActionResult ApagarConfirmacao()
+        public IActionResult ApagarConfirmacao(int id)
         {
-            return View();
+            Marca marcas = _marcasRepositorio.ListarPorId(id);
+            return View(marcas);
+        }
+
+        public IActionResult Apagar(int id)
+        {
+            _marcasRepositorio.Apagar(id);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -51,11 +58,7 @@ namespace CarZone.Controllers
             return View("Index", marcas);
         }
 
-        [HttpPost]
-        public IActionResult Apagar(int id)
-        {
-            _marcasRepositorio.Atualizar(id);
-            return RedirectToAction("Index");
-        }
+
+
     }
 }

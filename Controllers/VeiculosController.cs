@@ -46,10 +46,18 @@ namespace CarZone.Controllers
             Veiculo editarVeiculo = _veiculosRepositorio.ListarPorId(id);
             return View(editarVeiculo);
         }
-        public IActionResult ApagarConfirmacao()
+        public IActionResult ApagarConfirmacao(int id)
         {
-            return View();
+            Veiculo veiculo = _veiculosRepositorio.ListarPorId(id);
+            return View(veiculo);
         }
+
+        public IActionResult Apagar(int id)
+        {
+            _veiculosRepositorio.Apagar(id);
+            return RedirectToAction("Index");
+        }
+
 
         [HttpPost]
         public IActionResult Criar(Veiculo veiculos)
@@ -65,11 +73,5 @@ namespace CarZone.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult Apagar(int id)
-        {
-            //_veiculosRepositorio.Atualizar(id);
-            return RedirectToAction("Index");
-        }
     }
 }
