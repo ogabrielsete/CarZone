@@ -1,4 +1,5 @@
 ﻿using CarZone.Models;
+using CarZone.Models.ViewModels;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,9 +21,25 @@ namespace CarZone.Controllers
 
         }
         public IActionResult Index()
-        {// usar view model para mostrar marcas e modelos
-            List<Veiculo> mostrarVeiculos = _veiculosRepositorio.GetAll();
-            return View(mostrarVeiculos);
+        {
+            var listarMarcas = _marcasRep.GetAll();
+            var listarModelo = _modeloVeiculosRepositorio.GetAll();
+
+            var listarVeiculos = new List<VeiculosVM>();
+            List<Veiculo> veiculos = _veiculosRepositorio.GetAll();
+            foreach (var item in veiculos)
+            {
+                var listar = new VeiculosVM();
+                listar.Id = item.Id;
+                listar.Placa = item.Placa;
+                listar.Ano = item.Ano;
+                listar.Preco = item.Preco;
+                listar.StatusVenda = item.StatusVenda;
+                listar.Modelo = listarModelo.FirstOrDefault(x => x.Id == item.ModeloId).NomeModelo;
+                listar.Marca = listarMarcas.FirstOrDefault(x => x.Id == item.MarcaId).Nome;
+                listarVeiculos.Add(listar);
+            }
+            return View(listarVeiculos);
         }
 
         public IActionResult Criar()

@@ -1,4 +1,5 @@
-﻿@model List<Veiculo>
+﻿@using CarZone.Models.ViewModels;
+@model List<VeiculosVM>
 @{
     ViewData["Title"] = "Lista de Veiculos";
 }
@@ -29,12 +30,12 @@
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (Veiculo veiculos in Model)
+                foreach (VeiculosVM veiculos in Model)
                 {
                     <tr>
                         <th scope="row">@veiculos.Id</th>
-                        <td>@veiculos.MarcaId</td>
-                        <td>@veiculos.ModeloId</td>
+                        <td>@veiculos.Marca</td>
+                        <td>@veiculos.Modelo</td>
                         <td>@veiculos.Ano</td>
                         <td>@veiculos.Preco</td>
                         <td>@veiculos.Placa</td>

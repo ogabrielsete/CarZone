@@ -1,4 +1,5 @@
-﻿@model List<Venda>
+﻿@using CarZone.Models.ViewModels;
+@model List<VendasVM>
 @{
     ViewData["Title"] = "Lista de Vendas";
 }
@@ -18,8 +19,8 @@
                 <th scope="col">Id</th>
                 <th scope="col">Data da Venda</th>
                 <th scope="col">Pagamento</th>
-                <th scope="col">VeiculoId</th>
-                <th scope="col">ClienteId</th>
+                <th scope="col">Veiculo</th>
+                <th scope="col">Cliente</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -27,16 +28,16 @@
 
             @if (Model != null && Model.Any())
             {
-                foreach (Venda sell in Model)
+                foreach (VendasVM sell in Model)
                 {
                     <tr>
                         <th scope="row">@sell.Id</th>
                         <td>
                             @Html.DisplayFor( x => sell.DataVenda, "{0:dd/MM/yyyy}")
                         </td>
-                        <td>@sell.PagamentoId</td>
-                        <td>@sell.ModeloId</td>
-                        <td>@sell.ClienteId</td>
+                        <td>@sell.Pagamento</td>
+                        <td>@sell.Modelo</td>
+                        <td>@sell.Cliente</td>
                         <td>
                             <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="EditarVenda">Editar</a>
                             <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="ApagarConfirmacao">Apagar</a>

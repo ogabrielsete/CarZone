@@ -1,4 +1,5 @@
 ﻿using CarZone.Models;
+using CarZone.Models.ViewModels;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -23,8 +24,24 @@ namespace CarZone.Controllers
         }
         public IActionResult Index()
         {
-            List<Venda> mostrarVendas = _vendasRepositorio.GetAll();
-            return View(mostrarVendas);
+            var listarPagamento = _pagamentosRepositorio.GetAll();
+            var listarModelo = _modeloVeiculosRepositorio.GetAll();
+            var listarCliente = _clienteRepositorio.GetAll();
+
+            var listarVendas = new List<VendasVM>();
+            List<Venda> vendas = _vendasRepositorio.GetAll();
+            foreach(var item in vendas)
+            {
+                var listar = new VendasVM();
+                listar.DataVenda = item.DataVenda;
+                listar.Id = item.Id;
+                listar.Modelo = listarModelo.FirstOrDefault(x => x.Id == item.ModeloId).NomeModelo;
+                listar.Cliente = listarCliente.FirstOrDefault(x => x.Id == item.ClienteId).Nome;
+                listar.Pagamento = listarPagamento.FirstOrDefault(x => x.Id == item.PagamentoId).NomePagamento;
+                listarVendas.Add(listar);
+            }
+
+            return View(listarVendas);
         }
 
         public IActionResult CadastrarVenda()

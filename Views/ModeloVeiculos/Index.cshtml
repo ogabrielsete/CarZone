@@ -1,4 +1,5 @@
-﻿@model List<ModeloVeiculo>
+﻿@using CarZone.Models.ViewModels
+@model List<ModeloVeiculoVM>
 @{
     ViewData["Title"] = "Lista de Modelos";
 }
@@ -24,13 +25,12 @@
             <tbody>
                 @if (Model != null && Model.Any())
                 {
-                    foreach (ModeloVeiculo modelo in Model)
+                    foreach (ModeloVeiculoVM modelo in Model)
                     {
                         <tr>
                             <th scope="row">@modelo.Id</th>
-                            <td>@modelo.NomeModelo</td>
-                            @*usar view model para mostrar a marca invés do id*@
-                            <td>@modelo.MarcaId</td> 
+                            <td>@modelo.NomeModelo</td>                            
+                            <td>@modelo.Marca</td> 
                             <td>
                                 <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-route-id="@modelo.Id" asp-action="EditarModelo">Editar</a>
                                 <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-route-id="@modelo.Id" asp-action="ApagarConfirmacao">Apagar</a>

@@ -24,8 +24,5 @@ namespace CarZone.Models
         public ModeloVeiculo Modelo { get; set; }
 
 
-        // public Venda Venda { get; set; }
-
-
     }
 }

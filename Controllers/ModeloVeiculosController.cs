@@ -1,4 +1,5 @@
 ﻿using CarZone.Models;
+using CarZone.Models.ViewModels;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,9 +18,21 @@ namespace CarZone.Controllers
         }
         public IActionResult Index()
         {
-            List<ModeloVeiculo> mostrarModelos = _modeloVeiculosRepositorio.GetAll();
-            return View(mostrarModelos);
+            var listarMarcas = _marcasRepositorio.GetAll();
+           
+            var listarModelo = new List<ModeloVeiculoVM>();
+            List<ModeloVeiculo> mostrar = _modeloVeiculosRepositorio.GetAll();
+            foreach(var item in mostrar)
+            {
+                var listar = new ModeloVeiculoVM();
+                listar.Id = item.Id;
+                listar.NomeModelo = item.NomeModelo;
+                listar.Marca = listarMarcas.FirstOrDefault(x => x.Id == item.MarcaId).Nome;
+                listarModelo.Add(listar);
+            }            
+            return View(listarModelo);
         }
+
         public IActionResult AdicionarModelo()
         {
             var dropdown = _marcasRepositorio.GetAll();
