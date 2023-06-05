@@ -15,7 +15,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
+                    <th class="d-none">Id</th>
                     <th scope="col">Pagamento</th>
                     <th scope="col">Categoria Veiculo</th>
                     <th scope="col">Meses</th>
@@ -28,7 +28,7 @@
                     foreach (Pagamento pag in Model)
                     {
                         <tr>
-                            <th scope="row">@pag.Id</th>
+                            <th class="d-none">@pag.Id</th>
                             <td>@pag.NomePagamento</td>
                             <td>@pag.CategoriaVeiculo</td>
                             <td>@pag.Meses</td>

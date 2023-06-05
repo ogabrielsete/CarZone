@@ -16,7 +16,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
+                <th class="d-none">Id</th>
                 <th scope="col">Data da Venda</th>
                 <th scope="col">Pagamento</th>
                 <th scope="col">Veiculo</th>
@@ -31,7 +31,7 @@
                 foreach (VendasVM sell in Model)
                 {
                     <tr>
-                        <th scope="row">@sell.Id</th>
+                        <th class="d-none">@sell.Id</th>
                         <td>
                             @Html.DisplayFor( x => sell.DataVenda, "{0:dd/MM/yyyy}")
                         </td>

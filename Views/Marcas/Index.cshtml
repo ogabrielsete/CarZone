@@ -15,7 +15,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
+                    <th class="d-none">Id</th>
                     <th scope="col">Nome da Marca</th>
                     <th scope="col"></th>
                 </tr>
@@ -27,12 +27,12 @@
                     foreach (Marca marcas in Model)
                     {
                         <tr>
-                            <th scope="row">@marcas.Id</th>
+                            <th class="d-none">@marcas.Id</th>
                             <td>@marcas.Nome</td>
                             <td>
                                 <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-route-id="@marcas.Id" asp-action="EditarMarca">Editar</a>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-route-id="@marcas.Id" asp-action="ApagarConfirmacao">Apagar</a>
-                            </td>
+@*                                <a type="button" class="btn btn-outline-dark" asp-controller="Marcas" asp-route-id="@marcas.Id" asp-action="ApagarConfirmacao">Apagar</a>
+*@                            </td>
                         </tr>
                     }
                 }
