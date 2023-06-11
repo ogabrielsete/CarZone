@@ -10,45 +10,55 @@
 
 
     <form asp-controller="Pagamentos" asp-action="Criar" method="post">
+        <div asp-validation-summary="All" class="text-danger">    </div>
 
-        <div class="d-none">
-            <label for="id"></label>
-            <input type="number" asp-for="Id" />
-        </div>
+        <input type="hidden" asp-for="Id" />
 
         <div class="row mb-3">
-            <label for="Marca" class="col-sm-2 col-form-label">Método de Pgto</label>
+            <label for="metodoPag" class="col-sm-2 col-form-label">Método de Pgto</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="marca" asp-for="NomePagamento">
+                <input type="text" class="form-control" asp-for="NomePagamento">
             </div>
         </div>
 
-        
         <div class="row mb-3">
-            <label for="modeloVeiculo" class="col-sm-2 col-form-label">Meses</label>
+            <label for="meses" class="col-sm-2 col-form-label">Meses</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="modeloVeiculo" asp-for="Meses">
+                <input type="text" class="form-control" asp-for="Meses">
             </div>
         </div>
 
+        <div class="row mb-3">
+            <div class="btn-group" button-type="button">
+                <label asp-for="CategoriaVeiculo" class="col-sm-2 col-form-label">Categoria</label>
+                <div class="col-sm-auto">
+                    <select asp-for="CategoriaVeiculo" button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 
-        <div class="btn-group" button-type="button">
-            <label asp-for="CategoriaVeiculo" button type="button" class="btn btn-primary">Categoria</label>
-            <select asp-for="CategoriaVeiculo" button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-
-                <span class="visually-hidden">Toggle Dropdown</span>
-                <option value="0">Comum</option>
-                <option value="1">SUV</option>
-                <option value="2">Van</option>
-                <option value="3">Motocicleta</option>
-                <option value="4">Comercial</option>
-            </select>
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                        <option value="" disabled selected hidden>Selecione</option>
+                        <option value="0">Comum</option>
+                        <option value="1">SUV</option>
+                        <option value="2">Van</option>
+                        <option value="3">Motocicleta</option>
+                        <option value="4">Comercial</option>
+                    </select>
+                </div>
+            </div>
         </div>
-    
-    <br />
 
-    <br />
-    <button type="submit" class="btn btn-primary">Adicionar Método</button>
-    <a class="btn btn-primary" asp-controller="Pagamentos" asp-action="Index">Voltar</a>
+        <br />
+
+        <div class="row mb-3">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary">Adicionar Método</button>
+                <a class="btn btn-primary" asp-controller="Pagamentos" asp-action="Index">Voltar</a>
+            </div>
+        </div>
     </form>
 </div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+                    }

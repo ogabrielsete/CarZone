@@ -1,6 +1,7 @@
 ﻿using CarZone.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarZone.Data.Map
 {
@@ -36,7 +37,9 @@ namespace CarZone.Data.Map
             builder.Property(x => x.Preco)
                 .IsRequired()
                 .HasColumnType("decimal(18,2)")
-                .HasColumnName("Preco");
+                .HasColumnName("Preco")
+                .HasAnnotation("Range", new[] { 0.01, double.MaxValue })
+                .HasAnnotation("RangeErrorMessage", "O valor deve ser maior que zero.");
 
             builder.Property(x => x.StatusVenda)
                 .IsRequired()
@@ -47,13 +50,15 @@ namespace CarZone.Data.Map
             builder.HasOne(x => x.Marca)
                 .WithMany()
                 .HasForeignKey(x => x.MarcaId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasAnnotation("Required", "O campo Marca é obrigatório.");
 
             // Relacionamento com a tabela Modelo
             builder.HasOne(x => x.Modelo)
                 .WithMany()
                 .HasForeignKey(x => x.ModeloId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasAnnotation("Required", "O campo Modelo é obrigatório.");
 
         }
     }

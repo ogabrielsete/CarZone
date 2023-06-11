@@ -17,7 +17,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
+                <th class="d-none">Id</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Ano</th>
@@ -33,11 +33,13 @@
                 foreach (VeiculosVM veiculos in Model)
                 {
                     <tr>
-                        <th scope="row">@veiculos.Id</th>
+                        <th class="d-none">@veiculos.Id</th>
                         <td>@veiculos.Marca</td>
                         <td>@veiculos.Modelo</td>
                         <td>@veiculos.Ano</td>
-                        <td>@veiculos.Preco</td>
+                        <td>
+                            @Html.DisplayFor( x => veiculos.Preco, "{0:C0}")
+                        </td>
                         <td>@veiculos.Placa</td>
                         <td>@veiculos.StatusVenda</td>
                         <td>

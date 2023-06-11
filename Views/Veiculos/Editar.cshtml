@@ -10,54 +10,60 @@
 </div>
 
 <form class="row mb-3" asp-controller="Veiculos" asp-action="Atualizar" method="post">
-
     <input type="hidden" asp-for="Id" />
 
 
     <div class="row mb-3">
-        <label for="Marcas"> Marcas </label>
-        <select name="MarcaId" asp-for="MarcaId" class="form-control" asp-items="@ViewBag.Marcas"></select>
+        <label for="Marcas" class="col-sm-2 col-form-label">Marcas</label>
+        <div class="col-sm-10">
+            <select name="MarcaId" asp-for="MarcaId" class="form-select" asp-items="@ViewBag.Marcas"></select>
+        </div>
     </div>
     <br />
 
     <div class="row mb-3">
-        <label for="Modelos"> Modelos </label>
-        <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos"></select>
+        <label for="Modelos" class="col-sm-2 col-form-label">Modelos</label>
+        <div class="col-sm-10">
+            <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos"></select>
+        </div>
     </div>
     <br />
 
     <div class="row mb-3">
         <label for="anoVeiculo" class="col-sm-2 col-form-label">Ano</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="anoVeiculo" asp-for="Ano" />
+            <input type="number" class="form-control" id="anoVeiculo" asp-for="Ano" placeholder="Digite o ano" />
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="precoVeiculo" class="col-sm-2 col-form-label">Preço</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" id="precoVeiculo" asp-for="Preco">
+            <input type="any" class="form-control" asp-for="Preco" step="1" min="0" asp-format="{0:0}" placeholder="Digite o preço">
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="veiculoPlaca" class="col-sm-2 col-form-label">Placa</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" id="veiculoPlaca" asp-for="Placa">
+            <input type="any" class="form-control" id="veiculoPlaca" asp-for="Placa" placeholder="Digite a placa">
         </div>
     </div>
 
-
+    <div class="row mb-3">
     <div class="btn-group" button-type="button">
-        <label asp-for="StatusVenda" button type="button" class="btn btn-primary">Status Veiculo </label>
-        <select asp-for="StatusVenda" button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <label asp-for="StatusVenda" class="col-sm-2 col-form-label">Status Veiculo </label>
+            <div class="col-sm-2 col-form-label">
+                <select asp-for="StatusVenda" class="btn btn-success" data-bs-toggle="dropdown" aria-expanded="false">
 
             <span class="visually-hidden">Toggle Dropdown</span>
             <option value="0">Disponivel</option>
             <option value="1">Vendido</option>
             <option value="2">Entregue</option>
-        </select>
+            </select>
+            </div>
         <br />
+    </div>
     </div>
 
 

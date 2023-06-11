@@ -15,29 +15,41 @@
     <input type="hidden" asp-for="Id" />
 
     <div class="row mb-3">
-        @Html.DisplayFor( x => Model.DataVenda, "{0:dd/MM/yyyy}")
+        <div class="text-center" style="font-size: 20px;">
+            <span>@Model.DataVenda.ToString("dd/MM/yyyy")</span>
+        </div>
     </div>
 
     <div class="row mb-3">
-        <label for="pagamento"> Pagamento </label>
-        <select name="PagamentoId" asp-for="PagamentoId" class="form-control" asp-items="@ViewBag.Pag"></select>
+        <label for="pagamento" class="col-sm-2 col-form-label">Pagamento</label>
+        <div class="col-sm-10">
+            <select name="PagamentoId" asp-for="PagamentoId" class="form-control" asp-items="@ViewBag.Pag">
+                <option value="" disabled selected hidden>Selecione o Pagamento</option>
+            </select>
+        </div>
     </div>
+
 
     <div class="row mb-3">
-        <label for="modelo"> Modelo </label>
-        <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos"></select>
+        <label for="modelo" class="col-sm-2 col-form-label">Modelo</label>
+        <div class="col-sm-10">
+            <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos">
+                <option value="" disabled selected hidden>Selecione o modelo</option>
+            </select>
+        </div>
     </div>
 
 
     <div class="row mb-3">
-        <label for="cliente"> Cliente </label>
-        <select name="ClienteId" asp-for="ClienteId" class="form-control" asp-items="@ViewBag.Clientes"></select>
+        <label for="cliente" class="col-sm-2 col-form-label">Cliente</label>
+        <div class="col-sm-10">
+            <select name="ClienteId" asp-for="ClienteId" class="form-control" asp-items="@ViewBag.Clientes">
+                <option value="" disabled selected hidden>Selecione o Cliente</option>
+            </select>
+        </div>
     </div>
-    <br />
-    <br />
-    
     <div>
-    <button type="submit" class="btn btn-primary">Alterar</button>
-    <a class="btn btn-primary" asp-controller="Vendas" asp-action="Index">Voltar</a>
+        <button type="submit" class="btn btn-primary">Alterar</button>
+        <a class="btn btn-primary" asp-controller="Vendas" asp-action="Index">Voltar</a>
     </div>
 </form>

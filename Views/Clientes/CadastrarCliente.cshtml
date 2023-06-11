@@ -10,46 +10,45 @@
 </div>
 
 <form class="row mb-3" asp-controller="Clientes" asp-action="Criar" method="post">
+    <div asp-validation-summary="All" class="text-danger">    </div>
 
-    <div class="d-none">
-        <label for="id"></label>
-        <input type="number" asp-for="Id" />
-    </div>
-
+    <input type="hidden" asp-for="Id" />
 
     <div class="row mb-3">
         <label for="nome" class="col-sm-2 col-form-label">Nome</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="nome" asp-for="Nome">
+            <input type="text" class="form-control" id="nome" asp-for="Nome" placeholder="Insira o nome">
         </div>
     </div>
-
 
     <div class="row mb-3">
         <label for="cpfCliente" class="col-sm-2 col-form-label">CPF</label>
         <div class="col-sm-10">
-            <input type="number" asp-for="CPF" class="form-control">
+            <input type="number" asp-for="CPF" class="form-control" placeholder="Insira o CPF">
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="telefoneCliente" class="col-sm-2 col-form-label">Telefone</label>
         <div class="col-sm-10">
-            <input type="any" asp-for="Telefone" class="form-control" placeholder="11991234567">
+            <input type="any" asp-for="Telefone" class="form-control" placeholder="Insira o telefone">
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="enderecoCliente" class="col-sm-2 col-form-label">Endereço</label>
         <div class="col-sm-10">
-            <input type="any" asp-for="Endereco" class="form-control">
+            <input type="any" asp-for="Endereco" class="form-control" placeholder="Insira o endereço">
         </div>
     </div>
-
-
 
     <div>
         <button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
         <a class="btn btn-primary" asp-controller="Clientes" asp-action="Index">Voltar</a>
     </div>
 </form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+                    }

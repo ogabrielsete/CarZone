@@ -9,18 +9,17 @@
     <br />
 </div>
 
-    <form asp-controller="ModeloVeiculos" asp-action="Criar" method="post">
+<form asp-controller="ModeloVeiculos" asp-action="Criar" method="post">
+    <div asp-validation-summary="All" class="text-danger">    </div>
 
-        <div class="row">
-        <div class="d-none">
-            <label for="id"></label>
-            <input type="number" asp-for="Id" />
-        </div>
+    <input type="hidden" asp-for="Id" />
 
-
+    <div class="row">    
         <div class="col-6">
             <label for="Marcas"> Marcas </label>
-            <select name="MarcaId" asp-for="MarcaId" class=" form-control" asp-items="@ViewBag.Marcas"></select>
+            <select name="MarcaId" asp-for="MarcaId" class=" form-control" asp-items="@ViewBag.Marcas">
+                <option value="" disabled selected hidden>Escolha a Marca</option>
+            </select>
         </div>
         <br />
 
@@ -28,12 +27,16 @@
             <label for="Modelo"> Modelo</label>
             <input type="text" asp-for="NomeModelo" class="form-control" placeholder="Insira o nome do Modelo" />
         </div>
-        
-       
     </div>
+
     <div class="text-center">
         <br />
-            <button type="submit" class="btn btn-primary">Adicionar Modelo</button>
-            <a class="btn btn-primary" asp-controller="ModeloVeiculos" asp-action="Index">Voltar</a>
-        </div>
-    </form>
+        <button type="submit" class="btn btn-primary">Adicionar Modelo</button>
+        <a class="btn btn-primary" asp-controller="ModeloVeiculos" asp-action="Index">Voltar</a>
+    </div>
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+                    }

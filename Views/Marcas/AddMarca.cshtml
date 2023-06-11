@@ -8,34 +8,25 @@
     <p class="display-6">Adicionar Marca</p>
     <br />
 
-
     <form asp-controller="Marcas" asp-action="Criar" method="post">
-
-
-        <div class="d-none">
-            <label for="id"></label>
-            <input type="number" asp-for="Id" />
-        </div>
-
+        <div asp-validation-summary="All" class="text-danger">    </div>
+        <input type="hidden" asp-for="Id" />
+        <br />
         <div class="d-flex flex-column align-items-center">
             <div class="text-center">
-                <h3 for="nomeMarca">Nome da Marca</h3>
-                <input type="text" class="form-control" asp-for="Nome">
+                <label for="nomeMarca" style="font-size: 18px;">Nome da Marca</label>
+                <input type="text" class="form-control" asp-for="Nome" placeholder="Insira o nome">
             </div>
         </div>
-
-      
         <br />
-
         <div>
             <button type="submit" class="btn btn-primary">Adicionar Marca</button>
             <a class="btn btn-primary" asp-controller="Marcas" asp-action="Index">Voltar</a>
         </div>
-
-       
-
     </form>
-
-
-
 </div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+                    }
