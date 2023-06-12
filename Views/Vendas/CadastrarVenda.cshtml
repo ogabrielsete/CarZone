@@ -23,6 +23,13 @@
     </div>
 
     <div class="row mb-3">
+        <label for="meses" class="col-sm-2 col-form-label">Meses</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" asp-for="Meses">
+        </div>
+    </div>
+
+    <div class="row mb-3">
         <label for="pagamento" class="col-sm-2 col-form-label">Pagamento</label>
         <div class="col-sm-10">
             <select name="PagamentoId" asp-for="PagamentoId" class="form-control" asp-items="@ViewBag.Pag">
@@ -30,6 +37,8 @@
             </select>
         </div>
     </div>
+
+
 
 
     <div class="row mb-3">

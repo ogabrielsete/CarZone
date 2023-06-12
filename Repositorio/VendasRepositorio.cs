@@ -34,6 +34,7 @@ namespace CarZone.Repositorio
             if (sellDB == null) throw new Exception("Houve erro na atualização da venda");
 
             sellDB.PagamentoId = vendidos.PagamentoId;
+            sellDB.Meses = vendidos.Meses;
             sellDB.ModeloId = vendidos.ModeloId;
             sellDB.ClienteId = vendidos.ClienteId;
 

@@ -26,6 +26,11 @@ namespace CarZone.Data.Map
                 .HasColumnName("DataVenda")
                 .HasColumnType("datetime")
                 .HasMaxLength(10);
+            
+            builder.Property(x => x.Meses)
+                .IsRequired()
+                .HasColumnName("Meses")
+                .HasColumnType("int");
 
             // Relacionamentos com a tabela "Clientes"
             //builder.HasOne(x => x.Cliente)

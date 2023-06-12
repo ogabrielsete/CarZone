@@ -33,7 +33,6 @@ namespace CarZone.Repositorio
             if (pagDB == null) throw new Exception("Houve erro na atualização do Pagamento");
 
             pagDB.NomePagamento = pgto.NomePagamento;
-            pagDB.Meses = pgto.Meses;
             pagDB.CategoriaVeiculo = pgto.CategoriaVeiculo;
 
             _bancoContext.PagamentosDB.Update(pagDB);

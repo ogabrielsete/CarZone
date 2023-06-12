@@ -79,6 +79,10 @@ namespace CarZone.Controllers
         [HttpPost]
         public IActionResult Criar(Veiculo veiculos)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(veiculos);
+            }
             _veiculosRepositorio.Adicionar(veiculos);
             return RedirectToAction("Index");
         }

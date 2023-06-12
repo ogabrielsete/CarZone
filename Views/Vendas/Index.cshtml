@@ -18,9 +18,10 @@
             <tr>
                 <th class="d-none">Id</th>
                 <th scope="col">Data da Venda</th>
-                <th scope="col">Pagamento</th>
                 <th scope="col">Veiculo</th>
                 <th scope="col">Cliente</th>
+                <th scope="col">Pagamento</th>
+                <th scope="col">Qtd Meses</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -33,11 +34,12 @@
                     <tr>
                         <th class="d-none">@sell.Id</th>
                         <td>
-                            @Html.DisplayFor( x => sell.DataVenda, "{0:dd/MM/yyyy}")
+                            <span>@sell.DataVenda.ToString("dd/MM/yyyy")</span>
                         </td>
-                        <td>@sell.Pagamento</td>
                         <td>@sell.Modelo</td>
                         <td>@sell.Cliente</td>
+                        <td>@sell.Pagamento</td>
+                        <td>@sell.Meses</td>
                         <td>
                             <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="EditarVenda">Editar</a>
                             <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="ApagarConfirmacao">Apagar</a>

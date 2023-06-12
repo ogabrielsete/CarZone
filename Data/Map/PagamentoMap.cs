@@ -27,12 +27,7 @@ namespace CarZone.Data.Map
                        .HasColumnType("NVARCHAR")
                        .HasMaxLength(100);
 
-            builder.Property(x => x.Meses)
-                .IsRequired()
-                .HasMaxLength(3)
-                .HasColumnName("Meses")
-                .HasColumnType("INT");
-
+            
             builder.Property(x => x.CategoriaVeiculo)
                 .IsRequired()
                 .HasColumnName("Categoria")

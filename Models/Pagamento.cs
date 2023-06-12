@@ -15,9 +15,7 @@ namespace CarZone.Models
         [Column("Pagamento", TypeName = "VARCHAR")]
         public string NomePagamento { get; set; }
 
-        public int Meses { get; set; }
 
-        // Será deletado
         public CategoriaVeiculo CategoriaVeiculo { get; set; }
     }
 }

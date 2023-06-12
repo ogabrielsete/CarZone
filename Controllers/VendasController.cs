@@ -38,6 +38,7 @@ namespace CarZone.Controllers
                 listar.Modelo = listarModelo.FirstOrDefault(x => x.Id == item.ModeloId).NomeModelo;
                 listar.Cliente = listarCliente.FirstOrDefault(x => x.Id == item.ClienteId).Nome;
                 listar.Pagamento = listarPagamento.FirstOrDefault(x => x.Id == item.PagamentoId).NomePagamento;
+                listar.Meses = item.Meses;
                 listarVendas.Add(listar);
             }
 

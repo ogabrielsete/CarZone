@@ -1,4 +1,5 @@
 ﻿@model Veiculo
+@using Microsoft.AspNetCore.Mvc.Rendering
 @{
     ViewData["Title"] = "Adicionar Veiculo";
 }
@@ -44,9 +45,9 @@
     <div class="row mb-3">
         <label for="precoVeiculo" class="col-sm-2 col-form-label">Preço</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" asp-for="Preco" step="1" min="0" asp-format="{0:0}" placeholder="Digite o preço">
-            <span asp-validation-for="Preco" class="text-danger" data-val-msg="Digite um valor maior que zero." 
-            data-val-range="Digite um valor maior que zero." data-val-range-max="0"></span>
+            <input type="any" class="form-control" asp-for="Preco" step="0.01" min="0.01" asp-format="{0:0}" placeholder="Digite o preço">
+            <span asp-validation-for="Preco" class="text-danger"></span>
+
         </div>
     </div>
 

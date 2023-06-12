@@ -38,7 +38,7 @@ namespace CarZone.Data.Map
                 .IsRequired()
                 .HasColumnType("decimal(18,2)")
                 .HasColumnName("Preco")
-                .HasAnnotation("Range", new[] { 0.01, double.MaxValue })
+                .HasAnnotation("Range", new[] { 0.00, double.MaxValue })
                 .HasAnnotation("RangeErrorMessage", "O valor deve ser maior que zero.");
 
             builder.Property(x => x.StatusVenda)

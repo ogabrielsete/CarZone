@@ -18,7 +18,6 @@
                     <th class="d-none">Id</th>
                     <th scope="col">Pagamento</th>
                     <th scope="col">Categoria Veiculo</th>
-                    <th scope="col">Meses</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -31,7 +30,7 @@
                             <th class="d-none">@pag.Id</th>
                             <td>@pag.NomePagamento</td>
                             <td>@pag.CategoriaVeiculo</td>
-                            <td>@pag.Meses</td>
+
                             <td>
                                 <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-route-id="@pag.Id" asp-action="EditarPagamento">Editar</a>
                                 <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-route-id="@pag.Id" asp-action="ApagarConfirmacao">Apagar</a>

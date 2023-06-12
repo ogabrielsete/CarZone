@@ -119,11 +119,6 @@ namespace CarZone.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Categoria");
 
-                    b.Property<int>("Meses")
-                        .HasMaxLength(3)
-                        .HasColumnType("INT")
-                        .HasColumnName("Meses");
-
                     b.Property<string>("NomePagamento")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -162,7 +157,9 @@ namespace CarZone.Migrations
 
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(18,2)")
-                        .HasColumnName("Preco");
+                        .HasColumnName("Preco")
+                        .HasAnnotation("Range", new[] { 0.0, 1.7976931348623157E+308 })
+                        .HasAnnotation("RangeErrorMessage", "O valor deve ser maior que zero.");
 
                     b.Property<int>("StatusVenda")
                         .HasColumnType("int")
@@ -192,6 +189,10 @@ namespace CarZone.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("datetime")
                         .HasColumnName("DataVenda");
+
+                    b.Property<int>("Meses")
+                        .HasColumnType("int")
+                        .HasColumnName("Meses");
 
                     b.Property<int>("ModeloId")
                         .HasColumnType("int");
@@ -227,13 +228,15 @@ namespace CarZone.Migrations
                         .WithMany()
                         .HasForeignKey("MarcaId")
                         .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasAnnotation("Required", "O campo Marca é obrigatório.");
 
                     b.HasOne("CarZone.Models.ModeloVeiculo", "Modelo")
                         .WithMany()
                         .HasForeignKey("ModeloId")
                         .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasAnnotation("Required", "O campo Modelo é obrigatório.");
 
                     b.Navigation("Marca");
 

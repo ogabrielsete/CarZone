@@ -19,7 +19,8 @@ namespace CarZone.Models
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Required(ErrorMessage = "{0} é necessário")]
-        [Range(0.00, double.MaxValue, ErrorMessage = "O preço deve ser maior que 0.")]
+        [Range(0, 1000000,
+        ErrorMessage = "Valor deve ser maior que zero")]
         public double Preco { get; set; }
 
         [Required(ErrorMessage = "Status de Venda é necessário")]

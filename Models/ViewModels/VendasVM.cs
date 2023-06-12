@@ -10,6 +10,9 @@ namespace CarZone.Models.ViewModels
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataVenda { get; set; }
+
+        public int Meses { get; set; }
+
         public int ClienteId { get; set; }
         public string Cliente { get; set; }
         public int PagamentoId { get; set; }
