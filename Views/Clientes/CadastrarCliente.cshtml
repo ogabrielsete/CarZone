@@ -36,11 +36,20 @@
     </div>
 
     <div class="row mb-3">
-        <label for="enderecoCliente" class="col-sm-2 col-form-label">Endereço</label>
+        <label for="cepCliente" class="col-sm-2 col-form-label">CEP</label>
         <div class="col-sm-10">
-            <input type="any" asp-for="Endereco" class="form-control" placeholder="Insira o endereço">
+            <input type="text" id="cepCliente" class="form-control" placeholder="Insira o CEP">
         </div>
     </div>
+
+
+    <div class="row mb-3">
+        <label for="enderecoCliente" class="col-sm-2 col-form-label">Endereço</label>
+        <div class="col-sm-10">
+            <input type="any" asp-for="Endereco" id="enderecoCliente"  class="form-control" placeholder="Insira o endereço">
+        </div>
+    </div>
+
 
     <div>
         <button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
@@ -48,6 +57,22 @@
     </div>
 </form>
 @section Scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#cepCliente').on('change', function () {
+                var cep = $(this).val().replace(/\D/g, '');
+                if (cep.length === 8) {
+                    $.getJSON(`https://viacep.com.br/ws/${cep}/json/`, function (data) {
+                        if (!data.erro) {
+                            $('#enderecoCliente').val(data.logradouro + ', ' + data.bairro + ', ' + data.localidade + ', ' + data.uf);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
