@@ -1,16 +1,16 @@
 ﻿@using CarZone.Entities.Enums;
 @model Usuario
 @{
-    ViewData["Title"] = "Cadastrar Usuario";
+    ViewData["Title"] = "Editar Usuario";
 }
 
 <div class="text-center">
 
-    <p class="display-6">Cadastrar novo usuário</p>
+    <p class="display-6">Editar usuário</p>
     <br />
 </div>
 
-<form class="row mb-3" asp-controller="Usuario" asp-action="Criar" method="post">
+<form class="row mb-3" asp-controller="Usuario" asp-action="Alterar" method="post">
     <div asp-validation-summary="All" class="text-danger">    </div>
 
     <input type="hidden" asp-for="Id" />
@@ -61,12 +61,12 @@
 
 
     <div>
-        <button type="submit" class="btn btn-primary">Cadastrar Usuario</button>
-        <a class="btn btn-primary" asp-controller="Usuario" asp-action="Index">Voltar</a>
+        <button type="submit" class="btn btn-primary">Alterar Usuario</button>
+        <a class="btn btn-primary" asp-controller="Clientes" asp-action="Index">Voltar</a>
     </div>
 </form>
 @section Scripts{
-    
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
