@@ -20,6 +20,7 @@ C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\Microsoft.IdentityModel.Pro
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
@@ -63,4 +64,3 @@ C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\refint\CarZone.dll
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.pdb
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.genruntimeconfig.cache
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\ref\CarZone.dll
-C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\Newtonsoft.Json.dll

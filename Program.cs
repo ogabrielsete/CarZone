@@ -23,6 +23,7 @@ namespace CarZone
             builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             builder.Services.AddScoped<IVendasRepositorio, VendasRepositorio>();
             builder.Services.AddScoped<IPagamentosRepositorio, PagamentoRepositorio>();
+            builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 
             var app = builder.Build();

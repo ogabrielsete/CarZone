@@ -1,0 +1,73 @@
+﻿@using CarZone.Entities.Enums;
+@model Usuario
+@{
+    ViewData["Title"] = "Cadastrar Usuario";
+}
+
+<div class="text-center">
+
+    <p class="display-6">Cadastrar novo usuário</p>
+    <br />
+</div>
+
+<form class="row mb-3" asp-controller="Usuario" asp-action="Criar" method="post">
+    <div asp-validation-summary="All" class="text-danger">    </div>
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row mb-3">
+        <label for="nomeUsuario" class="col-sm-2 col-form-label">Nome</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="nomeUsuario" asp-for="Nome" placeholder="Insira o nome">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="usuarioLogin" class="col-sm-2 col-form-label">Login</label>
+        <div class="col-sm-10">
+            <input type="text" asp-for="Login" class="form-control" placeholder="Insira o login">
+            @Html.ValidationMessageFor(x => x.Login)
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="emailUsuario" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" asp-for="Email" class="form-control" placeholder="Insira o email">
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="perfilUsuario" class="col-sm-2 col-form-label">Perfil</label>
+        <div class="col-sm-10">
+            <select asp-for="Perfil" class="form-control">
+                <option value="">Selecione</option>
+                <option value="@PerfilEnum.Padrão">Padrão</option>
+                <option value="@PerfilEnum.Admin">Adminstrador</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label for="senhaUsuario" class="col-sm-2 col-form-label">Senha</label>
+        <div class="col-sm-10">
+            <input type="password" asp-for="Senha" id="senhaUsuario" class="form-control" placeholder="Insira a senha do usuario">
+            @Html.ValidationMessageFor(x => x.Senha)
+        </div>
+    </div>
+
+
+    <div>
+        <button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
+        <a class="btn btn-primary" asp-controller="Clientes" asp-action="Index">Voltar</a>
+    </div>
+</form>
+@section Scripts{
+    
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+                    }
