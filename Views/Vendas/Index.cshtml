@@ -4,50 +4,68 @@
     ViewData["Title"] = "Lista de Vendas";
 }
 
+
+
 <div class="text-center">
     <p class="display-6">Lista de Vendas</p>
     <br />
-    <a class="btn btn-outline-danger btn-sm" asp-controller="Vendas" asp-action="CadastrarVenda">Cadastrar Venda</a>
+    <a class="btn btn-outline-danger btn-sm" asp-controller="Vendas" asp-action="Criar">Cadastrar Venda</a>
     <br />
     <br />
-</div>
 
-<div class="text-center">
-    <table class="table">
-        <thead>
-            <tr>
-                <th class="d-none">Id</th>
-                <th scope="col">Data da Venda</th>
-                <th scope="col">Veiculo</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Pagamento</th>
-                <th scope="col">Qtd Meses</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
 
-            @if (Model != null && Model.Any())
-            {
-                foreach (VendasVM sell in Model)
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+    <div class="text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="d-none">Id</th>
+                    <th scope="col">Data da Venda</th>
+                    <th scope="col">Veiculo</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Pagamento</th>
+                    <th scope="col">Qtd Meses</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (Model != null && Model.Any())
                 {
-                    <tr>
-                        <th class="d-none">@sell.Id</th>
-                        <td>
-                            <span>@sell.DataVenda.ToString("dd/MM/yyyy")</span>
-                        </td>
-                        <td>@sell.Modelo</td>
-                        <td>@sell.Cliente</td>
-                        <td>@sell.Pagamento</td>
-                        <td>@sell.Meses</td>
-                        <td>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="EditarVenda">Editar</a>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="ApagarConfirmacao">Apagar</a>
-                        </td>
-                    </tr>
+                    foreach (VendasVM sell in Model)
+                    {
+                        <tr>
+                            <th class="d-none">@sell.Id</th>
+                            <td>
+                                <span>@sell.DataVenda.ToString("dd/MM/yyyy")</span>
+                            </td>
+                            <td>@sell.Modelo</td>
+                            <td>@sell.Cliente</td>
+                            <td>@sell.Pagamento</td>
+                            <td>@sell.Meses</td>
+                            <td>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="EditarVenda">Editar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="ApagarConfirmacao">Apagar</a>
+                            </td>
+                        </tr>
+                    }
                 }
-            }
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -14,21 +14,23 @@ namespace CarZone.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Insira uma data")]
         public DateTime DataVenda { get; set; }
 
+        [Required(ErrorMessage= "Insira uma quantidade de meses")]
         public int Meses { get; set; }
 
-
+        [Required(ErrorMessage = "Escolha um cliente")]
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
 
 
-
+        [Required(ErrorMessage = "Escolha um tipo de pagamento")]
         public int PagamentoId { get; set; }
         public Pagamento Pagamento { get; set; }
 
 
-
+        [Required(ErrorMessage = "Escolha um modelo de veiculo")]
         public int ModeloId { get; set; }
         public ModeloVeiculo Modelo { get; set; }
 

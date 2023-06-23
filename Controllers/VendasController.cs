@@ -30,7 +30,7 @@ namespace CarZone.Controllers
 
             var listarVendas = new List<VendasVM>();
             List<Venda> vendas = _vendasRepositorio.GetAll();
-            foreach(var item in vendas)
+            foreach (var item in vendas)
             {
                 var listar = new VendasVM();
                 listar.DataVenda = item.DataVenda;
@@ -45,7 +45,7 @@ namespace CarZone.Controllers
             return View(listarVendas);
         }
 
-        public IActionResult CadastrarVenda()
+        public IActionResult Criar()
         {
             var dropDownCliente = _clienteRepositorio.GetAll();
             ViewBag.Clientes = new SelectList(dropDownCliente, "Id", "Nome");
@@ -87,17 +87,36 @@ namespace CarZone.Controllers
 
 
         [HttpPost]
-        public IActionResult Criar(Venda vendas)
+        public IActionResult Criar(Venda venda)
         {
-            _vendasRepositorio.Adicionar(vendas);
-            return RedirectToAction("Index");
+            try
+            {
+                // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Vendas
+                _vendasRepositorio.Adicionar(venda);
+                TempData["MensagemSucesso"] = "Venda cadastrada com sucesso";
+                return RedirectToAction("Index");
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar sua venda, tente novamente. Detalhe: {error.Message}"; 
+                return RedirectToAction("Index");
+            }
+
+
         }
 
         [HttpPost]
-        public IActionResult Editar (Venda vendas)
+        public IActionResult Editar(Venda vendas)
         {
             _vendasRepositorio.Atualizar(vendas);
             return RedirectToAction("Index");
+        }
+
+
+        private bool DadosInvalidos(Venda venda)
+        {
+            return venda.ModeloId == 0 || venda.ClienteId == 0 || venda.PagamentoId == 0;
         }
     }
 }

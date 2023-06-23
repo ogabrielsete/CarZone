@@ -56,6 +56,7 @@ C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutDeslogado.cshtml.rz.scp.css
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\scopedcss\bundle\CarZone.styles.css
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\scopedcss\projectbundle\CarZone.bundle.scp.css
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.csproj.CopyComplete
@@ -64,4 +65,3 @@ C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\refint\CarZone.dll
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.pdb
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.genruntimeconfig.cache
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\ref\CarZone.dll
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutDeslogado.cshtml.rz.scp.css
