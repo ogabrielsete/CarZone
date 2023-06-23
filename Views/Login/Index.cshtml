@@ -1,0 +1,24 @@
+﻿@model Login
+@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center">
+<form class="col-3" asp-controller="Login" asp-action="Entrar" method="post">
+    
+    <div class="col-8">
+        <label for="loginId" class="form-label">Login</label>
+        <input type="text" class="form-control" id="login" asp-for="AcessoLogin">
+            @Html.ValidationMessageFor(x => x.AcessoLogin)
+    </div>
+    <div class="col-8">
+        <label for="senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha" asp-for="Senha">
+        @Html.ValidationMessageFor(x => x.Senha)
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
+</div>
+

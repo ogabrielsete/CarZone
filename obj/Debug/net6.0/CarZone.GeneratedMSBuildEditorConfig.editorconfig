@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/biel-/source/repos/CarZone/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/biel-/source/repos/CarZone/Views/Marcas/AddMarca.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEFkZE1hcmNhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -155,3 +159,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/biel-/source/repos/CarZone/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-y57kx07sb4
+
+[C:/Users/biel-/source/repos/CarZone/Views/Shared/_LayoutDeslogado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREZXNsb2dhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-byjilsg163

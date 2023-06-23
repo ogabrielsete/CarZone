@@ -11,6 +11,11 @@ namespace CarZone.Repositorio
             _bancoContext = bancoContext;
         }
 
+        public Usuario BuscarPorLogin(string login)
+        {
+            return _bancoContext.UsuarioDB.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
+
         public Usuario ListarPorId(int id)
         {
             return _bancoContext.UsuarioDB.FirstOrDefault(x => x.Id == id);
@@ -55,5 +60,7 @@ namespace CarZone.Repositorio
             _bancoContext.SaveChanges();
             return true;
         }
+
+
     }
 }
