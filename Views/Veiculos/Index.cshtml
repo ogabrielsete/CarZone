@@ -11,44 +11,63 @@
     <a class="btn btn-outline-danger btn-sm" asp-controller="Veiculos" asp-action="Criar">Adicionar Veiculos</a>
     <br />
     <br />
-</div>
 
-<div class="text-center">
-    <table class="table">
-        <thead>
-            <tr>
-                <th class="d-none">Id</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Modelo</th>
-                <th scope="col">Ano</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Placa</th>
-                <th scope="col">Status</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model != null && Model.Any())
-            {
-                foreach (VeiculosVM veiculos in Model)
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+
+    <div class="text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="d-none">Id</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
                 {
-                    <tr>
-                        <th class="d-none">@veiculos.Id</th>
-                        <td>@veiculos.Marca</td>
-                        <td>@veiculos.Modelo</td>
-                        <td>@veiculos.Ano</td>
-                        <td>
-                            @Html.DisplayFor( x => veiculos.Preco, "{0:C0}")
-                        </td>
-                        <td>@veiculos.Placa</td>
-                        <td>@veiculos.StatusVenda</td>
-                        <td>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="Editar">Editar</a>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="ApagarConfirmacao">Apagar</a>
-                        </td>
-                    </tr>
+                    foreach (VeiculosVM veiculos in Model)
+                    {
+                        <tr>
+                            <th class="d-none">@veiculos.Id</th>
+                            <td>@veiculos.Marca</td>
+                            <td>@veiculos.Modelo</td>
+                            <td>@veiculos.Ano</td>
+                            <td>
+                             @Html.DisplayFor( x => veiculos.Preco)
+                            </td>
+                            <td>@veiculos.Placa</td>
+                            <td>@veiculos.StatusVenda</td>
+                            <td>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="Editar">Editar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="ApagarConfirmacao">Apagar</a>
+                            </td>
+                        </tr>
+                    }
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
 </div>

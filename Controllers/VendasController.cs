@@ -89,12 +89,21 @@ namespace CarZone.Controllers
         [HttpPost]
         public IActionResult Criar(Venda venda)
         {
+            ModelState.Remove("Id");
+            ModelState.Remove("Modelo");
+            ModelState.Remove("Pagamento");
+            ModelState.Remove("Cliente");
+
             try
             {
-                // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Vendas
-                _vendasRepositorio.Adicionar(venda);
-                TempData["MensagemSucesso"] = "Venda cadastrada com sucesso";
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Vendas
+                    _vendasRepositorio.Adicionar(venda);
+                    TempData["MensagemSucesso"] = "Venda cadastrada com sucesso";
+                    return RedirectToAction("Index");
+                }
+                return View(venda);
             }
             catch (Exception error)
             {
@@ -102,21 +111,36 @@ namespace CarZone.Controllers
                 TempData["MensagemErro"] = $"Não conseguimos cadastrar sua venda, tente novamente. Detalhe: {error.Message}"; 
                 return RedirectToAction("Index");
             }
-
-
         }
 
         [HttpPost]
-        public IActionResult Editar(Venda vendas)
+        public IActionResult Editar(Venda venda)
         {
-            _vendasRepositorio.Atualizar(vendas);
-            return RedirectToAction("Index");
+            ModelState.Remove("Id");
+            ModelState.Remove("Modelo");
+            ModelState.Remove("Pagamento");             
+            ModelState.Remove("Cliente");
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Vendas
+                    _vendasRepositorio.Atualizar(venda);
+                    TempData["MensagemSucesso"] = "Venda alterada com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+                return View(venda);
+
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar sua venda, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
-
-        private bool DadosInvalidos(Venda venda)
-        {
-            return venda.ModeloId == 0 || venda.ClienteId == 0 || venda.PagamentoId == 0;
-        }
     }
 }

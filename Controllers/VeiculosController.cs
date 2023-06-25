@@ -77,22 +77,62 @@ namespace CarZone.Controllers
 
 
         [HttpPost]
-        public IActionResult Criar(Veiculo veiculos)
+        public IActionResult Criar(Veiculo veiculo)
         {
-            if (!ModelState.IsValid)
+
+            ModelState.Remove("Modelo");
+            ModelState.Remove("Marca");
+            ModelState.Remove("Id");
+
+            try
             {
-                return View(veiculos);
+                if (ModelState.IsValid)
+                {
+                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Veiculos
+                    _veiculosRepositorio.Adicionar(veiculo);
+                    TempData["MensagemSucesso"] = "Veiculo cadastrado com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+
+                return View(veiculo);
             }
-            _veiculosRepositorio.Adicionar(veiculos);
-            return RedirectToAction("Index");
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar seu veiculo, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
-        public IActionResult Atualizar(Veiculo veiculos)
+        public IActionResult Atualizar(Veiculo veiculo)
         {
-            _veiculosRepositorio.Atualizar(veiculos);
-            return RedirectToAction("Index");
-        }
+            ModelState.Remove("Modelo");
+            ModelState.Remove("Marca");
+            ModelState.Remove("Id");
 
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Veiculos
+                    _veiculosRepositorio.Atualizar(veiculo);
+                    TempData["MensagemSucesso"] = "Veiculo alterado com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+
+                return View(veiculo);
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos alterado seu veiculo, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }
+        }
     }
+
 }
+

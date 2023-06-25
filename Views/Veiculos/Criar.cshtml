@@ -21,6 +21,7 @@
             <select name="MarcaId" asp-for="MarcaId" class="form-select" asp-items="@ViewBag.Marcas">
                 <option value="" disabled selected hidden>Selecione a Marca</option>
             </select>
+            @Html.ValidationMessageFor(x => x.Marca)
         </div>
     </div>
     <br />
@@ -31,6 +32,7 @@
             <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos">
                 <option value="" disabled selected hidden>Selecione o Modelo</option>
             </select>
+            @Html.ValidationMessageFor(x => x.Modelo)
         </div>
     </div>
     <br />
@@ -39,6 +41,7 @@
         <label for="anoVeiculo" class="col-sm-2 col-form-label">Ano</label>
         <div class="col-sm-10">
             <input type="number" class="form-control" id="anoVeiculo" asp-for="Ano" placeholder="Digite o ano"/>
+            @Html.ValidationMessageFor(x => x.Ano)
         </div>
     </div>
 
@@ -46,6 +49,7 @@
         <label for="precoVeiculo" class="col-sm-2 col-form-label">Preço</label>
         <div class="col-sm-10">
             <input type="any" class="form-control" asp-for="Preco" step="0.01" min="0.01" asp-format="{0:0}" placeholder="Digite o preço">
+            @Html.ValidationMessageFor(x => x.Preco)
             <span asp-validation-for="Preco" class="text-danger"></span>
 
         </div>
@@ -55,6 +59,7 @@
         <label for="veiculoPlaca" class="col-sm-2 col-form-label">Placa</label>
         <div class="col-sm-10">
             <input type="any" class="form-control" id="veiculoPlaca" asp-for="Placa" placeholder="Digite a placa">
+            @Html.ValidationMessageFor(x => x.Placa)
         </div>
     </div>
 
@@ -70,6 +75,7 @@
                     <option value="1">Vendido</option>
                     <option value="2">Entregue</option>
                 </select>
+                @Html.ValidationMessageFor(x => x.StatusVenda)
             </div>
             <br />
         </div>

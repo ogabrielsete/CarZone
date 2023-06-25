@@ -15,12 +15,13 @@ namespace CarZone.Models
         public string Placa { get; set; }
 
         [Required(ErrorMessage = "{0} é necessário")]
+        [Range(1990, int.MaxValue, ErrorMessage = "O ano do carro deve ser igual ou maior que 1990.")]
+        [AnoMaximo]
         public int Ano { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Required(ErrorMessage = "{0} é necessário")]
-        [Range(0, 1000000,
-        ErrorMessage = "Valor deve ser maior que zero")]
+        [Range(0, 1000000, ErrorMessage = "Valor deve ser maior que zero")]
         public double Preco { get; set; }
 
         [Required(ErrorMessage = "Status de Venda é necessário")]
@@ -37,6 +38,24 @@ namespace CarZone.Models
         public int ModeloId { get; set; }
         public ModeloVeiculo Modelo { get; set; }
 
+        ////////////////////////////
+
+        public class AnoMaximoAttribute : ValidationAttribute
+        {
+            public AnoMaximoAttribute()
+            {
+                ErrorMessage = "O ano do carro deve ser no máximo dois anos acima do ano atual.";
+            }
+
+            public override bool IsValid(object value)
+            {
+                if (value is int intValue)
+                {
+                    return intValue <= DateTime.Now.Year + 2;
+                }
+                return false;
+            }
+        }
 
     }
 }

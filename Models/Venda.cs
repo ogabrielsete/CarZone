@@ -18,6 +18,7 @@ namespace CarZone.Models
         public DateTime DataVenda { get; set; }
 
         [Required(ErrorMessage= "Insira uma quantidade de meses")]
+        [Range(0, double.MaxValue, ErrorMessage = "O número de meses deve ser maior que zero.")]
         public int Meses { get; set; }
 
         [Required(ErrorMessage = "Escolha um cliente")]

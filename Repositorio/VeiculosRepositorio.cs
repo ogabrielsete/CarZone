@@ -34,6 +34,7 @@ namespace CarZone.Repositorio
             Veiculo carDB = ListarPorId(veiculos.Id);
             if (carDB == null) throw new Exception("Houve erro na atualização do veiculo");
 
+            carDB.MarcaId = veiculos.MarcaId;
             carDB.StatusVenda = veiculos.StatusVenda;
             carDB.Ano = veiculos.Ano;
             carDB.Preco = veiculos.Preco;
