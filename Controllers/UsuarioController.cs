@@ -19,7 +19,7 @@ namespace CarZone.Controllers
             return View(mostrarUsuarios);
         }
 
-        public IActionResult CadastrarUsuario()
+        public IActionResult Criar()
         {
             return View();
         }
@@ -45,15 +45,55 @@ namespace CarZone.Controllers
         [HttpPost]
         public IActionResult Criar(Usuario usuario)
         {
-            _usuarioRepositorio.Adicionar(usuario);
-            return RedirectToAction("Index");
+            ModelState.Remove("Id");
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Veiculos
+                    _usuarioRepositorio.Adicionar(usuario);
+                    TempData["MensagemSucesso"] = "Usuario cadastrado com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+
+                return View(usuario);
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar o usuario, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }
+
+            //_usuarioRepositorio.Adicionar(usuario);
+            //return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Alterar(Usuario usuario)
         {
-            _usuarioRepositorio.Atualizar(usuario);
-            return RedirectToAction("Index");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Veiculos
+                    _usuarioRepositorio.Atualizar(usuario);
+                    TempData["MensagemSucesso"] = "Usuario alterado com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+
+                return View(usuario);
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos alterar o usuario, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }
+
         }
 
     }

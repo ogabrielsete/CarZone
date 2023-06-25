@@ -6,10 +6,27 @@
 <div class="text-center">
     <p class="display-6">Lista de Usuarios</p>
     <br />
-    <a class="btn btn-outline-danger btn-sm" asp-controller="Usuario" asp-action="CadastrarUsuario">Adicionar novo Usuario</a>
+    <a class="btn btn-outline-danger btn-sm" asp-controller="Usuario" asp-action="Criar">Adicionar novo Usuario</a>
     <br />
     <br />
-</div>
+
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
 
 <div class="text-center">
     <table class="table">
@@ -48,3 +65,4 @@
         </tbody>
     </table>
     </div>
+</div>
