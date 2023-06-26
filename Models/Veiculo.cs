@@ -20,11 +20,12 @@ namespace CarZone.Models
         public int Ano { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        [Required(ErrorMessage = "{0} é necessário")]
+        [Required(ErrorMessage = "Preço é necessário")]
         [Range(0, 1000000, ErrorMessage = "Valor deve ser maior que zero")]
         public double Preco { get; set; }
 
         [Required(ErrorMessage = "Status de Venda é necessário")]
+        [Range(1, int.MaxValue, ErrorMessage = "Escolha o status do veículo")]
         public StatusVenda StatusVenda { get; set; }
 
 

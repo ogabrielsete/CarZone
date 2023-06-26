@@ -7,9 +7,26 @@
 <div class="text-center">
     <p class="display-6">Lista de Modelos</p>
     <br />
-    <a class="btn btn-outline-danger btn-sm" asp-controller="ModeloVeiculos" asp-action="AdicionarModelo">Adicionar Modelo</a>
+    <a class="btn btn-outline-danger btn-sm" asp-controller="ModeloVeiculos" asp-action="Criar">Adicionar Modelo</a>
     <br />
     <br />
+
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
 
 
     <div class="text-center">

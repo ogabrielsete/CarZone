@@ -3,6 +3,7 @@ using CarZone.Models.ViewModels;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarZone.Controllers
 {
@@ -52,7 +53,7 @@ namespace CarZone.Controllers
             return View();
         }
 
-        public IActionResult Editar(int id)
+        public IActionResult Atualizar(int id)
         {
             var dropDownMarcas = _marcasRep.GetAll();
             ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
@@ -94,8 +95,17 @@ namespace CarZone.Controllers
 
                     return RedirectToAction("Index");
                 }
+                else
+                {
+                    var dropDownMarcas = _marcasRep.GetAll();
+                    ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
-                return View(veiculo);
+                    var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+                    ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
+
+                    return View(veiculo);
+                }
+
             }
             catch (Exception error)
             {
@@ -122,13 +132,21 @@ namespace CarZone.Controllers
 
                     return RedirectToAction("Index");
                 }
+                else
+                {
+                    var dropDownMarcas = _marcasRep.GetAll();
+                    ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
-                return View(veiculo);
+                    var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+                    ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
+                    return View(veiculo);
+                }
+
             }
             catch (Exception error)
             {
 
-                TempData["MensagemErro"] = $"Não conseguimos alterado seu veiculo, tente novamente. Detalhe: {error.Message}";
+                TempData["MensagemErro"] = $"Não conseguimos alterar seu veiculo, tente novamente. Detalhe: {error.Message}";
                 return RedirectToAction("Index");
             }
         }

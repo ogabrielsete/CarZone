@@ -2,6 +2,7 @@
 {
     public enum CategoriaVeiculo
     {
+        None,
         Comum,
         SUV,
         Van,

@@ -10,6 +10,9 @@ namespace CarZone.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "O nome da marca é obrigatório.")]
+        [StringLength(50, ErrorMessage = "O nome da marca não pode exceder 50 caracteres.")]
+        [RegularExpression(@"^[a-zA-Z\s-]+$", ErrorMessage = "A marca deve conter apenas letras, espaços e hífens.")]
         public string Nome { get; set; }
 
 

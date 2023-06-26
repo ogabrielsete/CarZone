@@ -24,7 +24,7 @@ namespace CarZone.Controllers
             return View(mostrarClientes);
         }
 
-        public IActionResult CadastrarCliente()
+        public IActionResult Criar()
         {
             return View();
         }
@@ -50,26 +50,60 @@ namespace CarZone.Controllers
         [HttpPost]
         public IActionResult Criar(Cliente cliente)
         {
-            if (!ValidarCPF(cliente.CPF))
+            ModelState.Remove("Id");
+            ModelState.Remove("Vendas");
+
+            try
             {
-                ModelState.AddModelError("CPF", "CPF inválido");
-                return View("CadastrarCliente", cliente);
+                if (ModelState.IsValid)
+                {
+                    if (!ValidarCPF(cliente.CPF))
+                    {
+                        ModelState.AddModelError("CPF", "CPF inválido");
+                        return View("Criar", cliente);
+                    }
+
+                    _clienteRepositorio.Adicionar(cliente);
+                    TempData["MensagemSucesso"] = "Cliente cadastrado com sucesso";
+                    return RedirectToAction("Index");
+                }
+                return View(cliente);
+            }
+            catch (Exception error)
+            {
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar o cliente, tente novamente. Detalhe do erro: {error.Message}";
+                return RedirectToAction("Index");
             }
 
-            _clienteRepositorio.Adicionar(cliente);
-            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Alterar(Cliente cliente)
         {
-            if (!ValidarCPF(cliente.CPF))
+            ModelState.Remove("Id");
+            ModelState.Remove("Vendas");
+
+            try
             {
-                ModelState.AddModelError("CPF", "CPF inválido");
-                return View("CadastrarCliente", cliente);
+                if (ModelState.IsValid)
+                {
+                    if (!ValidarCPF(cliente.CPF))
+                    {
+                        ModelState.AddModelError("CPF", "CPF inválido");
+                        return View("Criar", cliente);
+                    }
+
+                    _clienteRepositorio.Atualizar(cliente);
+                    TempData["MensagemSucesso"] = "Cliente alterado com sucesso";
+                    return RedirectToAction("Index");
+                }
+                return View(cliente);
             }
-            _clienteRepositorio.Atualizar(cliente);
-            return RedirectToAction("Index");
+            catch (Exception error)
+            {
+                TempData["MensagemErro"] = $"Não conseguimos alterar o cliente, tente novamente. Detalhe do erro: {error.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
 

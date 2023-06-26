@@ -1,6 +1,7 @@
 ﻿using CarZone.Models;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
 
 namespace CarZone.Controllers
 {
@@ -17,7 +18,7 @@ namespace CarZone.Controllers
             return View(marcas);
         }
 
-        public IActionResult AddMarca()
+        public IActionResult Criar()
         {
             return View();
         }
@@ -40,22 +41,52 @@ namespace CarZone.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(Marca marcas)
+        public IActionResult Criar(Marca marca)
         {
-            _marcasRepositorio.Adicionar(marcas);
-            return RedirectToAction("Index");
+            ModelState.Remove("Id");
+            ModelState.Remove("Modelos");
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _marcasRepositorio.Adicionar(marca);
+                    TempData["MensagemSucesso"] = "Marca cadastrada com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+                return View(marca);
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar a marca do veiculo, tente novamente. Detalhe do erro: {error.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
 
         [HttpPost]
-        public IActionResult Editar (Marca marcas)
+        public IActionResult Editar (Marca marca)
         {
-            if (ModelState.IsValid)
+
+            try
             {
-                _marcasRepositorio.Atualizar(marcas);
+                if (ModelState.IsValid)
+                {
+                    _marcasRepositorio.Atualizar(marca);
+                    TempData["MensagemSucesso"] = "Marca alterada com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+                return View(marca);
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos alterar a marca do veiculo, tente novamente. Detalhe do erro: {error.Message}";
                 return RedirectToAction("Index");
             }
-            return View("Index", marcas);
         }
 
 

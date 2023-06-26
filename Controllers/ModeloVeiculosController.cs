@@ -33,7 +33,7 @@ namespace CarZone.Controllers
             return View(listarModelo);
         }
 
-        public IActionResult AdicionarModelo()
+        public IActionResult Criar()
         {
             var dropdown = _marcasRepositorio.GetAll();
             ViewBag.Marcas = new SelectList(dropdown, "Id", "Nome");
@@ -63,14 +63,62 @@ namespace CarZone.Controllers
         [HttpPost]
         public IActionResult Criar(ModeloVeiculo modelo)
         {
-            _modeloVeiculosRepositorio.Adicionar(modelo);
-            return RedirectToAction("Index");
+            ModelState.Remove("Id");
+            ModelState.Remove("Marca");
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _modeloVeiculosRepositorio.Adicionar(modelo);
+                    TempData["MensagemSucesso"] = "Modelo cadastrado com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    var dropdown = _marcasRepositorio.GetAll();
+                    ViewBag.Marcas = new SelectList(dropdown, "Id", "Nome");
+
+                    return View(modelo);
+                }
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar o modelo do veiculo, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }       
         }
 
         public IActionResult Editar(ModeloVeiculo modelo)
         {
-            _modeloVeiculosRepositorio.Atualizar(modelo);
-            return RedirectToAction("Index");
+            ModelState.Remove("Id");
+            ModelState.Remove("Marca");
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _modeloVeiculosRepositorio.Atualizar(modelo);
+                    TempData["MensagemSucesso"] = "Modelo alterado com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    var dropdown = _marcasRepositorio.GetAll();
+                    ViewBag.Marcas = new SelectList(dropdown, "Id", "Nome");
+
+                    return View(modelo);
+                }
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar o modelo do veiculo, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
     }

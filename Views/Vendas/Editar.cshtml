@@ -24,6 +24,7 @@
         <label for="meses" class="col-sm-2 col-form-label">Meses</label>
         <div class="col-sm-10">
             <input type="number" class="form-control" asp-for="Meses">
+            @Html.ValidationMessageFor(x => x.Meses)
         </div>
     </div>
 
@@ -32,6 +33,7 @@
         <div class="col-sm-10">
             <select name="PagamentoId" asp-for="PagamentoId" class="form-control" asp-items="@ViewBag.Pag">
                 <option value="" disabled selected hidden>Selecione o Pagamento</option>
+                @Html.ValidationMessageFor(x => x.PagamentoId)
             </select>
         </div>
     </div>
@@ -42,6 +44,7 @@
         <div class="col-sm-10">
             <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos">
                 <option value="" disabled selected hidden>Selecione o modelo</option>
+                @Html.ValidationMessageFor(x => x.ModeloId)
             </select>
         </div>
     </div>
@@ -52,6 +55,7 @@
         <div class="col-sm-10">
             <select name="ClienteId" asp-for="ClienteId" class="form-control" asp-items="@ViewBag.Clientes">
                 <option value="" disabled selected hidden>Selecione o Cliente</option>
+                @Html.ValidationMessageFor(x => x.ClienteId)
             </select>
         </div>
     </div>

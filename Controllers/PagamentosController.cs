@@ -17,7 +17,7 @@ namespace CarZone.Controllers
             List<Pagamento> listarPagamentos = _pagamentosRepositorio.GetAll();
             return View(listarPagamentos);
         }
-        public IActionResult CriarPagamento()
+        public IActionResult Criar()
         {
             return View();
         }
@@ -40,17 +40,54 @@ namespace CarZone.Controllers
 
 
         [HttpPost]
-        public IActionResult Criar(Pagamento criarPagamento)
+        public IActionResult Criar(Pagamento pagamento)
         {
-            _pagamentosRepositorio.Adicionar(criarPagamento);
-            return RedirectToAction("Index");
+            ModelState.Remove("Id");
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _pagamentosRepositorio.Adicionar(pagamento);
+                    TempData["MensagemSucesso"] = "Pagamento cadastrado com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+
+                return View(pagamento);
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar seu pagamento, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }
+
         }
 
         [HttpPost]
-        public IActionResult Editar(Pagamento criarPagamento)
+        public IActionResult Editar(Pagamento pagamento)
         {
-            _pagamentosRepositorio.Atualizar(criarPagamento);
-            return RedirectToAction("Index");
+            ModelState.Remove("Id");
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _pagamentosRepositorio.Atualizar(pagamento);
+                    TempData["MensagemSucesso"] = "Forma de pagamento alterado com sucesso";
+
+                    return RedirectToAction("Index");
+                }
+
+                return View(pagamento);
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemErro"] = $"Não conseguimos cadastrar seu pagamento, tente novamente. Detalhe: {error.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
     }

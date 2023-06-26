@@ -59,7 +59,7 @@ namespace CarZone.Controllers
             return View();
         }
 
-        public IActionResult EditarVenda(int id)
+        public IActionResult Editar(int id)
         {
             var dropDownCliente = _clienteRepositorio.GetAll();
             ViewBag.Clientes = new SelectList(dropDownCliente, "Id", "Nome");
@@ -137,7 +137,7 @@ namespace CarZone.Controllers
             catch (Exception error)
             {
 
-                TempData["MensagemErro"] = $"Não conseguimos cadastrar sua venda, tente novamente. Detalhe: {error.Message}";
+                TempData["MensagemErro"] = $"Não conseguimos alterar sua venda, tente novamente. Detalhe: {error.Message}";
                 return RedirectToAction("Index");
             }
         }

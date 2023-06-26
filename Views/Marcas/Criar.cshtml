@@ -16,9 +16,12 @@
             <div class="text-center">
                 <label for="nomeMarca" style="font-size: 18px;">Nome da Marca</label>
                 <input type="text" class="form-control" asp-for="Nome" placeholder="Insira o nome">
+                @Html.ValidationMessageFor(x => x.Nome)
             </div>
         </div>
+        
         <br />
+
         <div>
             <button type="submit" class="btn btn-primary">Adicionar Marca</button>
             <a class="btn btn-primary" asp-controller="Marcas" asp-action="Index">Voltar</a>

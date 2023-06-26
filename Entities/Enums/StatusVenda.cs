@@ -2,6 +2,7 @@
 {
     public enum StatusVenda
     {
+        None,
         Disponível,
         Vendido,
         Entregue
