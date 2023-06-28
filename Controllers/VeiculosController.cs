@@ -76,6 +76,12 @@ namespace CarZone.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult ModelosPorMarca(int marcaId)
+        {
+            var modelos = _modeloVeiculosRepositorio.ModelosPorMarca(marcaId);
+            return Json(modelos);
+        }
+
 
         [HttpPost]
         public IActionResult Criar(Veiculo veiculo)
@@ -141,6 +147,7 @@ namespace CarZone.Controllers
                     ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
                     return View(veiculo);
                 }
+
 
             }
             catch (Exception error)

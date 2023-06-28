@@ -47,11 +47,13 @@
                 {
                     foreach (Cliente cliente in Model)
                 {
+                    string cpfFormatado = String.Format("{0:000\\.000\\.000\\-00}", long.Parse(cliente.CPF));
+                    string telefoneFormatado = String.Format("{0:(00) 00000-0000}", long.Parse(cliente.Telefone));
                     <tr>
                         <th class="d-none">@cliente.Id</th>
                         <td>@cliente.Nome</td>
-                        <td>@cliente.CPF</td>
-                        <td>@cliente.Telefone</td>
+                        <td>@cpfFormatado</td>
+                        <td>@telefoneFormatado</td>
                         <td>@cliente.Endereco</td>
                         <td>
                             <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-route-id="@cliente.Id" asp-action="AlterarCliente">Editar</a>
@@ -64,3 +66,28 @@
         </tbody>
     </table>
     </div>
+
+     @section Scripts{
+        <script>
+
+        // Formata o CPF com pontos e hífens
+        function formatarCPF(cpf) {
+            const cpfFormatado = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            return cpfFormatado;
+        }
+
+        const cpfElemento = document.getElementById('cpfCliente');
+        const cpf = cpfElemento.textContent;
+
+        // Formata o CPF e atualiza o elemento com o CPF formatado
+        cpfElemento.textContent = formatarCPF(cpf);            
+
+            function formatarTelefone(telefone) {
+                const telefoneFormatado = cpf.replace("(\d{ 2})(\d{ 4})(\d{4})", '($1)$2 - $3');
+                return telefoneFormatado
+            }
+            const telElemento = document.getElementById('telefoneCliente');
+            const telefone = telElemento.textContent;
+
+        </script>
+    } 

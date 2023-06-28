@@ -1,5 +1,7 @@
 ﻿using CarZone.Data;
 using CarZone.Models;
+using CarZone.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarZone.Repositorio
 {
@@ -52,5 +54,12 @@ namespace CarZone.Repositorio
             _bancoContext.SaveChanges();
             return true;
         }
+
+
+        public IEnumerable<ModeloVeiculo> ModelosPorMarca(int marcaId)
+        {
+            return _bancoContext.ModeloVeiculosDB.Where(x => x.MarcaId == marcaId).ToList();
+        }
+
     }
 }

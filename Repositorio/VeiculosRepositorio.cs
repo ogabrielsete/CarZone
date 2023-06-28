@@ -1,5 +1,6 @@
 ﻿using CarZone.Data;
 using CarZone.Models;
+using CarZone.Models.ViewModels;
 
 namespace CarZone.Repositorio
 {
@@ -29,16 +30,17 @@ namespace CarZone.Repositorio
         }
 
 
-        public Veiculo Atualizar(Veiculo veiculos)
+        public Veiculo Atualizar(Veiculo veiculo)
         {
-            Veiculo carDB = ListarPorId(veiculos.Id);
+            Veiculo carDB = ListarPorId(veiculo.Id);
             if (carDB == null) throw new Exception("Houve erro na atualização do veiculo");
 
-            carDB.MarcaId = veiculos.MarcaId;
-            carDB.StatusVenda = veiculos.StatusVenda;
-            carDB.Ano = veiculos.Ano;
-            carDB.Preco = veiculos.Preco;
-            carDB.ModeloId = veiculos.ModeloId;
+            carDB.MarcaId = veiculo.MarcaId;
+            carDB.StatusVenda = veiculo.StatusVenda;
+            carDB.Ano = veiculo.Ano;
+            carDB.Preco = veiculo.Preco;
+            carDB.ModeloId = veiculo.ModeloId;
+            carDB.Placa = veiculo.Placa;
 
             _bancoContext.VeiculosDB.Update(carDB);
             _bancoContext.SaveChanges();

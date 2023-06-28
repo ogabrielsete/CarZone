@@ -1,4 +1,5 @@
-﻿@model Veiculo
+﻿@using CarZone.Entities.Enums;
+@model Veiculo
 @{
     ViewData["Title"] = "Alterar Veiculo";
 }
@@ -10,13 +11,15 @@
 </div>
 
 <form class="row mb-3" asp-controller="Veiculos" asp-action="Atualizar" method="post">
+
     <input type="hidden" asp-for="Id" />
-
-
     <div class="row mb-3">
         <label for="Marcas" class="col-sm-2 col-form-label">Marcas</label>
         <div class="col-sm-10">
-            <select name="MarcaId" asp-for="MarcaId" class="form-select" asp-items="@ViewBag.Marcas"></select>
+            <select name="MarcaId" asp-for="MarcaId" class="form-select" asp-items="@ViewBag.Marcas">
+                <option value="" disabled selected hidden>Selecione a Marca</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.MarcaId)
         </div>
     </div>
     <br />
@@ -24,7 +27,10 @@
     <div class="row mb-3">
         <label for="Modelos" class="col-sm-2 col-form-label">Modelos</label>
         <div class="col-sm-10">
-            <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos"></select>
+            <select name="ModeloId" asp-for="ModeloId" class="form-control" asp-items="@ViewBag.Modelos">
+                <option value="" disabled selected hidden>Selecione o Modelo</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.ModeloId)
         </div>
     </div>
     <br />
@@ -33,13 +39,15 @@
         <label for="anoVeiculo" class="col-sm-2 col-form-label">Ano</label>
         <div class="col-sm-10">
             <input type="number" class="form-control" id="anoVeiculo" asp-for="Ano" placeholder="Digite o ano" />
+            @Html.ValidationMessageFor(x => x.Ano)
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="precoVeiculo" class="col-sm-2 col-form-label">Preço</label>
         <div class="col-sm-10">
-            <input type="any" class="form-control" asp-for="Preco" step="1" min="0" asp-format="{0:0}" placeholder="Digite o preço">
+            <input type="any" class="form-control" asp-for="Preco" placeholder="Digite o preço">
+            @Html.ValidationMessageFor(x => x.Preco)
         </div>
     </div>
 
@@ -47,23 +55,26 @@
         <label for="veiculoPlaca" class="col-sm-2 col-form-label">Placa</label>
         <div class="col-sm-10">
             <input type="any" class="form-control" id="veiculoPlaca" asp-for="Placa" placeholder="Digite a placa">
+            @Html.ValidationMessageFor(x => x.Placa)
         </div>
     </div>
 
     <div class="row mb-3">
-    <div class="btn-group" button-type="button">
+        <div class="btn-group" button-type="button">
             <label asp-for="StatusVenda" class="col-sm-2 col-form-label">Status Veiculo </label>
             <div class="col-sm-2 col-form-label">
                 <select asp-for="StatusVenda" class="btn btn-success" data-bs-toggle="dropdown" aria-expanded="false">
 
-            <span class="visually-hidden">Toggle Dropdown</span>
-            <option value="0">Disponivel</option>
-            <option value="1">Vendido</option>
-            <option value="2">Entregue</option>
-            </select>
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="@(Convert.ToInt32(StatusVenda.Disponível))">Disponivel</option>
+                    <option value="@(Convert.ToInt32(StatusVenda.Vendido))">Vendido</option>
+                    <option value="@(Convert.ToInt32(StatusVenda.Entregue))">Entregue</option>
+                </select>
             </div>
-        <br />
-    </div>
+            @Html.ValidationMessageFor(x => x.StatusVenda)
+            <br />
+        </div>
     </div>
 
 

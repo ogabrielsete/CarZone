@@ -89,6 +89,29 @@
 </form>
 
 @section Scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#MarcaId').change(function () {
+                var marcaId = $(this).val();
+                $.ajax({
+                    url: '/Veiculos/ModelosPorMarca',
+                    type: 'GET',
+                    data: { marcaId: marcaId },
+                    success: function (data) {
+                        var modelosDropdown = $('#ModeloId');
+                        modelosDropdown.empty();
+                        $.each(data, function (i, modelo) {
+                            modelosDropdown.append($('<option></option>').val(modelo.id).text(modelo.nomeModelo));
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

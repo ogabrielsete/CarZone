@@ -1,11 +1,3 @@
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.csproj.AssemblyReference.cache
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.AssemblyInfoInputs.cache
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.AssemblyInfo.cs
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.csproj.CoreCompileInputs.cache
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.RazorAssemblyInfo.cache
-C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.RazorAssemblyInfo.cs
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\appsettings.json
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\CarZone.staticwebassets.runtime.json
@@ -48,6 +40,14 @@ C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\runtimes\win\lib\netcoreapp
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\biel-\source\repos\CarZone\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.csproj.AssemblyReference.cache
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.AssemblyInfoInputs.cache
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.AssemblyInfo.cs
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.csproj.CoreCompileInputs.cache
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.RazorAssemblyInfo.cache
+C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\CarZone.RazorAssemblyInfo.cs
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\staticwebassets\msbuild.CarZone.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\staticwebassets\msbuild.build.CarZone.props
 C:\Users\biel-\source\repos\CarZone\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CarZone.props

@@ -40,6 +40,7 @@ namespace CarZone.Controllers
             return RedirectToAction("Index");
         }
 
+
         [HttpPost]
         public IActionResult Criar(Marca marca)
         {
