@@ -1,6 +1,10 @@
 using CarZone.Data;
+using CarZone.Helper;
 using CarZone.Repositorio;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+
 
 namespace CarZone
 {
@@ -16,6 +20,8 @@ namespace CarZone
             var connectionString = builder.Configuration.GetConnectionString("DataBase");
             builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(options =>
                 options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True"));
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             builder.Services.AddScoped<IVeiculosRepositorio, VeiculosRepositorio>();
             builder.Services.AddScoped<IMarcasRepositorio, MarcasRepositorio>();
             builder.Services.AddScoped<IModeloVeiculosRepositorio, ModeloVeiculosRepositorio>();
@@ -24,6 +30,14 @@ namespace CarZone
             builder.Services.AddScoped<IVendasRepositorio, VendasRepositorio>();
             builder.Services.AddScoped<IPagamentosRepositorio, PagamentoRepositorio>();
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            builder.Services.AddScoped<ISessao, Sessao>();
+
+            builder.Services.AddSession(x =>
+            {
+                x.Cookie.HttpOnly = true;
+                x.Cookie.IsEssential = true;
+            });
+
 
 
             var app = builder.Build();
@@ -42,6 +56,8 @@ namespace CarZone
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",

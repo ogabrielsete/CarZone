@@ -1,4 +1,5 @@
-﻿using CarZone.Models;
+﻿using CarZone.Helper;
+using CarZone.Models;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,13 +7,19 @@ namespace CarZone.Controllers
 {
     public class LoginController : Controller
     {
+
         private readonly IUsuarioRepositorio _usuarioRepositorio;
-        public LoginController(IUsuarioRepositorio usuarioRepositorio)
+        private readonly ISessao _sessao;
+        public LoginController(IUsuarioRepositorio usuarioRepositorio,
+                                ISessao sessao)
         {
             _usuarioRepositorio = usuarioRepositorio;
+            _sessao = sessao;
         }
         public IActionResult Index()
         {
+            // Quando usuário logado, irá redirecionar a Home
+            if (_sessao.BuscarSessao() != null) return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -24,10 +31,12 @@ namespace CarZone.Controllers
                 if (ModelState.IsValid)
                 {
                     Usuario usuario = _usuarioRepositorio.BuscarPorLogin(login.AcessoLogin);
+
                     if (usuario != null)
                     {
                         if (usuario.SenhaValida(login.Senha))
                         {
+                            _sessao.CriarSessaoUsuario(usuario);
                             return RedirectToAction("Index", "Home");
                         }
                         TempData["MensagemErro"] = $"Senha do usuário é inválida, tente novamente.";
@@ -43,6 +52,12 @@ namespace CarZone.Controllers
                 return RedirectToAction("Index");
 
             }
+        }
+
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoUsuario();
+            return RedirectToAction("Index", "Login");
         }
     }
 }
