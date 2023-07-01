@@ -22,7 +22,7 @@
     <div class="row mb-3">
         <label for="cpfCliente" class="col-sm-2 col-form-label">CPF</label>
         <div class="col-sm-10">
-            <input type="text" id="cpfCliente" asp-for="CPF" class="form-control" placeholder="Insira o CPF">
+            <input type="text" id="cpfCliente" asp-for="CPF" class="form-control" placeholder="000.000.000-00">
             @Html.ValidationMessageFor(x => x.CPF)
         </div>
     </div>
@@ -30,7 +30,7 @@
     <div class="row mb-3">
         <label for="telefoneCliente" class="col-sm-2 col-form-label">Telefone</label>
         <div class="col-sm-10">
-            <input type="any" asp-for="Telefone" id="telefoneCliente" class="form-control" placeholder="Insira o telefone">
+            <input type="any" asp-for="Telefone" id="telefoneCliente" class="form-control" placeholder="(00) 00000-0000">
             @Html.ValidationMessageFor(x => x.Telefone)
         </div>
     </div>
@@ -38,7 +38,7 @@
     <div class="row mb-3">
         <label for="cepCliente" class="col-sm-2 col-form-label">CEP</label>
         <div class="col-sm-10">
-            <input type="text" id="cepCliente" class="form-control" placeholder="Insira o CEP">           
+            <input type="text" id="cepCliente" class="form-control" placeholder="00000000">           
         </div>
     </div>
 
@@ -59,6 +59,7 @@
 </form>
 @section Scripts{
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
         // API para transformar o CEP em endereço 
         $(document).ready(function () {
@@ -88,15 +89,29 @@
             nomeInput.value = textoFormatado;
         });
 
-        // Remove pontos e traços do CPF
-        const cpfInput = document.getElementById('cpfCliente');
 
-        cpfInput.addEventListener('input', function () {
-            const cpf = cpfInput.value;
-            const cpfNumeros = cpf.replace(/\D/g, '');
-
-            cpfInput.value = cpfNumeros;
+        // Mascara de CPF       
+        $(document).ready(function () {
+            // Aplicar a máscara de CPF no campo de entrada
+            $('#cpfCliente').mask('000.000.000-00');
         });
+
+        // Máscara de telefone no campo de entrada
+        $(document).ready(function () {
+
+            $('#telefoneCliente').mask('(00) 00000-0000');
+        });
+
+
+        // Remove pontos e traços do CPF
+        // const cpfInput = document.getElementById('cpfCliente');
+
+        // cpfInput.addEventListener('input', function () {
+        //     const cpf = cpfInput.value;
+        //     const cpfNumeros = cpf.replace(/\D/g, '');
+
+        //     cpfInput.value = cpfNumeros;
+        // });
 
 
     </script>

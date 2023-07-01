@@ -30,3 +30,11 @@ body {
     color:red;
 }
 
+.sair-nav{
+    display: flex;
+    justify-content: flex-end;
+    }
+
+.sair-nav .nav-item:last-child{
+    margin-left:auto;
+}

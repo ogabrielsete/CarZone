@@ -12,6 +12,7 @@ namespace CarZone.Models
         public string Nome { get; set; }
         public string CPF { get; set; }
         public string Endereco { get; set; }
+        [DataType(DataType.PhoneNumber)]
         public string Telefone { get; set; }
 
         public List<Venda> Vendas { get; set; }

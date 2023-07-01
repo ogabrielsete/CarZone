@@ -57,8 +57,12 @@ namespace CarZone.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    cliente.CPF = cliente.CPF.Replace(".", "").Replace("-", "");
+                    cliente.Telefone = cliente.Telefone.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
+
                     if (!ValidarCPF(cliente.CPF))
                     {
+                        
                         ModelState.AddModelError("CPF", "CPF inválido");
                         return View("Criar", cliente);
                     }
