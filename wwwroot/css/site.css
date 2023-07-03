@@ -38,3 +38,8 @@ body {
 .sair-nav .nav-item:last-child{
     margin-left:auto;
 }
+
+
+.table-centered th {
+  text-align: center;
+}

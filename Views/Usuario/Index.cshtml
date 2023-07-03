@@ -11,58 +11,60 @@
     <br />
 
 
-@if (TempData["MensagemSucesso"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
-        @TempData["MensagemSucesso"]
-    </div>
-}
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
 
-@if (TempData["MensagemErro"] != null)
-{
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
-        @TempData["MensagemErro"]
-    </div>
-}
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
 
 
-<div class="text-center">
-    <table class="table">
-        <thead>
-            <tr>
-                <th class="d-none">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Login</th>
-                <th scope="col">Email</th>
-                <th scope="col">Data de Cadastro</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="text-center">
+        <table class="table" id="paginacao">
+            <thead>
+                <tr>
+                    <th class="d-none">Id</th>
+                    <th scope="col" class="text-center">Nome</th>
+                    <th scope="col" class="text-center">Login</th>
+                    <th scope="col" class="text-center">Perfil</th>
+                    <th scope="col" class="text-center">Email</th>
+                    <th scope="col" class="text-center">Data de Cadastro</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
 
-            @if (Model != null && Model.Any())
-            {
-                foreach (Usuario usuario in Model)
+                @if (Model != null && Model.Any())
                 {
-                    <tr>
-                        <th class="d-none">@usuario.Id</th>
-                        <td>@usuario.Login</td>
-                        <td>@usuario.Nome</td>
-                        <td>@usuario.Email</td>                        
-                        <td>@usuario.DataCadastro</td>
-                        <td>@usuario.DataAtualizacao</td>
-                        <td>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Usuario" asp-route-id="@usuario.Id" asp-action="AlterarUsuario">Editar</a>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Usuario" asp-route-id="@usuario.Id" asp-action="ApagarConfirmacao">Apagar</a>
-                        </td>
-                    </tr>
+                    foreach (Usuario usuario in Model)
+                    {
+                        <tr>
+                            <th class="d-none">@usuario.Id</th>
+                            <td>@usuario.Login</td>
+                            <td>@usuario.Nome</td>
+                            <td>@usuario.Perfil</td>
+                            <td>@usuario.Email</td>
+                            <td>@usuario.DataCadastro</td>
+                            <td>@usuario.DataAtualizacao</td>
+                            <td>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Usuario" asp-route-id="@usuario.Id" asp-action="AlterarUsuario">Editar</a>
+                                <a type="button" class="btn btn-outline-dark" asp-controller="Usuario" asp-route-id="@usuario.Id" asp-action="ApagarConfirmacao">Apagar</a>
+                            </td>
+                        </tr>
+                    }
                 }
-            }
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
     </div>
 </div>
