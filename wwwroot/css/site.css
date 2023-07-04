@@ -43,3 +43,7 @@ body {
 .table-centered th {
   text-align: center;
 }
+
+.tabela-duas-colunas {
+    column-count: 2;
+}

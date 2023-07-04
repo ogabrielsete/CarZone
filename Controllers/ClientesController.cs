@@ -8,9 +8,11 @@ using static CarZone.Controllers.ClientesController;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
+using CarZone.Filters;
 
 namespace CarZone.Controllers
 {
+    [UsuarioLogado]
     public class ClientesController : Controller
     {
         private readonly IClienteRepositorio _clienteRepositorio;
@@ -62,7 +64,7 @@ namespace CarZone.Controllers
 
                     if (!ValidarCPF(cliente.CPF))
                     {
-                        
+
                         ModelState.AddModelError("CPF", "CPF inválido");
                         return View("Criar", cliente);
                     }

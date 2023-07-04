@@ -1,9 +1,11 @@
-﻿using CarZone.Models;
+﻿using CarZone.Filters;
+using CarZone.Models;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarZone.Controllers
 {
+    [AdminLogado]
     public class PagamentosController : Controller
     {
         private readonly IPagamentosRepositorio _pagamentosRepositorio;

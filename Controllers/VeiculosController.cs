@@ -1,4 +1,5 @@
-﻿using CarZone.Models;
+﻿using CarZone.Filters;
+using CarZone.Models;
 using CarZone.Models.ViewModels;
 using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarZone.Controllers
 {
+    [UsuarioLogado]
     public class VeiculosController : Controller
     {
         private readonly IVeiculosRepositorio _veiculosRepositorio;
