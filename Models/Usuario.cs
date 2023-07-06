@@ -1,4 +1,5 @@
 ﻿using CarZone.Entities.Enums;
+using CarZone.Helper;
 using System.ComponentModel.DataAnnotations;
 
 namespace CarZone.Models
@@ -26,7 +27,12 @@ namespace CarZone.Models
 
         public bool SenhaValida(string senha)
         {
-            return Senha == senha;
+            return Senha == senha.GerarHash();
+        }
+
+        public void SetHash()
+        {
+            Senha = Senha.GerarHash();
         }
 
     }

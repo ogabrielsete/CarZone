@@ -29,6 +29,7 @@ namespace CarZone.Repositorio
         public Usuario Adicionar(Usuario usuario)
         {
             usuario.DataCadastro = DateTime.Now;
+            usuario.SetHash();
             _bancoContext.UsuarioDB.Add(usuario);
             _bancoContext.SaveChanges();
             return usuario;
