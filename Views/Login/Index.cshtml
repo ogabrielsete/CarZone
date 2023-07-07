@@ -26,8 +26,10 @@
         <input type="password" class="form-control" id="senha" asp-for="Senha">
         @Html.ValidationMessageFor(x => x.Senha)
     </div>
-    <br />
+        <p class="col-8 align-self-auto"><a asp-controller="Login" asp-action="RedefinirSenha">Esqueci minha senha! </a></p>
     <button type="submit" class="btn btn-primary">Entrar</button>
+
+   
 </form>
 </div>
 

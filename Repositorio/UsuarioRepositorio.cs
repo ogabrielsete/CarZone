@@ -16,6 +16,11 @@ namespace CarZone.Repositorio
             return _bancoContext.UsuarioDB.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
         }
 
+        public Usuario BuscarPorEmailELogin(string email, string login)
+        {
+            return _bancoContext.UsuarioDB.FirstOrDefault(x => x.Email.ToUpper() == email.ToUpper() && x.Login.ToUpper() == login.ToUpper());
+        }
+
         public Usuario ListarPorId(int id)
         {
             return _bancoContext.UsuarioDB.FirstOrDefault(x => x.Id == id);
