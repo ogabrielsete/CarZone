@@ -5,6 +5,7 @@
 }
 
 
+
 @if (TempData["MensagemErro"] != null)
 {
     <div class="alert alert-danger text-center" role="alert">
@@ -28,9 +29,8 @@
         </div>
         <br />
 
-        <button type="submit" class="btn btn-primary">Redefinir</button>
+        <button type="submit" class="btn btn-warning">Redefinir</button>
         <a class="btn btn-primary" asp-controller="Login" asp-action="Index">Voltar</a>
-
 
     </form>
 </div>

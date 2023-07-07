@@ -31,6 +31,8 @@ namespace CarZone
             builder.Services.AddScoped<IPagamentosRepositorio, PagamentoRepositorio>();
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             builder.Services.AddScoped<ISessao, Sessao>();
+            builder.Services.AddScoped<IEmail, Email>();
+
             builder.Services.AddMvc().AddRazorPagesOptions(options =>
              {
                  options.Conventions.AddPageRoute("/Home/Index", "");

@@ -10,11 +10,15 @@ namespace CarZone.Controllers
 
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly ISessao _sessao;
+        private readonly IEmail _email;
         public LoginController(IUsuarioRepositorio usuarioRepositorio,
-                                ISessao sessao)
+                                ISessao sessao,
+                                IEmail email)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _sessao = sessao;
+            _email = email;
+
         }
         public IActionResult Index()
         {
@@ -66,11 +70,23 @@ namespace CarZone.Controllers
                     if (usuario != null)
                     {
                         string novaSenha = usuario.GerarNovaSenha();
-                        _usuarioRepositorio.Atualizar(usuario);
+                        string msg = $"Sua nova senha é: {novaSenha}";
 
-                        TempData["MensagemSucesso"] = $"O e-mail foi enviado com uma nova senha";
+                        bool emailEnviado = _email.Enviar(usuario.Email, "Nova senha - CarZone", msg);
+
+                        if (emailEnviado) 
+                        {
+                            _usuarioRepositorio.Atualizar(usuario);
+                            TempData["MensagemSucesso"] = $"Sua nova senha foi enviada para o e-mail cadastrado";
+                        }
+                        else
+                        {
+                            TempData["MensagemErro"] = $"Não conseguimos enviar o e-mail. Por favor, tente novamente";
+                        }
+                        
                         return RedirectToAction("Index", "Login");
                     }
+
                     TempData["MensagemErro"] = $"Não conseguimos encontrar seus dados, confira seus dados e tente novamente.";
                 }
                 return View("Index");
