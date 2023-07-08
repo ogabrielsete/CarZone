@@ -38,6 +38,16 @@
         </div>
     </div>
 
+    <div class="row mb-3">
+        <label for="Marcas" class="col-sm-2 col-form-label">Marcas</label>
+        <div class="col-sm-10">
+            <select name="MarcaId" asp-for="MarcaId" class="form-select" asp-items="@ViewBag.Marcas">
+                <option value="" disabled selected hidden>Selecione a Marca</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.MarcaId)
+        </div>
+    </div>
+
 
     <div class="row mb-3">
         <label for="ModeloId" class="col-sm-2 col-form-label">Modelos</label>

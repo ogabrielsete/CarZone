@@ -242,6 +242,9 @@ namespace CarZone.Migrations
                         .HasColumnType("datetime")
                         .HasColumnName("DataVenda");
 
+                    b.Property<int>("MarcaId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Meses")
                         .HasColumnType("int")
                         .HasColumnName("Meses");
@@ -255,6 +258,8 @@ namespace CarZone.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
+
+                    b.HasIndex("MarcaId");
 
                     b.HasIndex("ModeloId");
 
@@ -303,6 +308,12 @@ namespace CarZone.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CarZone.Models.Marca", "Marca")
+                        .WithMany()
+                        .HasForeignKey("MarcaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CarZone.Models.ModeloVeiculo", "Modelo")
                         .WithMany()
                         .HasForeignKey("ModeloId")
@@ -316,6 +327,8 @@ namespace CarZone.Migrations
                         .IsRequired();
 
                     b.Navigation("Cliente");
+
+                    b.Navigation("Marca");
 
                     b.Navigation("Modelo");
 

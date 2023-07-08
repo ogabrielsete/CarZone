@@ -35,6 +35,7 @@
                 <tr>
                     <th class="d-none">Id</th>
                     <th scope="col"class="text-center">Data da Venda</th>
+                    <th scope="col" class="text-center">Marca</th>
                     <th scope="col"class="text-center">Veiculo</th>
                     <th scope="col"class="text-center">Cliente</th>
                     <th scope="col"class="text-center">Pagamento</th>
@@ -53,6 +54,7 @@
                             <td>
                                 <span>@sell.DataVenda.ToString("dd/MM/yyyy")</span>
                             </td>
+                            <td>@sell.Marca</td>
                             <td>@sell.Modelo</td>
                             <td>@sell.Cliente</td>
                             <td>@sell.Pagamento</td>

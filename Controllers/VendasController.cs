@@ -14,21 +14,26 @@ namespace CarZone.Controllers
         private readonly IClienteRepositorio _clienteRepositorio;
         private readonly IModeloVeiculosRepositorio _modeloVeiculosRepositorio;
         private readonly IPagamentosRepositorio _pagamentosRepositorio;
+        private readonly IMarcasRepositorio _marcasRepositorio;
         public VendasController(IVendasRepositorio vendasRepositorio,
                                 IClienteRepositorio clienteRepositorio,
                                    IModeloVeiculosRepositorio modeloVeiculosRepositorio,
-                                    IPagamentosRepositorio pagamentosRepositorio)
+                                    IPagamentosRepositorio pagamentosRepositorio,
+                                    IMarcasRepositorio marcasRepositorio)
         {
             _vendasRepositorio = vendasRepositorio;
             _clienteRepositorio = clienteRepositorio;
             _modeloVeiculosRepositorio = modeloVeiculosRepositorio;
             _pagamentosRepositorio = pagamentosRepositorio;
+            _marcasRepositorio = marcasRepositorio;
+
         }
         public IActionResult Index()
         {
             var listarPagamento = _pagamentosRepositorio.GetAll();
             var listarModelo = _modeloVeiculosRepositorio.GetAll();
             var listarCliente = _clienteRepositorio.GetAll();
+            var listarMarca = _marcasRepositorio.GetAll();
 
             var listarVendas = new List<VendasVM>();
             List<Venda> vendas = _vendasRepositorio.GetAll();
@@ -37,6 +42,7 @@ namespace CarZone.Controllers
                 var listar = new VendasVM();
                 listar.DataVenda = item.DataVenda;
                 listar.Id = item.Id;
+                listar.Marca = listarMarca.FirstOrDefault(x => x.Id == item.MarcaId).Nome;
                 listar.Modelo = listarModelo.FirstOrDefault(x => x.Id == item.ModeloId).NomeModelo;
                 listar.Cliente = listarCliente.FirstOrDefault(x => x.Id == item.ClienteId).Nome;
                 listar.Pagamento = listarPagamento.FirstOrDefault(x => x.Id == item.PagamentoId).NomePagamento;
@@ -52,6 +58,9 @@ namespace CarZone.Controllers
             var dropDownCliente = _clienteRepositorio.GetAll();
             ViewBag.Clientes = new SelectList(dropDownCliente, "Id", "Nome");
 
+            var dropDownMarcas = _marcasRepositorio.GetAll();
+            ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
+
             var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
             ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
 
@@ -65,6 +74,9 @@ namespace CarZone.Controllers
         {
             var dropDownCliente = _clienteRepositorio.GetAll();
             ViewBag.Clientes = new SelectList(dropDownCliente, "Id", "Nome");
+
+            var dropDownMarcas = _marcasRepositorio.GetAll();
+            ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome"); 
 
             var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
             ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
@@ -95,6 +107,7 @@ namespace CarZone.Controllers
             ModelState.Remove("Modelo");
             ModelState.Remove("Pagamento");
             ModelState.Remove("Cliente");
+            ModelState.Remove("Marca");
 
             try
             {
@@ -122,6 +135,7 @@ namespace CarZone.Controllers
             ModelState.Remove("Modelo");
             ModelState.Remove("Pagamento");             
             ModelState.Remove("Cliente");
+            ModelState.Remove("Marca");
 
             try
             {

@@ -30,6 +30,9 @@ namespace CarZone.Models
         public int PagamentoId { get; set; }
         public Pagamento Pagamento { get; set; }
 
+        [Required(ErrorMessage = "Selecione a Marca!")]
+        public int MarcaId { get; set; }
+        public Marca Marca { get; set; }
 
         [Required(ErrorMessage = "Escolha um modelo de veiculo")]
         public int ModeloId { get; set; }

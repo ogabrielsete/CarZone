@@ -50,6 +50,11 @@ namespace CarZone.Data.Map
                 .HasForeignKey(x => x.ModeloId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Relacionamentos com a tabela "Marcas"
+            builder.HasOne(x => x.Marca)
+                .WithMany()
+                .HasForeignKey(x => x.MarcaId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
