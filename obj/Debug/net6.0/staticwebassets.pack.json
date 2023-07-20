@@ -5,12 +5,60 @@
       "PackagePath": "staticwebassets\\CarZone.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\css\\lux.css",
+      "PackagePath": "staticwebassets\\css\\lux.css"
+    },
+    {
       "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\CarZone.png",
+      "PackagePath": "staticwebassets\\images\\CarZone.png"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel.png",
+      "PackagePath": "staticwebassets\\images\\carousel.png"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel1.png",
+      "PackagePath": "staticwebassets\\images\\carousel1.png"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel2.png",
+      "PackagePath": "staticwebassets\\images\\carousel2.png"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel3.png",
+      "PackagePath": "staticwebassets\\images\\carousel3.png"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel4.png",
+      "PackagePath": "staticwebassets\\images\\carousel4.png"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb.jpg",
+      "PackagePath": "staticwebassets\\images\\carouselmb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb1.jpg",
+      "PackagePath": "staticwebassets\\images\\carouselmb1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb2.jpg",
+      "PackagePath": "staticwebassets\\images\\carouselmb2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\logoresized.png",
+      "PackagePath": "staticwebassets\\images\\logoresized.png"
     },
     {
       "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\js\\site.js",

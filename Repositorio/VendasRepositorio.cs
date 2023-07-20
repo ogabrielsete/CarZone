@@ -1,5 +1,6 @@
 ﻿using CarZone.Data;
 using CarZone.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarZone.Repositorio
 {
@@ -53,6 +54,14 @@ namespace CarZone.Repositorio
             _bancoContext.VendasDB.Remove(vendas);
             _bancoContext.SaveChanges();
             return true;
+        }
+
+        public bool VendaRelacionada(int vendaId)
+        {
+            return _bancoContext.VendasDB
+         .Where(v => v.Id == vendaId)
+         .Join(_bancoContext.ClientesDB, venda => venda.ClienteId, cliente => cliente.Id, (venda, cliente) => cliente)
+         .Any(cliente => cliente.Id != null);
         }
     }
 }

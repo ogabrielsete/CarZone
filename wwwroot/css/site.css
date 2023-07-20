@@ -47,3 +47,23 @@ body {
 .tabela-duas-colunas {
     column-count: 2;
 }
+
+.nav-item {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.carzonelogo {
+    width: 100px;
+    height: contain;
+   
+}
+img{
+    max-height:100%;
+    max-width: 100%;
+}
+
+
+.text-center {
+    font-family: 'Roboto', sans-serif;
+}

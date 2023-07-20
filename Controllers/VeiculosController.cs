@@ -14,13 +14,16 @@ namespace CarZone.Controllers
         private readonly IVeiculosRepositorio _veiculosRepositorio;
         private readonly IMarcasRepositorio _marcasRep;
         private readonly IModeloVeiculosRepositorio _modeloVeiculosRepositorio;
+        private readonly IVendasRepositorio _vendasRepositorio;
         public VeiculosController(IVeiculosRepositorio veiculosRepositorio,
                                    IMarcasRepositorio marcasRep,
-                                   IModeloVeiculosRepositorio modeloVeiculosRepositorio)
+                                   IModeloVeiculosRepositorio modeloVeiculosRepositorio,
+                                   IVendasRepositorio vendasRepositorio)
         {
             _veiculosRepositorio = veiculosRepositorio;
             _marcasRep = marcasRep;
             _modeloVeiculosRepositorio = modeloVeiculosRepositorio;
+            _vendasRepositorio = vendasRepositorio;
 
         }
         public IActionResult Index()
@@ -68,6 +71,7 @@ namespace CarZone.Controllers
         }
         public IActionResult ApagarConfirmacao(int id)
         {
+
             Veiculo veiculo = _veiculosRepositorio.ListarPorId(id);
             return View(veiculo);
         }
