@@ -49,17 +49,35 @@ namespace CarZone.Controllers
 
         public IActionResult Apagar(int id)
         {
-            Cliente cliente = _clienteRepositorio.ListarPorId(id);
 
-            bool clienteRelacionado = _vendasRepositorio.VendaRelacionada(cliente.Id);
+            try
+            {
+                Cliente cliente = _clienteRepositorio.ListarPorId(id);
 
-            if(clienteRelacionado) return RedirectToAction("Index", TempData["MensagemErro"] = "Não é possível excluir este cliente porque está relacionada a uma venda cadastrada.");
+                bool clienteRelacionado = _vendasRepositorio.VendaRelacionada(cliente.Id);
 
-            _clienteRepositorio.Apagar(id);
-            return RedirectToAction("Index", TempData["MensagemSucesso"] = "Cliente excluído com sucesso!");
+                if (!clienteRelacionado) 
+                    return RedirectToAction
+                        ("Index", TempData["MensagemErro"] = "Não é possível excluir este cliente porque está relacionada a uma venda cadastrada.");
+
+
+                _clienteRepositorio.Apagar(id);
+                return RedirectToAction("Index", TempData["MensagemSucesso"] = "Cliente excluído com sucesso!");
+            }
+            catch (Exception error)
+            {
+
+                return RedirectToAction("Index", TempData["MensagemErro"] = $"Ocorreu um erro ao tentar excluir a venda. Detalhe: {error.Message}");
+            }
+
+            //Cliente cliente = _clienteRepositorio.ListarPorId(id);
+
+            //bool clienteRelacionado = _vendasRepositorio.VendaRelacionada(cliente.Id);
+
+            //if (!clienteRelacionado) return RedirectToAction("Index", TempData["MensagemErro"] = "Não é possível excluir este cliente porque está relacionada a uma venda cadastrada.");
 
             //_clienteRepositorio.Apagar(id);
-            //return RedirectToAction("Index");
+            //return RedirectToAction("Index", TempData["MensagemSucesso"] = "Cliente excluído com sucesso!");
         }
 
         [HttpPost]
