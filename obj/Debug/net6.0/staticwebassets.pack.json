@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\CarZone.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\css\\lux.css",
-      "PackagePath": "staticwebassets\\css\\lux.css"
-    },
-    {
       "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -17,48 +13,48 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\CarZone.png",
-      "PackagePath": "staticwebassets\\images\\CarZone.png"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\fonts\\LawyerGothic-Bold.eot",
+      "PackagePath": "staticwebassets\\fonts\\LawyerGothic-Bold.eot"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel.png",
-      "PackagePath": "staticwebassets\\images\\carousel.png"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\fonts\\LawyerGothic-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\LawyerGothic-Bold.ttf"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel1.png",
-      "PackagePath": "staticwebassets\\images\\carousel1.png"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\fonts\\LawyerGothic-Bold.woff",
+      "PackagePath": "staticwebassets\\fonts\\LawyerGothic-Bold.woff"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel2.png",
-      "PackagePath": "staticwebassets\\images\\carousel2.png"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\atalhocliente.png",
+      "PackagePath": "staticwebassets\\images\\atalhocliente.png"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel3.png",
-      "PackagePath": "staticwebassets\\images\\carousel3.png"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\atalhoveiculo.png",
+      "PackagePath": "staticwebassets\\images\\atalhoveiculo.png"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel4.png",
-      "PackagePath": "staticwebassets\\images\\carousel4.png"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\atalhovenda.png",
+      "PackagePath": "staticwebassets\\images\\atalhovenda.png"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb.jpg",
-      "PackagePath": "staticwebassets\\images\\carouselmb.jpg"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\boxclientes.png",
+      "PackagePath": "staticwebassets\\images\\boxclientes.png"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb1.jpg",
-      "PackagePath": "staticwebassets\\images\\carouselmb1.jpg"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\boxveiculos.png",
+      "PackagePath": "staticwebassets\\images\\boxveiculos.png"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb2.jpg",
-      "PackagePath": "staticwebassets\\images\\carouselmb2.jpg"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\boxvendas.png",
+      "PackagePath": "staticwebassets\\images\\boxvendas.png"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\logo.png",
-      "PackagePath": "staticwebassets\\images\\logo.png"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carzoneicon.ico",
+      "PackagePath": "staticwebassets\\images\\carzoneicon.ico"
     },
     {
-      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\logoresized.png",
-      "PackagePath": "staticwebassets\\images\\logoresized.png"
+      "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\relatorio.png",
+      "PackagePath": "staticwebassets\\images\\relatorio.png"
     },
     {
       "Id": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\js\\site.js",

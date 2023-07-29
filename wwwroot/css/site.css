@@ -1,23 +1,23 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
-.close-alert{
+.close-alert {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -26,22 +26,13 @@ body {
     height: 30px;
 }
 
-.field-validation-error{
-    color:red;
-}
-
-.sair-nav{
-    display: flex;
-    justify-content: flex-end;
-    }
-
-.sair-nav .nav-item:last-child{
-    margin-left:auto;
+.field-validation-error {
+    color: red;
 }
 
 
 .table-centered th {
-  text-align: center;
+    text-align: center;
 }
 
 .tabela-duas-colunas {
@@ -49,21 +40,260 @@ body {
 }
 
 .nav-item {
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-family: 'Baloo 2', cursive;
+    color: #FBFBFF;
+    text-align: center;
+}
+
+/*Texto da navbar  */
+.navbar-nav .nav-link {
+    color: #FBFBFF !important;
+    margin-right: 35px;
+    text-align: center;
+}
+
+
+.navbar-usuario {
+    flex-shrink: 0;
+    color: #FBFBFF;
+    font-family: 'Baloo 2', cursive;
+    text-decoration: none;
+}
+
+    .navbar-usuario:hover {
+        color: #3772FF;
+    }
+
+
+#navbaredit {
+    background: #1E1E1E;
+    height: 40px;
 }
 
 .carzonelogo {
-    width: 100px;
-    height: contain;
-   
+    color: #FFF;
+    font-kerning: none;
+    font-family: Lawyer Gothic;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 0%; /* 0px */
+    width: 130.184px;
+    text-decoration: none;
+    margin-left: 5px;
+    margin-top: 16px;
 }
-img{
-    max-height:100%;
-    max-width: 100%;
+
+    .carzonelogo:hover {
+        cursor: default;
+    }
+
+.logologin {
+    background: #080708;
+    width: 82px;
+    height: 82px;
+    margin-bottom: 30px;
+    margin-left: 60px;
+    display: flex;
+    width: 82px;
+    height: 82px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FFF;
+    font-kerning: none;
+    font-family: Lawyer Gothic;
+    font-size: 74px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0%; /* 0px */
+}
+
+/* Estilos para o contêiner da logo */
+.logo-container {
+    position: relative;
+    display: flex;
+    background-color: #ffffff;
+    padding: 5px 16px;
+    border-radius: 2px;
+    height: 40px;
+    align-items: center;
+}
+
+/* Estilos para o link da logo */
+.logotipo {
+    color: #000;
+    margin-top: auto;
+    text-align: center;
+    font-kerning: none;
+    font-family: Lawyer Gothic;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 1.7px;
+    text-decoration: none; /* Remova o sublinhado padrão do link */
+}
+
+/* Logo da Home*/
+
+.logo-home {
+    color: #080708;
+    font-kerning: none;
+    font-family: Lawyer Gothic;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0%;
+    margin-top: 58px;
+    margin-left: 320px;
+    width: 455px;
+    height: 84px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    width: 80%;
 }
 
 
-.text-center {
-    font-family: 'Roboto', sans-serif;
+/* Box de veiculos */
+.boxVeiculos {
+    width: 179px;
+    height: 85.85px;
+    background-color: #FDCA40;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: 25px;
+    margin-top: 42px;
+}
+
+.numerosBox {
+    color: #080708;
+    font-family: 'Baloo 2';
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    flex-shrink: 0;
+    margin-top: -20px;
+}
+
+.categoria {
+    color: #080708;
+    font-family: 'Baloo 2';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    margin-top: -8px;
+}
+
+.detalhesVeiculos {
+    color: #080708;
+    font-family: 'Baloo 2';
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    width: 179px;
+    height: 18px;
+    background-color: #FFD971;
+    border-radius: 0px 0px 5px 5px;
+    margin-left: -20px;
+    margin-top: -17px;
+}
+
+.imagebox {
+    width: 51.279px;
+    height: 51.042px;
+    flex-shrink: 0;
+    margin-left: 100px;
+    margin-top: -100px;
+}
+
+/* Box de Clientes */
+.boxClientes {
+    width: 179px;
+    height: 85.85px;
+    background-color: #DF2935;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: 25px;
+    margin-top: 42px;
+}
+
+.iconcliente {
+    width: 60px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-left: 93px;
+    margin-top: -93px;
+}
+
+.detalhesClientes {
+    color: #080708;
+    font-family: 'Baloo 2';
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    width: 179px;
+    height: 18px;
+    background-color: #E44B55;
+    border-radius: 0px 0px 5px 5px;
+    margin-left: -20px;
+    margin-top: -17px;
+    text-align: center;
+}
+
+/* Box de Vendas */
+.boxVendas {
+    width: 179px;
+    height: 85.85px;
+    background-color: #3772FF;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: 25px;
+    margin-top: 42px;
+
+}
+
+.iconVendas {
+    width: 60px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-left: 93px;
+    margin-top: -93px;
+}
+
+.detalhesVendas {
+    color: #080708;
+    font-family: 'Baloo 2';
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    width: 179px;
+    height: 18px;
+    background-color: #5889FF;
+    border-radius: 0px 0px 5px 5px;
+    margin-left: -20px;
+    margin-top: -17px;
+    text-align: center;
+}
+
+.form-box {
+    background-color: white;
+    padding: 100px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }

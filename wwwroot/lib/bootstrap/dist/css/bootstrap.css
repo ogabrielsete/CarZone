@@ -3915,7 +3915,6 @@ textarea.form-control-lg {
 }
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #495057;
   background-color: #fff;
   border-color: #dee2e6 #dee2e6 #fff;
 }
@@ -3991,14 +3990,6 @@ textarea.form-control-lg {
   white-space: nowrap;
 }
 
-/*.carzonelogo {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-right: 1rem;
-    width: 200px; 
-    height: fit-content;*/ /* Defina um valor adequado para a altura desejada */
-/*}*/
-
 .navbar-nav {
   display: flex;
   flex-direction: column;
@@ -4017,6 +4008,7 @@ textarea.form-control-lg {
 .navbar-text {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  
 }
 
 .navbar-collapse {

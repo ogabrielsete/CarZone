@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Or+z3IzHSbE01HRIs11Pza03bONr116apYIj/EmSl6c=",
+  "Hash": "gCBEl5v0D+IdFfan140ZgVgebsB9GPyv462Q1lcdVbM=",
   "Source": "CarZone",
   "BasePath": "_content/CarZone",
   "Mode": "Default",
@@ -51,23 +51,6 @@
       "OriginalItemSpec": "C:\\Users\\biel-\\source\\repos\\CarZone\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CarZone.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\css\\lux.css",
-      "SourceId": "CarZone",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
-      "BasePath": "_content/CarZone",
-      "RelativePath": "css/lux.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\lux.css"
-    },
-    {
       "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\css\\site.css",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
@@ -102,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel.png",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\fonts\\LawyerGothic-Bold.eot",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/carousel.png",
+      "RelativePath": "fonts/LawyerGothic-Bold.eot",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +99,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\carousel.png"
+      "OriginalItemSpec": "wwwroot\\fonts\\LawyerGothic-Bold.eot"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel1.png",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\fonts\\LawyerGothic-Bold.ttf",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/carousel1.png",
+      "RelativePath": "fonts/LawyerGothic-Bold.ttf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +116,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\carousel1.png"
+      "OriginalItemSpec": "wwwroot\\fonts\\LawyerGothic-Bold.ttf"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel2.png",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\fonts\\LawyerGothic-Bold.woff",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/carousel2.png",
+      "RelativePath": "fonts/LawyerGothic-Bold.woff",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\carousel2.png"
+      "OriginalItemSpec": "wwwroot\\fonts\\LawyerGothic-Bold.woff"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel3.png",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\atalhocliente.png",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/carousel3.png",
+      "RelativePath": "images/atalhocliente.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -167,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\carousel3.png"
+      "OriginalItemSpec": "wwwroot\\images\\atalhocliente.png"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carousel4.png",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\atalhoveiculo.png",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/carousel4.png",
+      "RelativePath": "images/atalhoveiculo.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,15 +167,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\carousel4.png"
+      "OriginalItemSpec": "wwwroot\\images\\atalhoveiculo.png"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb.jpg",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\atalhovenda.png",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/carouselmb.jpg",
+      "RelativePath": "images/atalhovenda.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -201,15 +184,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\carouselmb.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\atalhovenda.png"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb1.jpg",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\boxclientes.png",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/carouselmb1.jpg",
+      "RelativePath": "images/boxclientes.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -218,15 +201,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\carouselmb1.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\boxclientes.png"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carouselmb2.jpg",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\boxveiculos.png",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/carouselmb2.jpg",
+      "RelativePath": "images/boxveiculos.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -235,15 +218,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\carouselmb2.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\boxveiculos.png"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\CarZone.png",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\boxvendas.png",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/CarZone.png",
+      "RelativePath": "images/boxvendas.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,15 +235,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\CarZone.png"
+      "OriginalItemSpec": "wwwroot\\images\\boxvendas.png"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\logo.png",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\carzoneicon.ico",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/logo.png",
+      "RelativePath": "images/carzoneicon.ico",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,15 +252,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\logo.png"
+      "OriginalItemSpec": "wwwroot\\images\\carzoneicon.ico"
     },
     {
-      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\logoresized.png",
+      "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\images\\relatorio.png",
       "SourceId": "CarZone",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\",
       "BasePath": "_content/CarZone",
-      "RelativePath": "images/logoresized.png",
+      "RelativePath": "images/relatorio.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -286,7 +269,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\logoresized.png"
+      "OriginalItemSpec": "wwwroot\\images\\relatorio.png"
     },
     {
       "Identity": "C:\\Users\\biel-\\source\\repos\\CarZone\\wwwroot\\js\\site.js",

@@ -42,7 +42,6 @@ namespace CarZone.Controllers
 
         public IActionResult ApagarConfirmacao(int id)
         {
-
             Cliente cliente = _clienteRepositorio.ListarPorId(id);
             return View(cliente);
         }
@@ -70,14 +69,6 @@ namespace CarZone.Controllers
                 return RedirectToAction("Index", TempData["MensagemErro"] = $"Ocorreu um erro ao tentar excluir a venda. Detalhe: {error.Message}");
             }
 
-            //Cliente cliente = _clienteRepositorio.ListarPorId(id);
-
-            //bool clienteRelacionado = _vendasRepositorio.VendaRelacionada(cliente.Id);
-
-            //if (!clienteRelacionado) return RedirectToAction("Index", TempData["MensagemErro"] = "Não é possível excluir este cliente porque está relacionada a uma venda cadastrada.");
-
-            //_clienteRepositorio.Apagar(id);
-            //return RedirectToAction("Index", TempData["MensagemSucesso"] = "Cliente excluído com sucesso!");
         }
 
         [HttpPost]

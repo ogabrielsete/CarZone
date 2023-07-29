@@ -4,18 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CarZone</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> 
- <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> 
-@*     <link rel="stylesheet" href="~/css/lux.css" asp-append-version="true" /> *@
+    <link rel="icon" href="/images/carzoneicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/fonts/LawyerGothic-Bold.ttf" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CarZone.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;800&family=Open+Sans:wght@300&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
-<body>
+ <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" id="navbaredit">
             <div class="container-fluid">
                 @await Component.InvokeAsync("Menu")
             </div>
@@ -33,4 +35,4 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-</html>
+ </html> 

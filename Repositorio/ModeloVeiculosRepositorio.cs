@@ -36,9 +36,7 @@ namespace CarZone.Repositorio
             if (modeloDB == null) throw new Exception("Houve erro na atualização do modelo do veiculo");
 
             modeloDB.NomeModelo = model.NomeModelo;
-            //modeloDB.MarcaId = model.MarcaId;
-            //modeloDB.Marca = model.Marca;
-
+            
             _bancoContext.ModeloVeiculosDB.Update(modeloDB);
             _bancoContext.SaveChanges();
 

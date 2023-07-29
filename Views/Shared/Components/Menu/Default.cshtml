@@ -1,7 +1,12 @@
 ﻿@model Usuario
 
-<a class="carzonelogo" href="@Url.Action("Index", "Home")">    <img src="~/images/logoresized.png" alt="Logo"></a>
-<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Olá, @Model.Nome</a>
+
+<div class="logo-container align-items-center">
+    <a class="logotipo" href="@Url.Action("Index", "Home")">C</a>
+    
+</div>
+<p class="carzonelogo">Carzone</p>
+<a class="navbar-usuario" asp-area="" asp-controller="Home" asp-action="Index">Olá, @Model.Nome</a>
 <button class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -11,44 +16,49 @@
         aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
-<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between"
-     id="barra-navegacao">
-    <ul class="navbar-nav flex-grow-1 sair-nav">
+
+<div class="navbar-collapse collapse justify-content-center">
+    <ul class="navbar-nav flex-center sair-nav">
         <li class="nav-item">
-            <a class="nav-link text-dark"               asp-area=""   asp-controller="Home"   asp-action="Index">Inicio</a>
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark"   asp-area=""   asp-controller="Veiculos"   asp-action="Index">Disponíveis</a>
+            <a class="nav-link" asp-area="" asp-controller="Veiculos" asp-action="Index">Disponíveis</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark"   asp-area=""   asp-controller="Vendas"   asp-action="Index">Vendas</a>
+            <a class="nav-link" asp-area="" asp-controller="Vendas" asp-action="Index">Vendas</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-dark"   asp-area=""   asp-controller="Clientes"   asp-action="Index">Clientes</a>
+            <a class="nav-link" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark"   asp-area=""   asp-controller="ModeloVeiculos"   asp-action="Index">Modelos</a>
+            <a class="nav-link" asp-area="" asp-controller="ModeloVeiculos" asp-action="Index">Modelos</a>
         </li>
         @if (Model.Perfil == CarZone.Entities.Enums.PerfilEnum.Admin)
         {
             <li class="nav-item">
-                <a class="nav-link text-dark"   asp-area=""   asp-controller="Pagamentos"   asp-action="Index">Pagamentos</a>
+                <a class="nav-link" asp-area="" asp-controller="Pagamentos" asp-action="Index">Pagamentos</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-dark"   asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a>
+                <a class="nav-link" asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-dark"  asp-area="" asp-controller="Usuario"  asp-action="Index">Usuários</a>
+                <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
             </li>
 
         }
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
-        </li>
+
     </ul>
 </div>
+
+    <ul class="navbar-nav flex-center sair">
+<li class="nav-item">
+    <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
+</li>
+</ul>
+
 
 
