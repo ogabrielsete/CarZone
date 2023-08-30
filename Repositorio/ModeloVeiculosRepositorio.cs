@@ -1,6 +1,7 @@
 ﻿using CarZone.Data;
 using CarZone.Models;
 using CarZone.Models.ViewModels;
+using CarZone.Repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarZone.Repositorio

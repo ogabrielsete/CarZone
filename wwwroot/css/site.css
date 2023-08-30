@@ -152,13 +152,20 @@ body {
 }
 
 .container {
-    display: flex;
+/*    display:block;*/  
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
     width: 80%;
 }
 
+.containerHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    width: 80%;
+}
 
 /* Box de veiculos */
 .boxVeiculos {
@@ -297,3 +304,25 @@ body {
     padding: 100px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
+
+.atalhos {
+    width: 83px;
+    height: 33px;
+    flex-shrink: 0;
+    color: #000;
+    font-family: 'Baloo 2';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-left: 142px;
+    margin-bottom: 95px;
+}
+
+    .atalhos > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2px;
+    }

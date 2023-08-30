@@ -130,6 +130,34 @@ namespace CarZone.Migrations
                     b.ToTable("Pagamento", (string)null);
                 });
 
+            modelBuilder.Entity("CarZone.Models.Tarefas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Concluido")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Descricao");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Tarefas", (string)null);
+                });
+
             modelBuilder.Entity("CarZone.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -311,7 +339,7 @@ namespace CarZone.Migrations
                     b.HasOne("CarZone.Models.Marca", "Marca")
                         .WithMany()
                         .HasForeignKey("MarcaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CarZone.Models.ModeloVeiculo", "Modelo")

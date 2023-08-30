@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using CarZone.Repositorio.Interfaces;
 
 namespace CarZone
 {
@@ -30,13 +31,14 @@ namespace CarZone
             builder.Services.AddScoped<IVendasRepositorio, VendasRepositorio>();
             builder.Services.AddScoped<IPagamentosRepositorio, PagamentoRepositorio>();
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            builder.Services.AddScoped<ITarefasRepositorio, TarefasRepositorio>();
             builder.Services.AddScoped<ISessao, Sessao>();
             builder.Services.AddScoped<IEmail, Email>();
 
             builder.Services.AddMvc().AddRazorPagesOptions(options =>
-             {
-                 options.Conventions.AddPageRoute("/Home/Index", "");
-             }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            {
+                options.Conventions.AddPageRoute("/Home/Index", "");
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             builder.Services.AddSession(x =>
             {

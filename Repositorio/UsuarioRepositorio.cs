@@ -1,5 +1,7 @@
 ﻿using CarZone.Data;
 using CarZone.Models;
+using CarZone.Repositorio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarZone.Repositorio
 {
@@ -34,7 +36,6 @@ namespace CarZone.Repositorio
         public Usuario Adicionar(Usuario usuario)
         {
             usuario.DataCadastro = DateTime.Now;
-            usuario.SetHash();
             _bancoContext.UsuarioDB.Add(usuario);
             _bancoContext.SaveChanges();
             return usuario;

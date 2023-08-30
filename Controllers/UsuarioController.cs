@@ -1,11 +1,10 @@
-﻿using CarZone.Filters;
-using CarZone.Models;
+﻿using CarZone.Models;
 using CarZone.Repositorio;
+using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarZone.Controllers
 {
-    [AdminLogado]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
@@ -17,7 +16,7 @@ namespace CarZone.Controllers
 
         public IActionResult Index()
         {
-            List<Usuario> mostrarUsuarios =  _usuarioRepositorio.GetAll();
+            List<Usuario> mostrarUsuarios = _usuarioRepositorio.GetAll();
             return View(mostrarUsuarios);
         }
 

@@ -9,7 +9,7 @@ namespace CarZone.Models
 
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Digite o nome do usuário")]
+        [Required(ErrorMessage = "Digite o nome do usuário")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Digite o login do usuário")]
@@ -27,7 +27,7 @@ namespace CarZone.Models
 
         public bool SenhaValida(string senha)
         {
-            return Senha == senha.GerarHash();
+            return Senha == senha;
         }
 
         public void SetHash()

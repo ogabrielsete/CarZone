@@ -1,5 +1,4 @@
 ﻿using CarZone.Models;
-using CarZone.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Text.Json;
@@ -8,11 +7,11 @@ using static CarZone.Controllers.ClientesController;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
-using CarZone.Filters;
+using CarZone.Repositorio.Interfaces;
 
 namespace CarZone.Controllers
 {
-    [UsuarioLogado]
+    //[UsuarioLogado]
     public class ClientesController : Controller
     {
         private readonly IClienteRepositorio _clienteRepositorio;

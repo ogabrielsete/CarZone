@@ -1,13 +1,12 @@
-﻿using CarZone.Filters;
-using CarZone.Models;
+﻿using CarZone.Models;
 using CarZone.Models.ViewModels;
-using CarZone.Repositorio;
+using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CarZone.Controllers
 {
-    [UsuarioLogado]
+    //[UsuarioLogado]
     public class ModeloVeiculosController : Controller
     {
         private readonly IModeloVeiculosRepositorio _modeloVeiculosRepositorio;

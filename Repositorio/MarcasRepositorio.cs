@@ -1,5 +1,6 @@
 ﻿using CarZone.Data;
 using CarZone.Models;
+using CarZone.Repositorio.Interfaces;
 
 namespace CarZone.Repositorio
 {

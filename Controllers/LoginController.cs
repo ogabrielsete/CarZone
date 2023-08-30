@@ -1,6 +1,7 @@
 ﻿using CarZone.Helper;
 using CarZone.Models;
 using CarZone.Repositorio;
+using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarZone.Controllers
@@ -49,9 +50,9 @@ namespace CarZone.Controllers
                 }
                 return View("Index");
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
-                TempData["MensagemErro"] = $"Não conseguimos realizar seu login, tente novamente. Detalhe do erro: { erro.Message}";
+                TempData["MensagemErro"] = $"Não conseguimos realizar seu login, tente novamente. Detalhe do erro: {erro.Message}";
 
                 return RedirectToAction("Index");
 
@@ -74,7 +75,7 @@ namespace CarZone.Controllers
 
                         bool emailEnviado = _email.Enviar(usuario.Email, "Nova senha - CarZone", msg);
 
-                        if (emailEnviado) 
+                        if (emailEnviado)
                         {
                             _usuarioRepositorio.Atualizar(usuario);
                             TempData["MensagemSucesso"] = $"Sua nova senha foi enviada para o e-mail cadastrado";
@@ -83,7 +84,7 @@ namespace CarZone.Controllers
                         {
                             TempData["MensagemErro"] = $"Não conseguimos enviar o e-mail. Por favor, tente novamente";
                         }
-                        
+
                         return RedirectToAction("Index", "Login");
                     }
 

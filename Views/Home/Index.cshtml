@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<CarZone.Models.Tarefas>
+@{
     ViewData["Title"] = "Inicio";
 }
 
@@ -6,25 +7,46 @@
     <h1 class="display-2 text-center">CARZONE</h1>
 </div>
 
-<div class="container">
-<div class="boxVeiculos">
-    <div class="numerosBox">73</div>
-    <div class="categoria">Veiculos</div>
-    <img class="imagebox" src="/images/boxveiculos.png"/>
+<div class="containerHome">
+    <div class="boxVeiculos">
+        <div class="numerosBox">73</div>
+        <div class="categoria">Veiculos</div>
+        <img class="imagebox" src="/images/boxveiculos.png" />
         <div class="detalhesVeiculos">➕ Detalhes</div>
+    </div>
+
+    <div class="boxClientes">
+        <div class="numerosBox">33</div>
+        <div class="categoria">Clientes</div>
+        <img class="iconcliente" src="/images/boxclientes.png" />
+        <div class="detalhesClientes">➕ Detalhes</div>
+    </div>
+
+    <div class="boxVendas">
+        <div class="numerosBox">27</div>
+        <div class="categoria">Vendas</div>
+        <img class="iconVendas" src="/images/boxvendas.png" />
+        <div class="detalhesVendas">➕ Detalhes</div>
+    </div>
+
+    <div class="atalhos">
+        <p>Atalhos</p>
+
+        <div style="margin-left: -50px; margin-top:-15px;">
+            <a href="@Url.Action("Criar", "Clientes")"><img src="/images/atalhocliente.png" /></a>
+            <a href="@Url.Action("Criar", "Veiculos")"><img src="/images/atalhoveiculo.png" style="margin-left: 57px;" /></a>
+        </div>
+
+        <div style="margin-left: -50px; margin-top:37px;">
+            <a href="@Url.Action("Criar", "Vendas")"><img src="/images/atalhovenda.png" /></a>
+            <img src="/images/relatorio.png" style="margin-left: 57px;" />
+        </div>
+    </div>
+
 </div>
 
-<div class="boxClientes">
-    <div class="numerosBox">33</div>
-    <div class="categoria">Clientes</div>
-    <img class="iconcliente" src="/images/boxclientes.png" />
-    <div class="detalhesClientes">➕ Detalhes</div>
+@* <div class="card-body">
+    @Html.Partial("_Tarefas", ViewBag.TodoListData as List<Tarefas>)
+    @Html.Partial("_CreateTodo")
 </div>
-
-<div class="boxVendas">
-    <div class="numerosBox">27</div>
-    <div class="categoria">Vendas</div>
-    <img class="iconVendas" src="/images/boxvendas.png" />
-    <div class="detalhesVendas">➕ Detalhes</div>
-</div>
-</div>
+ *@

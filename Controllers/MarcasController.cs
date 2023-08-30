@@ -1,12 +1,13 @@
-﻿using CarZone.Filters;
+﻿//using CarZone.Filters;
 using CarZone.Models;
 using CarZone.Repositorio;
+using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 
 namespace CarZone.Controllers
 {
-    [AdminLogado]
+    //[AdminLogado]
     public class MarcasController : Controller
     {
         private readonly IMarcasRepositorio _marcasRepositorio;
