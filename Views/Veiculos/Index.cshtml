@@ -5,7 +5,6 @@
 }
 
 <div class="text-center">
-    <h1 class="display-1">CarZone</h1>
     <p class="display-6">Lista de Veiculos</p>
     <br />
     <a class="btn btn-outline-danger btn-sm" asp-controller="Veiculos" asp-action="Criar">Adicionar Veiculos</a>
@@ -61,7 +60,7 @@
                             <td>@veiculos.StatusVenda</td>
                             <td>
                                 <a type="button" class="btn btn-outline" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="Atualizar"><i class="bi bi-pencil"></i></a>
-                                <a type="button" class="btn btn-outline btn-delete" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="ApagarConfirmacao"><i class="bi bi-trash"></i></a>
+                                <button type="button" class="btn btn-outline btn-delete" data-toggle="modal" data-target="#modalDelete_@veiculos.Id"><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>
                     }
@@ -71,3 +70,46 @@
     </div>
 
 </div>
+
+@foreach (VeiculosVM veiculos in Model)
+{
+    <div class="modal fade" id="modalDelete_@veiculos.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background-color:transparent; border:none;">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Deseja realmente excluir @veiculos.Modelo da placa @veiculos.Placa?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="Apagar">Excluir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="modal"]').click(function () {
+                var target = $(this).data('target');
+                $(target).modal('show');
+            });
+
+            $('.modal').on('click', '.btn-secondary', function () {
+                $(this).closest('.modal').modal('hide');
+            });
+
+            $('.modal').on('click', '[data-dismiss="modal"]', function () {
+                $(this).closest('.modal').modal('hide');
+            });
+        });
+    </script>
+}

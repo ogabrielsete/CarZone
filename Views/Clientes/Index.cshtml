@@ -4,7 +4,6 @@
 }
 
 <div class="text-center">
-    <h1 class="display-1">CarZone</h1>
     <p class="display-6">Lista de Clientes</p>
     <br />
     <a class="btn btn-outline-danger btn-sm" asp-controller="Clientes" asp-action="Criar">Cadastrar Cliente</a>
@@ -57,7 +56,7 @@
                         <td>@cliente.Endereco</td>
                         <td>
                             <a type="button" class="btn btn-outline" asp-controller="Clientes" asp-route-id="@cliente.Id" asp-action="AlterarCliente"><i class="bi bi-pencil"></i></a>
-                            <a type="button" class="btn btn-outline btn-delete" asp-controller="Clientes" asp-route-id="@cliente.Id" asp-action="ApagarConfirmacao"><i class="bi bi-trash"></i></a>
+                            <button type="button" class="btn btn-outline btn-delete" data-toggle="modal" data-target="#modalDelete_@cliente.Id"><i class="bi bi-trash"></i></button>
                         </td>
                     </tr>
                 }
@@ -66,6 +65,32 @@
         </tbody>
     </table>
     </div>
+
+@foreach (Cliente cliente in Model)
+{
+    string cpfFormatado = String.Format("{0:000\\.000\\.000\\-00}", long.Parse(cliente.CPF));
+
+    <div class="modal fade" id="modalDelete_@cliente.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background-color:transparent; border:none;">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Deseja realmente excluir <b>@cliente.Nome</b> com CPF <b>@cpfFormatado</b>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger" asp-controller="Clientes" asp-route-id="@cliente.Id" asp-action="Apagar">Excluir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 
      @section Scripts{
         <script>
@@ -88,6 +113,23 @@
             }
             const telElemento = document.getElementById('telefoneCliente');
             const telefone = telElemento.textContent;
-
+       
         </script>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="modal"]').click(function () {
+                var target = $(this).data('target');
+                $(target).modal('show');
+            });
+
+            $('.modal').on('click', '.btn-secondary', function () {
+                $(this).closest('.modal').modal('hide');
+            });
+
+            $('.modal').on('click', '[data-dismiss="modal"]', function () {
+                $(this).closest('.modal').modal('hide');
+            });
+        });
+    </script>
     } 
