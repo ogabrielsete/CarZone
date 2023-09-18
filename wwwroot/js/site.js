@@ -22,10 +22,10 @@ $(document).ready(function () {
             "sZeroRecords": "Nenhum registro encontrado",
             "sSearch": "Pesquisar",
             "oPaginate": {
-                "sNext": "Proximo",
+                "sNext": "Próximo",
                 "sPrevious": "Anterior",
                 "sFirst": "Primeiro",
-                "sLast": "Ultimo"
+                "sLast": "Último"
             },
             "oAria": {
                 "sSortAscending": ": Ordenar colunas de forma ascendente",

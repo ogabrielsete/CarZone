@@ -56,8 +56,8 @@
                         <td>@telefoneFormatado</td>
                         <td>@cliente.Endereco</td>
                         <td>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-route-id="@cliente.Id" asp-action="AlterarCliente">Editar</a>
-                            <a type="button" class="btn btn-outline-dark" asp-controller="Clientes" asp-route-id="@cliente.Id" asp-action="ApagarConfirmacao">Apagar</a>
+                            <a type="button" class="btn btn-outline" asp-controller="Clientes" asp-route-id="@cliente.Id" asp-action="AlterarCliente"><i class="bi bi-pencil"></i></a>
+                            <a type="button" class="btn btn-outline btn-delete" asp-controller="Clientes" asp-route-id="@cliente.Id" asp-action="ApagarConfirmacao"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                 }

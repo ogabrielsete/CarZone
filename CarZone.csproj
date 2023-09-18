@@ -28,6 +28,8 @@
   <ItemGroup>
     <Compile Remove="Controllers\AccountController.cs" />
     <Compile Remove="Migrations\20230605151400_Att08.Designer.cs" />
+    <Compile Remove="Migrations\20230623185405_Att-11.cs" />
+    <Compile Remove="Migrations\20230623185405_Att-11.Designer.cs" />
     <Compile Remove="Migrations\20230731190924_att-13.cs" />
     <Compile Remove="Migrations\20230731190924_att-13.Designer.cs" />
   </ItemGroup>

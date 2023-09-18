@@ -48,8 +48,8 @@
                             <td>@pag.CategoriaVeiculo</td>
 
                             <td>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-route-id="@pag.Id" asp-action="EditarPagamento">Editar</a>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="Pagamentos" asp-route-id="@pag.Id" asp-action="ApagarConfirmacao">Apagar</a>
+                                <a type="button" class="btn btn-outline" asp-controller="Pagamentos" asp-route-id="@pag.Id" asp-action="EditarPagamento"><i class="bi bi-pencil"></i></a>
+                                <a type="button" class="btn btn-outline btn-delete" asp-controller="Pagamentos" asp-route-id="@pag.Id" asp-action="ApagarConfirmacao"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     }

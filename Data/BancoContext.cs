@@ -19,7 +19,6 @@ namespace CarZone.Data
         public DbSet<ModeloVeiculo> ModeloVeiculosDB { get; set; }
         public DbSet<Pagamento> PagamentosDB { get; set; }
         public DbSet<Usuario> UsuarioDB { get; set; }
-        public DbSet<Tarefas> TarefasDB { get; set; }
 
 
         //protected override void OnConfiguring(DbContextOptionsBuilder options) =>
@@ -34,7 +33,6 @@ namespace CarZone.Data
             modelBuilder.ApplyConfiguration(new PagamentoMap());
             modelBuilder.ApplyConfiguration(new ClientesMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
-            modelBuilder.ApplyConfiguration(new TarefasMap());
 
             base.OnModelCreating(modelBuilder);
 

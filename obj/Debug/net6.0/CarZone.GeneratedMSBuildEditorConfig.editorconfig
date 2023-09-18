@@ -9,173 +9,169 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CarZone
 build_property.RootNamespace = CarZone
-build_property.ProjectDir = C:\Users\biel-\source\repos\CarZone\
+build_property.ProjectDir = C:\Users\Gabriel\source\repos\CarZone\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\biel-\source\repos\CarZone
+build_property.MSBuildProjectDirectory = C:\Users\Gabriel\source\repos\CarZone
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Clientes/AlterarCliente.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Clientes/AlterarCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQWx0ZXJhckNsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Clientes/ApagarConfirmacao.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Clientes/ApagarConfirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQXBhZ2FyQ29uZmlybWFjYW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Clientes/Criar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Clientes/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Clientes/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Home/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Home/Privacy.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Home/_Tarefas.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfVGFyZWZhcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/biel-/source/repos/CarZone/Views/Login/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Login/RedefinirSenha.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Login/RedefinirSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVkZWZpbmlyU2VuaGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Marcas/ApagarConfirmacao.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Marcas/ApagarConfirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEFwYWdhckNvbmZpcm1hY2FvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Marcas/Criar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Marcas/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXENyaWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Marcas/EditarMarca.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Marcas/EditarMarca.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEVkaXRhck1hcmNhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Marcas/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Marcas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/ModeloVeiculos/ApagarConfirmacao.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/ModeloVeiculos/ApagarConfirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvVmVpY3Vsb3NcQXBhZ2FyQ29uZmlybWFjYW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/ModeloVeiculos/Criar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/ModeloVeiculos/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvVmVpY3Vsb3NcQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/ModeloVeiculos/EditarModelo.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/ModeloVeiculos/EditarModelo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvVmVpY3Vsb3NcRWRpdGFyTW9kZWxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/ModeloVeiculos/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/ModeloVeiculos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvVmVpY3Vsb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Pagamentos/ApagarConfirmacao.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Pagamentos/ApagarConfirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvc1xBcGFnYXJDb25maXJtYWNhby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Pagamentos/Criar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Pagamentos/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvc1xDcmlhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Pagamentos/EditarPagamento.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Pagamentos/EditarPagamento.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvc1xFZGl0YXJQYWdhbWVudG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Pagamentos/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Pagamentos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Restrito/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Restrito/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdHJpdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Shared/Components/Menu/Default.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Shared/Components/Menu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Shared/Error.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Usuario/AlterarUsuario.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Usuario/AlterarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xBbHRlcmFyVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Usuario/ApagarConfirmacao.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Usuario/ApagarConfirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xBcGFnYXJDb25maXJtYWNhby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Usuario/Criar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Usuario/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmlhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Usuario/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Usuario/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Veiculos/ApagarConfirmacao.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Veiculos/ApagarConfirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcQXBhZ2FyQ29uZmlybWFjYW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Veiculos/Atualizar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Veiculos/Atualizar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcQXR1YWxpemFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Veiculos/Criar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Veiculos/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Veiculos/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Veiculos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVpY3Vsb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Vendas/ApagarConfirmacao.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Vendas/ApagarConfirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGFzXEFwYWdhckNvbmZpcm1hY2FvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Vendas/Criar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Vendas/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGFzXENyaWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Vendas/Editar.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Vendas/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGFzXEVkaXRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Vendas/Index.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Vendas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGFzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/_ViewImports.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/_ViewStart.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/biel-/source/repos/CarZone/Views/Shared/_Layout.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-y57kx07sb4
 
-[C:/Users/biel-/source/repos/CarZone/Views/Shared/_LayoutDeslogado.cshtml]
+[C:/Users/Gabriel/source/repos/CarZone/Views/Shared/_LayoutDeslogado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREZXNsb2dhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-byjilsg163

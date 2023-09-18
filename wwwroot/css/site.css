@@ -1,4 +1,4 @@
-html {
+﻿html {
     font-size: 14px;
 }
 
@@ -62,7 +62,7 @@ body {
 }
 
     .navbar-usuario:hover {
-        color: #3772FF;
+        color: lemonchiffon;
     }
 
 
@@ -109,7 +109,7 @@ body {
     line-height: 0%; /* 0px */
 }
 
-/* Estilos para o cont�iner da logo */
+/* Estilos para o contêiner da logo */
 .logo-container {
     position: relative;
     display: flex;
@@ -118,6 +118,7 @@ body {
     border-radius: 2px;
     height: 40px;
     align-items: center;
+    text-decoration: none !important;
 }
 
 /* Estilos para o link da logo */
@@ -132,8 +133,16 @@ body {
     font-weight: 700;
     line-height: 30px;
     letter-spacing: 1.7px;
-    text-decoration: none; /* Remova o sublinhado padr�o do link */
+    text-decoration: none !important; /* Remova o sublinhado padrão do link */
 }
+    .logotipo a {
+        text-decoration: none;
+        transition: color 0.3s; /* Adiciona uma transição suave de cor ao link */
+    }
+
+        .logotipo a:hover {
+            color: floralwhite; /* Cor diferente ao passar o mouse sobre o link */
+        }
 
 /* Logo da Home*/
 
@@ -143,12 +152,9 @@ body {
     font-family: Lawyer Gothic;
     font-size: 72px;
     font-style: normal;
-    font-weight: 700;
-    line-height: 0%;
-    margin-top: 58px;
-    margin-left: 320px;
-    width: 455px;
-    height: 84px;
+    font-weight: bold;
+    line-height: 0%; /* 0px */
+
 }
 
 .container {
@@ -215,6 +221,22 @@ body {
     margin-left: -20px;
     margin-top: -17px;
 }
+    .detalhesVeiculos a {
+        color: #080708;
+        font-family: 'Baloo 2';
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+        text-decoration: none;
+        transition: color 0.3s; /* Adiciona uma transição suave de cor ao link */
+    }
+
+        .detalhesVeiculos a:hover {
+            color: floralwhite; /* Cor diferente ao passar o mouse sobre o link */
+        }
+
 
 .imagebox {
     width: 51.279px;
@@ -261,6 +283,23 @@ body {
     text-align: center;
 }
 
+    .detalhesClientes a {
+        color: #080708;
+        font-family: 'Baloo 2';
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+        text-decoration: none;
+        transition: color 0.3s; /* Adiciona uma transição suave de cor ao link */
+    }
+
+        .detalhesClientes a:hover {
+            color: floralwhite; /* Cor diferente ao passar o mouse sobre o link */
+        }
+
+
 /* Box de Vendas */
 .boxVendas {
     width: 179px;
@@ -299,6 +338,23 @@ body {
     text-align: center;
 }
 
+
+    .detalhesVendas a {
+        color: #080708;
+        font-family: 'Baloo 2';
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+        text-decoration: none;
+        transition: color 0.3s; /* Adiciona uma transição suave de cor ao link */
+    }
+
+        .detalhesVendas a:hover {
+            color: floralwhite; /* Cor diferente ao passar o mouse sobre o link */
+        }
+
 .form-box {
     background-color: white;
     padding: 100px;
@@ -326,3 +382,11 @@ body {
         align-items: center;
         margin: 2px;
     }
+
+.btn-delete {
+    background-color:white; /* Cor de fundo específica para o botão de delete */
+    color: red;
+}
+
+
+/* Estilização DataTables*/

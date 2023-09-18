@@ -49,8 +49,8 @@
                             <td>@modelo.NomeModelo</td>                            
                             <td>@modelo.Marca</td> 
                             <td>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-route-id="@modelo.Id" asp-action="EditarModelo">Editar</a>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="ModeloVeiculos" asp-route-id="@modelo.Id" asp-action="ApagarConfirmacao">Apagar</a>
+                                <a type="button" class="btn btn-outline" asp-controller="ModeloVeiculos" asp-route-id="@modelo.Id" asp-action="EditarModelo"><i class="bi bi-pencil"></i></a>
+                                <a type="button" class="btn btn-outline btn-delete" asp-controller="ModeloVeiculos" asp-route-id="@modelo.Id" asp-action="ApagarConfirmacao"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     }

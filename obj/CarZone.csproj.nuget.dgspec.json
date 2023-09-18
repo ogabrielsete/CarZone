@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\biel-\\source\\repos\\CarZone\\CarZone.csproj": {}
+    "C:\\Users\\Gabriel\\source\\repos\\CarZone\\CarZone.csproj": {}
   },
   "projects": {
-    "C:\\Users\\biel-\\source\\repos\\CarZone\\CarZone.csproj": {
+    "C:\\Users\\Gabriel\\source\\repos\\CarZone\\CarZone.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\biel-\\source\\repos\\CarZone\\CarZone.csproj",
+        "projectUniqueName": "C:\\Users\\Gabriel\\source\\repos\\CarZone\\CarZone.csproj",
         "projectName": "CarZone",
-        "projectPath": "C:\\Users\\biel-\\source\\repos\\CarZone\\CarZone.csproj",
-        "packagesPath": "C:\\Users\\biel-\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\biel-\\source\\repos\\CarZone\\obj\\",
+        "projectPath": "C:\\Users\\Gabriel\\source\\repos\\CarZone\\CarZone.csproj",
+        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gabriel\\source\\repos\\CarZone\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\biel-\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -96,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400-preview.23274.1\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

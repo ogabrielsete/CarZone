@@ -60,8 +60,8 @@
                             <td>@veiculos.Placa</td>
                             <td>@veiculos.StatusVenda</td>
                             <td>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="Atualizar">Editar</a>
-                                <a type="button" class="btn btn-outline-dark" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="ApagarConfirmacao">Apagar</a>
+                                <a type="button" class="btn btn-outline" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="Atualizar"><i class="bi bi-pencil"></i></a>
+                                <a type="button" class="btn btn-outline btn-delete" asp-controller="Veiculos" asp-route-id="@veiculos.Id" asp-action="ApagarConfirmacao"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     }
