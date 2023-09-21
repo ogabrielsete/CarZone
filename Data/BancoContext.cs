@@ -1,12 +1,13 @@
 ﻿using CarZone.Data.Map;
 using CarZone.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace CarZone.Data
 {
-    public class BancoContext : DbContext
+    public class BancoContext : IdentityDbContext<IdentityUser>
     {
         public BancoContext(DbContextOptions<BancoContext> options) : base(options)
         {

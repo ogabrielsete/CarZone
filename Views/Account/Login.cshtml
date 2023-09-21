@@ -1,0 +1,31 @@
+﻿@using CarZone.Models.ViewModels;
+@model LoginVM;
+
+<div class="d-flex justify-content-center" style="text-align:center;">
+    <div class="form-box" style="background-color: white; padding: 100px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
+        <form class="col-12 text-align-center" asp-controller="Account" asp-action="Login" method="post">
+
+
+            <div class="logologin">
+                C
+            </div>
+
+            <input type="hidden" asp-for="ReturnUrl" />
+            <div class="form-group">
+                <label for="loginId" class="form-label">Login</label>
+                <input type="text" class="form-control" id="login" asp-for="UserName">
+                @Html.ValidationMessageFor(x => x.UserName)
+            </div>
+            <div class="form-group">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" asp-for="Password">
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+            <br />
+            <button class="col-12 align-self-auto btn btn-primary" type="submit">Entrar</button>
+            <br />
+            <p class="col-12 align-self-auto"><a asp-controller="Login" asp-action="" style="text-decoration: none;">Esqueci minha senha! </a></p>
+
+        </form>
+    </div>
+</div>

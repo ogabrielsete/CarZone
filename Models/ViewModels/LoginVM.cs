@@ -1,21 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace CarZone.Models.ViewModels
 {
-    [Keyless]
     public class LoginVM
     {
-        [Required(ErrorMessage = "Informe o nome!")]
+        [Required(ErrorMessage = "Informe o nome")]
         [Display(Name = "Usuário")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Informe a senha!")]
+        [Required(ErrorMessage = "Informe a senha")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Senha")]
         public string Password { get; set; }
-        public string? ReturnUrl { get; set; }
 
+        public string ReturnUrl { get; set; } = "";
     }
 }

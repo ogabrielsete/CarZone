@@ -2,12 +2,14 @@
 using CarZone.Models;
 using CarZone.Repositorio;
 using CarZone.Repositorio.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 
 namespace CarZone.Controllers
 {
-    //[AdminLogado]
+
+    [Authorize("Admin")]
     public class MarcasController : Controller
     {
         private readonly IMarcasRepositorio _marcasRepositorio;
@@ -21,6 +23,7 @@ namespace CarZone.Controllers
             return View(marcas);
         }
 
+        [Authorize("Admin")]
         public IActionResult Criar()
         {
             return View();
@@ -36,6 +39,7 @@ namespace CarZone.Controllers
             Marca marcas = _marcasRepositorio.ListarPorId(id);
             return View(marcas);
         }
+
 
         public IActionResult Apagar(int id)
         {

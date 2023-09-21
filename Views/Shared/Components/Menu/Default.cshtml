@@ -35,8 +35,8 @@
         <li class="nav-item">
             <a class="nav-link" asp-area="" asp-controller="ModeloVeiculos" asp-action="Index">Modelos</a>
         </li>
-        @if (Model.Perfil == CarZone.Entities.Enums.PerfilEnum.Admin)
-        {
+@*         @if (Model.Perfil == CarZone.Entities.Enums.PerfilEnum.Admin)
+        { *@
             <li class="nav-item">
                 <a class="nav-link" asp-area="" asp-controller="Pagamentos" asp-action="Index">Pagamentos</a>
             </li>
@@ -49,7 +49,7 @@
                 <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
             </li>
 
-        }
+        @* } *@
 
     </ul>
 </div>

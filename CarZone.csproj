@@ -8,39 +8,37 @@
 
   <ItemGroup>
     <Compile Remove="Areas\**" />
-    <Compile Remove="Services\**" />
-    <Compile Remove="Views\Account\**" />
+    <Compile Remove="Views\Shared\Components\**" />
     <Compile Remove="Views\Veiculo\**" />
     <Content Remove="Areas\**" />
-    <Content Remove="Services\**" />
-    <Content Remove="Views\Account\**" />
+    <Content Remove="Views\Shared\Components\**" />
     <Content Remove="Views\Veiculo\**" />
     <EmbeddedResource Remove="Areas\**" />
-    <EmbeddedResource Remove="Services\**" />
-    <EmbeddedResource Remove="Views\Account\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\**" />
     <EmbeddedResource Remove="Views\Veiculo\**" />
     <None Remove="Areas\**" />
-    <None Remove="Services\**" />
-    <None Remove="Views\Account\**" />
+    <None Remove="Views\Shared\Components\**" />
     <None Remove="Views\Veiculo\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\AccountController.cs" />
     <Compile Remove="Migrations\20230605151400_Att08.Designer.cs" />
     <Compile Remove="Migrations\20230623185405_Att-11.cs" />
     <Compile Remove="Migrations\20230623185405_Att-11.Designer.cs" />
     <Compile Remove="Migrations\20230731190924_att-13.cs" />
     <Compile Remove="Migrations\20230731190924_att-13.Designer.cs" />
+    <Compile Remove="Models\RedefinirSenha.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Login\RedefinirSenha.cshtml" />
     <Content Remove="Views\Shared\_LayoutLogado.cshtml" />
     <Content Remove="Views\Shared\_Logado.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -61,8 +59,6 @@
 
   <ItemGroup>
     <None Include="Views\Login\Index.cshtml" />
-    <None Include="Views\Login\RedefinirSenha.cshtml" />
-    <None Include="Views\Shared\Components\Menu\Default.cshtml" />
     <None Include="Views\Usuario\AlterarUsuario.cshtml" />
     <None Include="Views\Usuario\ApagarConfirmacao.cshtml" />
     <None Include="Views\Usuario\Criar.cshtml" />
