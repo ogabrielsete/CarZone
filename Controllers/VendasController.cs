@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CarZone.Controllers
 {
-    [Authorize
+    [Authorize]
 
     public class VendasController : Controller
     {
