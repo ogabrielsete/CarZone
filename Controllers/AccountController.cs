@@ -29,7 +29,7 @@ namespace CarZone.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM loginVM)
         {
-            if (!ModelState.IsValid) return View(loginVM);
+            if (ModelState.IsValid) return View(loginVM);
 
             var user = await _userManager.FindByNameAsync(loginVM.UserName);
             if(user != null)

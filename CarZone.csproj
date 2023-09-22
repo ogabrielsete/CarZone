@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Login\RedefinirSenha.cshtml" />
     <Content Remove="Views\Shared\_LayoutLogado.cshtml" />
     <Content Remove="Views\Shared\_Logado.cshtml" />
   </ItemGroup>
@@ -55,14 +54,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Login\Index.cshtml" />
-    <None Include="Views\Usuario\AlterarUsuario.cshtml" />
-    <None Include="Views\Usuario\ApagarConfirmacao.cshtml" />
-    <None Include="Views\Usuario\Criar.cshtml" />
-    <None Include="Views\Usuario\Index.cshtml" />
   </ItemGroup>
 
 </Project>

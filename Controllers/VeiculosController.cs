@@ -1,13 +1,14 @@
 ﻿using CarZone.Models;
 using CarZone.Models.ViewModels;
 using CarZone.Repositorio.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarZone.Controllers
 {
-    //[UsuarioLogado]
+    [Authorize]
 
     public class VeiculosController : Controller
     {

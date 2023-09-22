@@ -8,9 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Security.Claims;
 
+
 namespace CarZone.Controllers
 {
-
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly BancoContext _bancoContext;

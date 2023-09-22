@@ -10,5 +10,7 @@ namespace CarZone.Models
 
         [Required(ErrorMessage = "Digite a senha")]
         public string Senha { get; set; }
+        public string ReturnUrl { get; set; }
+
     }
 }

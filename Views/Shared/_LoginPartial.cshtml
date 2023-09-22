@@ -40,18 +40,17 @@
                             <a class="nav-link" asp-area="" asp-controller="ModeloVeiculos" asp-action="Index">Modelos</a>
                         </li>
 
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a>
+                    </li>
+                }
+
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Pagamentos" asp-action="Index">Pagamentos</a>
                         </li>
-                @if (User.IsInRole("Admin"))
-                {
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a>
-                        </li>
-                }
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
-                        </li>
+
 
 
                     </ul>

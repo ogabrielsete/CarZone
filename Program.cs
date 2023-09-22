@@ -37,7 +37,6 @@ namespace CarZone
             builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             builder.Services.AddScoped<IVendasRepositorio, VendasRepositorio>();
             builder.Services.AddScoped<IPagamentosRepositorio, PagamentoRepositorio>();
-            builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             builder.Services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
