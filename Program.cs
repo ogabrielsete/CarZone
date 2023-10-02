@@ -39,16 +39,10 @@ namespace CarZone
             builder.Services.AddScoped<IPagamentosRepositorio, PagamentoRepositorio>();
             builder.Services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddScoped<IEmailService, MailgunEmailService>();
 
-            builder.Services.AddAuthorization(options =>
-            {
-                options.AddPolicy("Admin",
-                    politica =>
-                    {
-                        politica.RequireRole("Admin");
-                    });
-            });
-
+            builder.Services.AddAuthorization();
+            builder.Services.AddHttpClient();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -76,11 +70,10 @@ namespace CarZone
 
             app.UseEndpoints(endpoints =>
             {
-                
-
                 endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Account}/{action=Login}/{id?}");
+
             });
 
 

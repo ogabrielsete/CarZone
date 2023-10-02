@@ -4,20 +4,29 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>abcf53ed-5e45-4c88-ae53-cc716cca9242</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Areas\**" />
+    <Compile Remove="Views\Login\**" />
     <Compile Remove="Views\Shared\Components\**" />
+    <Compile Remove="Views\Usuario\**" />
     <Compile Remove="Views\Veiculo\**" />
     <Content Remove="Areas\**" />
+    <Content Remove="Views\Login\**" />
     <Content Remove="Views\Shared\Components\**" />
+    <Content Remove="Views\Usuario\**" />
     <Content Remove="Views\Veiculo\**" />
     <EmbeddedResource Remove="Areas\**" />
+    <EmbeddedResource Remove="Views\Login\**" />
     <EmbeddedResource Remove="Views\Shared\Components\**" />
+    <EmbeddedResource Remove="Views\Usuario\**" />
     <EmbeddedResource Remove="Views\Veiculo\**" />
     <None Remove="Areas\**" />
+    <None Remove="Views\Login\**" />
     <None Remove="Views\Shared\Components\**" />
+    <None Remove="Views\Usuario\**" />
     <None Remove="Views\Veiculo\**" />
   </ItemGroup>
 
@@ -28,6 +37,7 @@
     <Compile Remove="Migrations\20230731190924_att-13.cs" />
     <Compile Remove="Migrations\20230731190924_att-13.Designer.cs" />
     <Compile Remove="Models\RedefinirSenha.cs" />
+    <Compile Remove="Services\InfoEmail.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +47,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="FluentEmail.Mailgun" Version="3.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
@@ -49,6 +60,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

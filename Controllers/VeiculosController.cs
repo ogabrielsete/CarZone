@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 namespace CarZone.Controllers
 {
     [Authorize]
-
     public class VeiculosController : Controller
     {
         private readonly IVeiculosRepositorio _veiculosRepositorio;

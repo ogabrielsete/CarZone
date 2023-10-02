@@ -258,6 +258,7 @@ C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\MessagePack.dll
 C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\MessagePack.Annotations.dll
+C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\Microsoft.Build.dll
@@ -493,4 +494,9 @@ C:\Users\Gabriel\source\repos\CarZone\obj\Debug\net6.0\refint\CarZone.dll
 C:\Users\Gabriel\source\repos\CarZone\obj\Debug\net6.0\CarZone.pdb
 C:\Users\Gabriel\source\repos\CarZone\obj\Debug\net6.0\CarZone.genruntimeconfig.cache
 C:\Users\Gabriel\source\repos\CarZone\obj\Debug\net6.0\ref\CarZone.dll
-C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\FluentEmail.Core.dll
+C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\FluentEmail.Mailgun.dll
+C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\MailKit.dll
+C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\MimeKit.dll
+C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\NETCore.MailKit.dll
+C:\Users\Gabriel\source\repos\CarZone\bin\Debug\net6.0\BouncyCastle.Crypto.dll

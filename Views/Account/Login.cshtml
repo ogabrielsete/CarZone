@@ -1,6 +1,10 @@
 ﻿@using CarZone.Models.ViewModels;
 @model LoginVM;
 
+@{
+    ViewData["Title"] = "Login";
+}
+
 <div class="d-flex justify-content-center" style="text-align:center;">
     <div class="form-box" style="background-color: white; padding: 100px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
         <form class="col-12 text-align-center" asp-controller="Account" asp-action="Login" method="post">
@@ -24,7 +28,7 @@
             <br />
             <button class="col-12 align-self-auto btn btn-primary" type="submit">Entrar</button>
             <br />
-            <p class="col-12 align-self-auto"><a asp-controller="Login" asp-action="" style="text-decoration: none;">Esqueci minha senha! </a></p>
+            <p class="col-12 align-self-auto"><a asp-controller="Account" asp-action="ForgotPassword" style="text-decoration: none;">Esqueci minha senha! </a></p>
 
         </form>
     </div>

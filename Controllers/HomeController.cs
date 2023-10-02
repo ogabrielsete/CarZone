@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Security.Claims;
 
-
 namespace CarZone.Controllers
 {
     [Authorize]
+
     public class HomeController : Controller
     {
         private readonly BancoContext _bancoContext;
@@ -38,7 +38,8 @@ namespace CarZone.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var requestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier ?? "N/A";
+            return View(new ErrorViewModel { RequestId = requestId });
         }
     }
 }

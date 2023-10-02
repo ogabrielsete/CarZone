@@ -1,5 +1,4 @@
-﻿
-using CarZone.Models;
+﻿using CarZone.Models;
 using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

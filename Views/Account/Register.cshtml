@@ -1,5 +1,8 @@
-﻿@using CarZone.Models.ViewModels;
-@model LoginVM;
+﻿@model CarZone.Models.ViewModels.LoginVM
+
+@{
+    ViewData["Title"] = "Registrar";
+}
 
 <div class="d-flex justify-content-center" style="text-align:center;">
     <div class="form-box" style="background-color: white; padding: 100px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
@@ -17,6 +20,12 @@
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" class="btn btn-success " value="Registrar" />
             </div>

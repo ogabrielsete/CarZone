@@ -73,6 +73,7 @@ namespace CarZone.Services
                     _userManager.AddToRoleAsync(user, "Admin").Wait();
                 }
             }
+
         }
     }
 }

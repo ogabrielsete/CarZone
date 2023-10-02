@@ -9,7 +9,8 @@ using System.Text.RegularExpressions;
 namespace CarZone.Controllers
 {
 
-    [Authorize("Admin")]
+    [Authorize]
+
     public class MarcasController : Controller
     {
         private readonly IMarcasRepositorio _marcasRepositorio;

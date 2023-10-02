@@ -8,10 +8,11 @@ using System.Net.Http;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using CarZone.Repositorio.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarZone.Controllers
 {
-    //[UsuarioLogado]
+    [Authorize]
     public class ClientesController : Controller
     {
         private readonly IClienteRepositorio _clienteRepositorio;
