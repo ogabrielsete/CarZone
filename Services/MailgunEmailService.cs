@@ -16,8 +16,8 @@ namespace CarZone.Services
 
         public async Task SendEmailAsync(string to, string subject, string body)
         {
-            var apiKey = _configuration["MailgunSettings:ApiKey"];
-            var domain = _configuration["MailgunSettings:Domain"];
+            var apiKey = _configuration["SecretsStuff:codeA"];
+            var domain = _configuration["SecretsStuff:codeD"];
             var from = "biel-sr@hotmail.com"; // Defina o e-mail do remetente
 
             var content = new FormUrlEncodedContent(new[]

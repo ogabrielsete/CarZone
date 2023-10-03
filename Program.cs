@@ -43,6 +43,10 @@ namespace CarZone
 
             builder.Services.AddAuthorization();
             builder.Services.AddHttpClient();
+
+            var secret = builder.Configuration["SecretsStuff:codeA"];
+            var otherSecret = builder.Configuration["SecretsStuff:codeD"];
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
