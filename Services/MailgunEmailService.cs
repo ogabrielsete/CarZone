@@ -18,7 +18,7 @@ namespace CarZone.Services
         {
             var apiKey = _configuration["SecretsStuff:codeA"];
             var domain = _configuration["SecretsStuff:codeD"];
-            var from = "biel-sr@hotmail.com"; // Defina o e-mail do remetente
+            var from = "gabriel@carzone.com"; // Defina o e-mail do remetente
 
             var content = new FormUrlEncodedContent(new[]
         {

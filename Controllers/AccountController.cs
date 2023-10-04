@@ -79,7 +79,7 @@ namespace CarZone.Controllers
                                                      Request.Scheme);
 
                     var subject = "Confirmação de Cadastro";
-                    var body = $"Por favor, confirme o seu cadastro clicando no link a seguir: {confirmationLink}";
+                    var body = $"Obrigado por se cadastrar {user.UserName}. Por favor, confirme o seu cadastro clicando no link a seguir: {confirmationLink}";
 
                     await _emailService.SendEmailAsync(user.Email, subject, body);
 
