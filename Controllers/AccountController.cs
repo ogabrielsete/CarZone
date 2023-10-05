@@ -4,7 +4,9 @@ using FluentEmail.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using NETCore.MailKit.Core;
+using System.Security.Claims;
 
 namespace CarZone.Controllers
 {
@@ -35,18 +37,32 @@ namespace CarZone.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM loginVM)
         {
-            if (ModelState.IsValid) return View(loginVM);
+            //if (ModelState.IsValid) return View(loginVM);
 
             var user = await _userManager.FindByNameAsync(loginVM.UserName);
             if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
+                var result = await _signInManager.PasswordSignInAsync(user.UserName, loginVM.Password, false, false);
                 if (result.Succeeded)
                 {
-                    if (string.IsNullOrEmpty(loginVM.ReturnUrl))
+
+                    // Se os dados do usuário estão corretos, o acesso é confirmado
+                    // Encontra o usuário pelo Username
+                    var usuario = await _userManager.FindByNameAsync(loginVM.UserName);
+
+                    // Se confirmou o e-mail, acesso é liberado, se não, acesso é rejeitado e reportado uma mensagem 
+                    if (user.EmailConfirmed)
                     {
                         return RedirectToAction("Index", "Home");
                     }
+                    else
+                    {
+                        // Caso o e-mail não seja confirmado, não permite acesso e reporta o erro
+                        TempData["MensagemErro"] = $"Por favor, confirme sua conta antes de fazer o login e tente novamente.";
+                        await _signInManager.SignOutAsync();
+
+                    }
+
                     return RedirectToAction("Index", "Home");
                 }
             }
