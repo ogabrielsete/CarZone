@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using NETCore.MailKit.Core;
+using NuGet.Protocol;
 using System.Security.Claims;
 
 namespace CarZone.Controllers
@@ -95,7 +96,7 @@ namespace CarZone.Controllers
                                                      Request.Scheme);
 
                     var subject = "Confirmação de Cadastro";
-                    var body = $"Obrigado por se cadastrar {user.UserName}. Por favor, confirme o seu cadastro clicando no link a seguir: {confirmationLink}";
+                    var body = $"Obrigado por se cadastrar {user.UserName}. Por favor, confirme o seu cadastro clicando <a href='{confirmationLink}'>aqui</a>";
 
                     await _emailService.SendEmailAsync(user.Email, subject, body);
 
@@ -132,6 +133,71 @@ namespace CarZone.Controllers
             }
         }
 
+        
+        public IActionResult ForgotPassword()
+        {
+            return View();
+            
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(LoginVM model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            string linkReset = Url.Action("ResetPassword", "Account", 
+                new {userid = user.Id, token = resetToken}, 
+                protocol: HttpContext.Request.Scheme);
+
+            var subject = "Redefinição de senha";
+
+            var corpoEmail = $"Olá {user.UserName}! " +
+                $"Nós recebemos a solicitação de redefinição de senha da sua conta. " +
+                $"Para redefinir sua senha, <a href='{linkReset}'>clique aqui!</a>";
+
+            await _emailService.SendEmailAsync(user.Email, subject, corpoEmail);
+
+            ViewBag.Msg = "O link para redefinir a senha foi enviado.";
+
+            return View();
+
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            //Here i create the object of ResetPasswordViewModel
+            var obj = new ResetPasswordVM()
+            {
+                UserId = userId,
+                Token = token
+            };
+
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM model)
+        {
+            // Encontra o usuário
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            // Redefinição de senha em 3 parametros
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+
+            if (result.Succeeded)
+            {
+                //if succeed you can redirect to login page
+                ViewBag.Msg = "Senha redefinida com sucesso!";
+            }
+            else
+            {
+                ViewBag.Msg = "Redefinição de senha falhou!";
+            }
+
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Logout()

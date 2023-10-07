@@ -18,14 +18,14 @@ namespace CarZone.Services
         {
             var apiKey = _configuration["SecretsStuff:codeA"];
             var domain = _configuration["SecretsStuff:codeD"];
-            var from = "gabriel@carzone.com"; // Defina o e-mail do remetente
+            var from = "gabriel@carzone.com"; // O e-mail do remetente
 
             var content = new FormUrlEncodedContent(new[]
         {
             new KeyValuePair<string, string>("from", from),
             new KeyValuePair<string, string>("to", to),
             new KeyValuePair<string, string>("subject", subject),
-            new KeyValuePair<string, string>("text", body)
+            new KeyValuePair<string, string>("html", body)
         });
 
             var requestUri = $"https://api.mailgun.net/v3/{domain}/messages";
