@@ -29,8 +29,6 @@ namespace CarZone.Repositorio
             return cliente;
         }
 
-
-
         public Cliente Atualizar(Cliente attCliente)
         {
             Cliente clienteDB = ListarPorId(attCliente.Id);

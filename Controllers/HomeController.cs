@@ -1,5 +1,6 @@
 ﻿using CarZone.Data;
 using CarZone.Models;
+using CarZone.Models.ViewModels;
 using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -24,9 +25,20 @@ namespace CarZone.Controllers
 
         public async Task<IActionResult> Index()
         {
+            int totalClientes = _bancoContext.ClientesDB.Count();
+            int totalVeiculos = _bancoContext.VeiculosDB.Count();
+            int totalVendas = _bancoContext.VendasDB.Count();
 
-                return View();
-            
+
+            HomepageVM viewModel = new HomepageVM
+            {
+                TotalClientes = totalClientes,
+                TotalVeiculos = totalVeiculos,
+                TotalVendas = totalVendas
+            };
+
+            return View(viewModel);
+
         }
 
 

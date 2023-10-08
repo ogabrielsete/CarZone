@@ -28,8 +28,6 @@ namespace CarZone
 
             builder.Services.AddSession();
 
-
-
             builder.Services.AddScoped<IVeiculosRepositorio, VeiculosRepositorio>();
             builder.Services.AddScoped<IMarcasRepositorio, MarcasRepositorio>();
             builder.Services.AddScoped<IModeloVeiculosRepositorio, ModeloVeiculosRepositorio>();
@@ -79,8 +77,6 @@ namespace CarZone
                 pattern: "{controller=Account}/{action=Login}/{id?}");
 
             });
-
-
 
             app.Run();
 

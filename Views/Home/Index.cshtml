@@ -1,6 +1,10 @@
-﻿@{
+﻿@model CarZone.Models.ViewModels.HomepageVM 
+
+@{
     ViewData["Title"] = "Inicio";
 }
+
+
 
 <div class="logo-home">
     <h1 class="display-2 text-center">CARZONE</h1>
@@ -8,21 +12,23 @@
 
 <div class="containerHome">
     <div class="boxVeiculos">
-        <div class="numerosBox">73</div>
+        <div class="numerosBox">
+            @Model.TotalVeiculos
+        </div>
         <div class="categoria">Veiculos</div>
         <img class="imagebox" src="/images/boxveiculos.png" />
         <div class="detalhesVeiculos"><a href="@Url.Action("Index", "Veiculos")">➕ Detalhes<a/></div>
     </div>
 
     <div class="boxClientes">
-        <div class="numerosBox">33</div>
+        <div class="numerosBox">@Model.TotalClientes</div>
         <div class="categoria">Clientes</div>
         <img class="iconcliente" src="/images/boxclientes.png" />
         <div class ="detalhesClientes"><a href="@Url.Action("Index", "Clientes")">➕ Detalhes</a></div>
     </div>
 
     <div class="boxVendas">
-        <div class="numerosBox">27</div>
+        <div class="numerosBox">@Model.TotalVendas</div>
         <div class="categoria">Vendas</div>
         <img class="iconVendas" src="/images/boxvendas.png" />
         <div class="detalhesVendas"><a href="@Url.Action("Index", "Vendas")">➕ Detalhes</a></div>

@@ -20,10 +20,6 @@ namespace CarZone.Data
         public DbSet<ModeloVeiculo> ModeloVeiculosDB { get; set; }
         public DbSet<Pagamento> PagamentosDB { get; set; }
 
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder options) =>
-        //    options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True");
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ModeloVeiculoMap());
