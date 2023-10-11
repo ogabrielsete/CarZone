@@ -13,67 +13,82 @@ namespace CarZone.Services
             _roleManager = roleManager;
         }
 
-        public void SeedRoles()
+        //public void SeedRoles()
+        //{
+        //    if (!_roleManager.RoleExistsAsync("Member").Result)
+        //    {
+        //        IdentityRole role = new IdentityRole();
+        //        role.Name = "Member";
+        //        role.NormalizedName = "MEMBER";
+        //        IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
+        //    }
+
+        //    if (!_roleManager.RoleExistsAsync("Admin").Result)
+        //    {
+        //        IdentityRole role = new IdentityRole();
+        //        role.Name = "Admin";
+        //        role.NormalizedName = "ADMIN";
+        //        IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
+        //    }
+        //}
+
+        //public void SeedUsers()
+        //{
+        //    if(_userManager.FindByEmailAsync("usuario").Result == null)
+        //    {
+        //        IdentityUser user = new IdentityUser();
+        //        user.UserName = "usuario";
+        //        user.Email = "usuario";
+        //        user.NormalizedUserName = "USUARIO";
+        //        user.NormalizedEmail = "USUARIO";
+        //        user.EmailConfirmed = true;
+        //        user.LockoutEnabled = false;
+        //        user.SecurityStamp = Guid.NewGuid().ToString();
+
+
+        //        IdentityResult result = _userManager.CreateAsync(user, "#Teste123").Result;
+
+        //        if(result.Succeeded)
+        //        {
+        //            _userManager.AddToRoleAsync(user, "Member").Wait();
+        //        }
+        //    }
+
+        //    if (_userManager.FindByEmailAsync("admin").Result == null)
+        //    {
+        //        IdentityUser user = new IdentityUser();
+        //        user.UserName = "admin";
+        //        user.Email = "admin";
+        //        user.NormalizedUserName = "ADMIN";
+        //        user.NormalizedEmail = "ADMIN";
+        //        user.EmailConfirmed = true;
+        //        user.LockoutEnabled = false;
+        //        user.SecurityStamp = Guid.NewGuid().ToString();
+
+
+        //        IdentityResult result = _userManager.CreateAsync(user, "#Teste321").Result;
+
+        //        if (result.Succeeded)
+        //        {
+        //            _userManager.AddToRoleAsync(user, "Admin").Wait();
+        //        }
+        //    }
+
+        //}
+
+        public void UpdateUserRole(string userEmail, string newRole)
         {
-            if (!_roleManager.RoleExistsAsync("Member").Result)
+            IdentityUser user = _userManager.FindByEmailAsync(userEmail).Result;
+
+            if (user != null)
             {
-                IdentityRole role = new IdentityRole();
-                role.Name = "Member";
-                role.NormalizedName = "MEMBER";
-                IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
+                // Remova o usuário de todas as roles atuais
+                var currentRoles = _userManager.GetRolesAsync(user).Result;
+                _userManager.RemoveFromRolesAsync(user, currentRoles).Wait();
+
+                // Adicione o usuário à nova role
+                _userManager.AddToRoleAsync(user, newRole).Wait();
             }
-
-            if (!_roleManager.RoleExistsAsync("Admin").Result)
-            {
-                IdentityRole role = new IdentityRole();
-                role.Name = "Admin";
-                role.NormalizedName = "ADMIN";
-                IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
-            }
-        }
-
-        public void SeedUsers()
-        {
-            if(_userManager.FindByEmailAsync("usuario").Result == null)
-            {
-                IdentityUser user = new IdentityUser();
-                user.UserName = "usuario";
-                user.Email = "usuario";
-                user.NormalizedUserName = "USUARIO";
-                user.NormalizedEmail = "USUARIO";
-                user.EmailConfirmed = true;
-                user.LockoutEnabled = false;
-                user.SecurityStamp = Guid.NewGuid().ToString();
-
-
-                IdentityResult result = _userManager.CreateAsync(user, "#Teste123").Result;
-
-                if(result.Succeeded)
-                {
-                    _userManager.AddToRoleAsync(user, "Member").Wait();
-                }
-            }
-
-            if (_userManager.FindByEmailAsync("admin").Result == null)
-            {
-                IdentityUser user = new IdentityUser();
-                user.UserName = "admin";
-                user.Email = "admin";
-                user.NormalizedUserName = "ADMIN";
-                user.NormalizedEmail = "ADMIN";
-                user.EmailConfirmed = true;
-                user.LockoutEnabled = false;
-                user.SecurityStamp = Guid.NewGuid().ToString();
-
-
-                IdentityResult result = _userManager.CreateAsync(user, "#Teste321").Result;
-
-                if (result.Succeeded)
-                {
-                    _userManager.AddToRoleAsync(user, "Admin").Wait();
-                }
-            }
-
         }
     }
 }

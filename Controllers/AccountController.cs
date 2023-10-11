@@ -22,7 +22,6 @@ namespace CarZone.Controllers
             _emailService = email;
         }
 
-
         public IActionResult Login(string returnUrl)
         {
             return View(new LoginVM()
@@ -34,8 +33,6 @@ namespace CarZone.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM loginVM)
         {
-            //if (ModelState.IsValid) return View(loginVM);
-
             var user = await _userManager.FindByNameAsync(loginVM.UserName);
             if (user != null)
             {
@@ -96,7 +93,17 @@ namespace CarZone.Controllers
 
                     await _emailService.SendEmailAsync(user.Email, subject, body);
 
-                    // Redirecione para a página de lggin
+                    // Se o username tiver o final _admin, ele é admin se não ele é membro
+                    if (user.UserName.Contains("_admin"))
+                    {
+                        await _userManager.AddToRoleAsync(user, "Admin");
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, "Member");
+                    }
+
+                    // Redireciona para a página de lggin
                     return RedirectToAction("Login");
                 }
                 else
@@ -120,7 +127,7 @@ namespace CarZone.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, token);
 
             if (result.Succeeded)
-            {                
+            {
                 return View("EmailConfirmed");
             }
             else
@@ -129,32 +136,48 @@ namespace CarZone.Controllers
             }
         }
 
-        
+
         public IActionResult ForgotPassword()
         {
             return View();
-            
+
         }
 
         [HttpPost]
         public async Task<IActionResult> ForgotPassword(LoginVM model)
         {
-            var user = await _userManager.FindByEmailAsync(model.Email);
-            var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    var user = await _userManager.FindByEmailAsync(model.Email);
+                    var userEmail = await _userManager.IsEmailConfirmedAsync(user);
+                    var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
 
-            string linkReset = Url.Action("ResetPassword", "Account", 
-                new {userid = user.Id, token = resetToken}, 
-                protocol: HttpContext.Request.Scheme);
+                    if (userEmail == true)
+                    {
 
-            var subject = "Redefinição de senha";
+                        string linkReset = Url.Action("ResetPassword", "Account",
+                            new { userid = user.Id, token = resetToken },
+                            protocol: HttpContext.Request.Scheme);
 
-            var corpoEmail = $"Olá {user.UserName}! " +
-                $"Nós recebemos a solicitação de redefinição de senha da sua conta. " +
-                $"Para redefinir sua senha, <a href='{linkReset}'>clique aqui!</a>";
+                        var subject = "Redefinição de senha";
 
-            await _emailService.SendEmailAsync(user.Email, subject, corpoEmail);
+                        var corpoEmail = $"Olá {user.UserName}! " +
+                            $"Nós recebemos a solicitação de redefinição de senha da sua conta. " +
+                            $"Para redefinir sua senha, <a href='{linkReset}'>clique aqui!</a>";
 
-            ViewBag.Msg = "O link para redefinir a senha foi enviado.";
+                        await _emailService.SendEmailAsync(user.Email, subject, corpoEmail);
+
+                        TempData["MensagemSucesso"] = "O link para redefinir a senha foi enviado.";
+                    }
+                }
+            }
+
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = $"Antes de solicitar a recuperação de senha, por favor, confirme o seu endereço de e-mail. (Detalhe:{e.Message})";
+            }
 
             return View();
 
@@ -163,7 +186,7 @@ namespace CarZone.Controllers
         [HttpGet]
         public IActionResult ResetPassword(string userId, string token)
         {
-            //Here i create the object of ResetPasswordViewModel
+            // Aqui eu crio um objeto da ResetPasswordVM
             var obj = new ResetPasswordVM()
             {
                 UserId = userId,
@@ -184,7 +207,7 @@ namespace CarZone.Controllers
 
             if (result.Succeeded)
             {
-                //if succeed you can redirect to login page
+                //Se tiver sucesso, mostra que a senha foi redefinida.
                 ViewBag.Msg = "Senha redefinida com sucesso!";
             }
             else

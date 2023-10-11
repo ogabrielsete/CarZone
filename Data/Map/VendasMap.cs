@@ -26,11 +26,15 @@ namespace CarZone.Data.Map
                 .HasColumnName("DataVenda")
                 .HasColumnType("datetime")
                 .HasMaxLength(10);
-            
+
             builder.Property(x => x.Meses)
                 .IsRequired()
                 .HasColumnName("Meses")
                 .HasColumnType("int");
+
+            builder.Property(x => x.VendedorId)                
+                .HasColumnName("VendedorId")
+                .HasColumnType("nvarchar(450)");
 
             // Relacionamentos com a tabela "Clientes"
             //builder.HasOne(x => x.Cliente)
@@ -54,6 +58,11 @@ namespace CarZone.Data.Map
             builder.HasOne(x => x.Marca)
                 .WithMany()
                 .HasForeignKey(x => x.MarcaId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Vendedor)
+                .WithMany()
+                .HasForeignKey(x => x.VendedorId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

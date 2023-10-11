@@ -2,8 +2,10 @@
 using CarZone.Models.ViewModels;
 using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace CarZone.Controllers
 {
@@ -16,17 +18,21 @@ namespace CarZone.Controllers
         private readonly IModeloVeiculosRepositorio _modeloVeiculosRepositorio;
         private readonly IPagamentosRepositorio _pagamentosRepositorio;
         private readonly IMarcasRepositorio _marcasRepositorio;
+        private readonly UserManager<IdentityUser> _userManager;
         public VendasController(IVendasRepositorio vendasRepositorio,
                                 IClienteRepositorio clienteRepositorio,
                                    IModeloVeiculosRepositorio modeloVeiculosRepositorio,
                                     IPagamentosRepositorio pagamentosRepositorio,
-                                    IMarcasRepositorio marcasRepositorio)
+                                    IMarcasRepositorio marcasRepositorio,
+                                    UserManager<IdentityUser> userManager)
         {
             _vendasRepositorio = vendasRepositorio;
             _clienteRepositorio = clienteRepositorio;
             _modeloVeiculosRepositorio = modeloVeiculosRepositorio;
             _pagamentosRepositorio = pagamentosRepositorio;
             _marcasRepositorio = marcasRepositorio;
+            _userManager = userManager;
+
 
         }
         public IActionResult Index()
@@ -115,6 +121,7 @@ namespace CarZone.Controllers
                 if (ModelState.IsValid)
                 {
                     // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Vendas
+                    venda.VendedorId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     _vendasRepositorio.Adicionar(venda);
                     TempData["MensagemSucesso"] = "Venda cadastrada com sucesso";
                     return RedirectToAction("Index");

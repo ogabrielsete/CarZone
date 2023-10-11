@@ -130,53 +130,6 @@ namespace CarZone.Migrations
                     b.ToTable("Pagamento", (string)null);
                 });
 
-            modelBuilder.Entity("CarZone.Models.Usuario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasMaxLength(10)
-                        .HasColumnType("datetime")
-                        .HasColumnName("DataAtualizacao");
-
-                    b.Property<DateTime>("DataCadastro")
-                        .HasMaxLength(10)
-                        .HasColumnType("datetime")
-                        .HasColumnName("DataCadastro");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("VARCHAR(255)")
-                        .HasColumnName("Email");
-
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("VARCHAR(15)")
-                        .HasColumnName("Login");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("NVARCHAR(50)")
-                        .HasColumnName("Nome");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("VARCHAR(128)")
-                        .HasColumnName("Senha");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Usuarios", (string)null);
-                });
-
             modelBuilder.Entity("CarZone.Models.Veiculo", b =>
                 {
                     b.Property<int>("Id")
@@ -250,6 +203,11 @@ namespace CarZone.Migrations
                     b.Property<int>("PagamentoId")
                         .HasColumnType("int");
 
+                    b.Property<string>("VendedorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("VendedorId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
@@ -259,6 +217,8 @@ namespace CarZone.Migrations
                     b.HasIndex("ModeloId");
 
                     b.HasIndex("PagamentoId");
+
+                    b.HasIndex("VendedorId");
 
                     b.ToTable("Venda", (string)null);
                 });
@@ -519,6 +479,12 @@ namespace CarZone.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Vendedor")
+                        .WithMany()
+                        .HasForeignKey("VendedorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Cliente");
 
                     b.Navigation("Marca");
@@ -526,6 +492,8 @@ namespace CarZone.Migrations
                     b.Navigation("Modelo");
 
                     b.Navigation("Pagamento");
+
+                    b.Navigation("Vendedor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
@@ -37,6 +38,11 @@ namespace CarZone.Models
         [Required(ErrorMessage = "Escolha um modelo de veiculo")]
         public int ModeloId { get; set; }
         public ModeloVeiculo Modelo { get; set; }
+
+        public string? VendedorId { get; set; }
+
+        [ForeignKey("VendedorId")]
+        public IdentityUser? Vendedor {  get; set; }
 
     }
 }
