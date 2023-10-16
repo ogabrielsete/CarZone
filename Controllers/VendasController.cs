@@ -43,7 +43,7 @@ namespace CarZone.Controllers
             var listarMarca = _marcasRepositorio.GetAll();
 
             var listarVendas = new List<VendasVM>();
-            List<Venda> vendas = _vendasRepositorio.GetAll();
+            List<Venda> vendas = _vendasRepositorio.GetAll();            
             foreach (var item in vendas)
             {
                 var listar = new VendasVM();
@@ -54,6 +54,8 @@ namespace CarZone.Controllers
                 listar.Cliente = listarCliente.FirstOrDefault(x => x.Id == item.ClienteId).Nome;
                 listar.Pagamento = listarPagamento.FirstOrDefault(x => x.Id == item.PagamentoId).NomePagamento;
                 listar.Meses = item.Meses;
+
+
                 listarVendas.Add(listar);
             }
 

@@ -4,6 +4,8 @@ using FluentEmail.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Org.BouncyCastle.Crypto.Generators;
 
 namespace CarZone.Controllers
 {
@@ -12,14 +14,17 @@ namespace CarZone.Controllers
 
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IEmailService _emailService;
         public AccountController(UserManager<IdentityUser> userManager,
                                     SignInManager<IdentityUser> signInManager,
-                                    IEmailService email)
+                                    IEmailService email,
+                                    RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailService = email;
+            _roleManager = roleManager;
         }
 
         public IActionResult Login(string returnUrl)
@@ -36,11 +41,10 @@ namespace CarZone.Controllers
             var user = await _userManager.FindByNameAsync(loginVM.UserName);
             if (user != null)
             {
+                // Se os dados do usuário estão corretos, o acesso é confirmado
                 var result = await _signInManager.PasswordSignInAsync(user.UserName, loginVM.Password, false, false);
                 if (result.Succeeded)
                 {
-
-                    // Se os dados do usuário estão corretos, o acesso é confirmado
                     // Encontra o usuário pelo Username
                     var usuario = await _userManager.FindByNameAsync(loginVM.UserName);
 
@@ -54,10 +58,12 @@ namespace CarZone.Controllers
                         // Caso o e-mail não seja confirmado, não permite acesso e reporta o erro
                         TempData["MensagemErro"] = $"Por favor, confirme sua conta antes de fazer o login e tente novamente.";
                         await _signInManager.SignOutAsync();
-
                     }
-
                     return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["MensagemErro"] = "Usuário ou senha incorreto, verifique e tente novamente.";
                 }
             }
             ModelState.AddModelError("", "Falha ao realizar login!");
@@ -226,5 +232,94 @@ namespace CarZone.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
+
+
+        // Página de Usuarios
+
+        [Authorize]
+        public IActionResult Index()
+        {
+            var users = _userManager.Users.ToList();
+            var userRoles = new Dictionary<string, string>();
+
+            foreach (var user in users)
+            {
+                var roles = _userManager.GetRolesAsync(user).Result;
+                var role = roles.FirstOrDefault();
+                userRoles[user.Id] = role;
+            }
+
+            ViewBag.UserRoles = userRoles;
+            return View(users);
+
+        }
+
+        [Authorize]
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var model = new EditUserVM
+            {
+                UserId = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                Role = roles.FirstOrDefault(), // Defina o papel atual aqui
+                AvailableRoles = _roleManager.Roles
+                    .Select(r => new SelectListItem { Value = r.Name, Text = r.Name })
+                    .ToList()
+            };
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> EditUser(EditUserVM model)
+        {
+            var user = await _userManager.FindByIdAsync(model.UserId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.UserName = model.UserName;
+            user.Email = model.Email;
+
+            // Verifique se o usuário tem a "Admin"
+            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+
+            if (isAdmin)
+            {
+                if (!user.UserName.Contains("_admin"))
+                {
+                    // Remove "Admin" e adiciona a "Member"
+                    await _userManager.RemoveFromRoleAsync(user, "Admin");
+                    await _userManager.AddToRoleAsync(user, "Member");
+                }
+            }
+            else
+            {
+                // Se conter regra para ser admin, remove "Member" e adiciona a "Admin"
+                if (user.UserName.Contains("_admin"))
+                {
+                    await _userManager.RemoveFromRoleAsync(user, "Member");
+                    await _userManager.AddToRoleAsync(user, "Admin");
+                }
+            }
+
+            return RedirectToAction("Index");
+
+        }
+
     }
 }
+

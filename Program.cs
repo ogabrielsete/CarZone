@@ -25,6 +25,7 @@ namespace CarZone
             builder.Services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<BancoContext>()
                 .AddDefaultTokenProviders();
+            builder.Services.AddScoped<RoleManager<IdentityRole>>();
 
             builder.Services.AddSession();
 

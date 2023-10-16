@@ -204,7 +204,6 @@ namespace CarZone.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("VendedorId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("VendedorId");
 
@@ -482,8 +481,7 @@ namespace CarZone.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Vendedor")
                         .WithMany()
                         .HasForeignKey("VendedorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Cliente");
 

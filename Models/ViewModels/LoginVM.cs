@@ -4,7 +4,6 @@ namespace CarZone.Models.ViewModels
 {
     public class LoginVM
     {
-
         [Required(ErrorMessage = "Informe o nome")]
         [Display(Name = "Usuário")]
         public string UserName { get; set; }

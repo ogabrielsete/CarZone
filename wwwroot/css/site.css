@@ -134,14 +134,15 @@ body {
     line-height: 30px;
     letter-spacing: 1.7px;
     text-decoration: none !important; /* Remova o sublinhado padrão do link */
+    transition-duration: 2s;
 }
-    .logotipo a {
+    /*.logotipo a {
         text-decoration: none;
-        transition: color 0.3s; /* Adiciona uma transição suave de cor ao link */
-    }
+        transition: color 1.3s;*/ /* Adiciona uma transição suave de cor ao link */
+    /*}*/
 
-        .logotipo a:hover {
-            color: floralwhite; /* Cor diferente ao passar o mouse sobre o link */
+        .logotipo:hover {
+            color: rgb(0, 23, 0, 0.80); /* Cor diferente ao passar o mouse sobre o link */
         }
 
 /* Logo da Home*/

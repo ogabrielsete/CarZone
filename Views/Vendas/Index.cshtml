@@ -34,13 +34,14 @@
             <thead>
                 <tr>
                     <th class="d-none">Id</th>
-                    <th scope="col"class="text-center">Data da Venda</th>
+                    <th scope="col" class="text-center">Data da Venda</th>
                     <th scope="col" class="text-center">Marca</th>
-                    <th scope="col"class="text-center">Veiculo</th>
-                    <th scope="col"class="text-center">Cliente</th>
-                    <th scope="col"class="text-center">Pagamento</th>
-                    <th scope="col"class="text-center">Qtd Meses</th>
-                    <th scope="col"class="text-center"></th>
+                    <th scope="col" class="text-center">Veiculo</th>
+                    <th scope="col" class="text-center">Cliente</th>
+                    <th scope="col" class="text-center">Pagamento</th>
+                    <th scope="col" class="text-center">Qtd Meses</th>
+                    <th scope="col" class="text-center">Vendedor</th>
+                    <th scope="col" class="text-center"></th>
                 </tr>
             </thead>
             <tbody>
@@ -59,6 +60,7 @@
                             <td>@sell.Cliente</td>
                             <td>@sell.Pagamento</td>
                             <td>@sell.Meses</td>
+                            <td>@User.Identity.Name</td>
                             <td>
                                 <a type="button" class="btn btn-outline" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="Editar"><i class="bi bi-pencil"></i></a>
                                 <button type="button" class="btn btn-outline btn-delete" data-toggle="modal" data-target="#modalDelete_@sell.Id"><i class="bi bi-trash"></i></button>

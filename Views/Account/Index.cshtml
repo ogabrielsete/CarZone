@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityUser>
+
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger text-center" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<div class="text-center">
+    <p class="display-6">Lista de Usários</p>
+</div>
+
+<div class="text-center">
+    <table id="paginacao" class="table-th">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">Usuários</th>
+                <th scope="col" class="text-center">Email</th>
+                <th scope="col" class="text-center">Função</th>
+                <th scope="col" class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@ViewBag.UserRoles[user.Id]</td>
+                    <td>
+                        <a type="button" class="btn btn-outline" asp-controller="Account" asp-route-id="@user.Id" asp-action="EditUser"><i class="bi bi-pencil"></i></a>
+                        <button type="button" class="btn btn-outline btn-delete" data-toggle="modal" data-target="#modalDelete_@user.Id"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="modal"]').click(function () {
+            var target = $(this).data('target');
+            $(target).modal('show');
+        });
+
+        $('.modal').on('click', '.btn-secondary', function () {
+            $(this).closest('.modal').modal('hide');
+        });
+
+        $('.modal').on('click', '[data-dismiss="modal"]', function () {
+            $(this).closest('.modal').modal('hide');
+        });
+    });
+</script>
+    }

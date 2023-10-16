@@ -66,6 +66,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\imageUser\" />
   </ItemGroup>
 
 </Project>
