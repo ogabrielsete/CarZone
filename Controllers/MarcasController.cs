@@ -1,4 +1,4 @@
-﻿//using CarZone.Filters;
+﻿
 using CarZone.Models;
 using CarZone.Repositorio;
 using CarZone.Repositorio.Interfaces;
@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 namespace CarZone.Controllers
 {
 
-    [Authorize]
+    [Authorize(Roles ="Admin")]
 
     public class MarcasController : Controller
     {

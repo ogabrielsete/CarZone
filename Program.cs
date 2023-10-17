@@ -23,9 +23,11 @@ namespace CarZone
             builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(options =>
                 options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True"));
             builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddRoles<IdentityRole>()
+                .AddRoleManager<RoleManager<IdentityRole>>()
                 .AddEntityFrameworkStores<BancoContext>()
                 .AddDefaultTokenProviders();
-            builder.Services.AddScoped<RoleManager<IdentityRole>>();
+            //builder.Services.AddScoped<RoleManager<IdentityRole>>();
 
             builder.Services.AddSession();
 
@@ -42,6 +44,11 @@ namespace CarZone
 
             builder.Services.AddAuthorization();
             builder.Services.AddHttpClient();
+
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = new PathString("/Account/AccessDenied");
+            });
 
             var secret = builder.Configuration["SecretsStuff:codeA"];
             var otherSecret = builder.Configuration["SecretsStuff:codeD"];
@@ -73,6 +80,13 @@ namespace CarZone
 
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapControllerRoute(
+                    name: "accessdenied",
+                    pattern: "acessonegado",
+                    defaults: new { controller = "Restrito", action = "Index" });
+
+
                 endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Account}/{action=Login}/{id?}");

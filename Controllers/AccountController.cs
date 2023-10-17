@@ -236,7 +236,7 @@ namespace CarZone.Controllers
 
         // Página de Usuarios
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var users = _userManager.Users.ToList();
@@ -318,6 +318,12 @@ namespace CarZone.Controllers
 
             return RedirectToAction("Index");
 
+        }
+
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
     }
