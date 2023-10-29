@@ -54,7 +54,14 @@ namespace CarZone.Controllers
                 listar.Cliente = listarCliente.FirstOrDefault(x => x.Id == item.ClienteId).Nome;
                 listar.Pagamento = listarPagamento.FirstOrDefault(x => x.Id == item.PagamentoId).NomePagamento;
                 listar.Meses = item.Meses;
+                listar.VendedorId = item.VendedorId;
 
+                if(item.VendedorId != null)
+                {
+                    var nomeVendedor = _userManager.FindByIdAsync(item.VendedorId).Result;
+                    listar.VendedorId = nomeVendedor.UserName;
+                    
+                }
 
                 listarVendas.Add(listar);
             }

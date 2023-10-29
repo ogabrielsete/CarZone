@@ -60,7 +60,7 @@
                             <td>@sell.Cliente</td>
                             <td>@sell.Pagamento</td>
                             <td>@sell.Meses</td>
-                            <td>@User.Identity.Name</td>
+                            <td>@sell.VendedorId</td>
                             <td>
                                 <a type="button" class="btn btn-outline" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="Editar"><i class="bi bi-pencil"></i></a>
                                 <button type="button" class="btn btn-outline btn-delete" data-toggle="modal" data-target="#modalDelete_@sell.Id"><i class="bi bi-trash"></i></button>

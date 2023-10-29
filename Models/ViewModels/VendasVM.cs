@@ -22,5 +22,8 @@ namespace CarZone.Models.ViewModels
         public string Modelo { get; set; }
         public int MarcaId { get; set; }
         public string Marca { get; set; }
+
+        public string? VendedorId { get; set; }
+        public IdentityUser? Vendedor {  get; set; }
     }
 }
