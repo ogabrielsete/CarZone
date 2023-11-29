@@ -53,9 +53,7 @@
                             <td>@veiculos.Marca</td>
                             <td>@veiculos.Modelo</td>
                             <td>@veiculos.Ano</td>
-                            <td>
-                             @Html.DisplayFor( x => veiculos.Preco)
-                            </td>
+                            <td>@veiculos.Preco.ToString("c2")</td>
                             <td>@veiculos.Placa</td>
                             <td>@veiculos.StatusVenda</td>
                             <td>

@@ -44,6 +44,14 @@
     </div>
 
     <div class="row mb-3">
+        <label for="valorVenda" class="col-sm-2 col-form-label">Preço da Venda</label>
+        <div class="col-sm-10">
+            <input type="any" asp-for="ValorVenda" class="form-control">
+                @Html.ValidationMessageFor(x => x.ValorVenda)
+        </div>
+    </div>
+
+    <div class="row mb-3">
         <label for="Marcas" class="col-sm-2 col-form-label">Marcas</label>
         <div class="col-sm-10">
             <select name="MarcaId" asp-for="MarcaId" class="form-select" asp-items="@ViewBag.Marcas">

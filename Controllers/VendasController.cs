@@ -55,6 +55,7 @@ namespace CarZone.Controllers
                 listar.Pagamento = listarPagamento.FirstOrDefault(x => x.Id == item.PagamentoId).NomePagamento;
                 listar.Meses = item.Meses;
                 listar.VendedorId = item.VendedorId;
+                listar.ValorVenda = item.ValorVenda;
 
                 if(item.VendedorId != null)
                 {

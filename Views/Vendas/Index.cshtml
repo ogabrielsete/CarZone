@@ -38,9 +38,7 @@
                     <th scope="col" class="text-center">Marca</th>
                     <th scope="col" class="text-center">Veiculo</th>
                     <th scope="col" class="text-center">Cliente</th>
-                    <th scope="col" class="text-center">Pagamento</th>
-                    <th scope="col" class="text-center">Qtd Meses</th>
-                    <th scope="col" class="text-center">Vendedor</th>
+                    <th scope="col" class="text-center">Preço</th>
                     <th scope="col" class="text-center"></th>
                 </tr>
             </thead>
@@ -58,10 +56,9 @@
                             <td>@sell.Marca</td>
                             <td>@sell.Modelo</td>
                             <td>@sell.Cliente</td>
-                            <td>@sell.Pagamento</td>
-                            <td>@sell.Meses</td>
-                            <td>@sell.VendedorId</td>
+                            <td>@sell.ValorVenda.ToString("c2")</td>
                             <td>
+                                <a type="button" class="btn btn-outline" data-toggle="modal" data-target="#modalDetalhes_@sell.Id"><i class="bi bi-info-circle"></i> </a>
                                 <a type="button" class="btn btn-outline" asp-controller="Vendas" asp-route-id="@sell.Id" asp-action="Editar"><i class="bi bi-pencil"></i></a>
                                 <button type="button" class="btn btn-outline btn-delete" data-toggle="modal" data-target="#modalDelete_@sell.Id"><i class="bi bi-trash"></i></button>
                             </td>
@@ -95,6 +92,54 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modalDetalhes_@vendas.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background-color:transparent; border:none;">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                    
+                    <table class="table">
+                        <tr>
+                            <th>Data da Venda</th>
+                            <td>@vendas.DataVenda.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                        <tr>
+                            <th>Marca</th>
+                            <td>@vendas.Marca</td>
+                        </tr>
+                        <tr>
+                            <th>Veiculo</th>
+                            <td>@vendas.Modelo</td>
+                        </tr>
+                        <tr>
+                            <th>Cliente</th>
+                            <td>@vendas.Cliente</td>
+                        </tr>
+                        <tr>
+                            <th>Preço</th>
+                            <td>@vendas.ValorVenda.ToString("c2")</td>
+                        </tr>
+                        <tr>
+                            <th>Pagamento</th>
+                            <td>@vendas.Pagamento</td>
+                        </tr>
+                        <tr>
+                            <th>Qtd Meses</th>
+                            <td>@vendas.Meses</td>
+                        </tr>
+                        <tr>
+                            <th>Vendedor</th>
+                            <td>@vendas.VendedorId</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
 }
 
 

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CarZone.Models.Venda>
+
+<h2 style="text-align: center;">Relatório de Vendas</h2>
+
+<nav class="navbar navbar-dark">
+    <div class="">
+        <form class="navbar-form">
+            <div class="form-group" style="margin-left: 455px;">
+                <label for="minDate">Data Inicial</label>
+                <input type="date" class="form-control" name="minDate" value=@ViewData["minDate"] />
+            </div>
+            <div class="form-group" style="margin-left: 455px;">
+                <label for="maxDate">Data Final</label>
+                <input type="date" class="form-control" name="maxDate" value=@ViewData["maxDate"] />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success" style="margin-left: 500px;">Filtrar</button>
+        </form>
+    </div>
+</nav>
+
+<hr />
+<div class="panel panel-primary">
+    <div class="panel-heading" style="text-align:center">
+        <h3 class="panel-title">Total de Vendas: @Model.Count()</h3>
+        <h3 class="panel-title">Valor Total de Vendas: @Model.Sum(obj => obj.ValorVenda).ToString("c")</h3>
+        <br />
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="success">
+                    <th>Data da Venda</th>
+                    <th>Cliente</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Valor da Venda</th>
+                    <th>Vendedor</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.DataVenda.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Marca.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Modelo.NomeModelo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValorVenda)
+                        </td>
+                        <td>
+                            @if (item.Vendedor == null)
+                            {
+                                <p>Não encontrado</p>
+                            }
+                            else
+                            {
+                                @item.Vendedor.UserName
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

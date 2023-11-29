@@ -203,6 +203,9 @@ namespace CarZone.Migrations
                     b.Property<int>("PagamentoId")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("ValorVenda")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("VendedorId")
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("VendedorId");

@@ -16,6 +16,7 @@ namespace CarZone.Models.ViewModels
 
         public int ClienteId { get; set; }
         public string Cliente { get; set; }
+        public decimal ValorVenda { get; set; }
         public int PagamentoId { get; set; }
         public string Pagamento { get; set; }
         public int ModeloId { get; set; }
@@ -24,6 +25,6 @@ namespace CarZone.Models.ViewModels
         public string Marca { get; set; }
 
         public string? VendedorId { get; set; }
-        public IdentityUser? Vendedor {  get; set; }
+        public IdentityUser? Vendedor { get; set; }
     }
 }

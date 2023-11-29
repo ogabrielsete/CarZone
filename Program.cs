@@ -41,6 +41,7 @@ namespace CarZone
             builder.Services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddScoped<IEmailService, MailgunEmailService>();
+            builder.Services.AddScoped<RelatorioVendaService>();
 
             builder.Services.AddAuthorization();
             builder.Services.AddHttpClient();
