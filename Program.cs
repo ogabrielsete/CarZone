@@ -27,7 +27,6 @@ namespace CarZone
                 .AddRoleManager<RoleManager<IdentityRole>>()
                 .AddEntityFrameworkStores<BancoContext>()
                 .AddDefaultTokenProviders();
-            //builder.Services.AddScoped<RoleManager<IdentityRole>>();
 
             builder.Services.AddSession();
 
@@ -69,8 +68,6 @@ namespace CarZone
             app.UseStaticFiles();
             app.UseRouting();
 
-            //CriarPerfisUsuarios(app);
-
 
             app.UseSession();
 
@@ -96,16 +93,6 @@ namespace CarZone
 
             app.Run();
 
-            //void CriarPerfisUsuarios(WebApplication app)
-            //{
-            //    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
-            //    using (var scope = scopedFactory.CreateScope())
-            //    {
-            //        var service = scope.ServiceProvider.GetService<ISeedUserRoleInitial>();
-            //        service.SeedUsers();
-            //        service.SeedRoles();
-            //    }
-            //}
         }
     }
 }

@@ -141,9 +141,9 @@ body {
         transition: color 1.3s;*/ /* Adiciona uma transição suave de cor ao link */
     /*}*/
 
-        .logotipo:hover {
-            color: rgb(0, 23, 0, 0.80); /* Cor diferente ao passar o mouse sobre o link */
-        }
+    .logotipo:hover {
+        color: rgb(0, 23, 0, 0.80); /* Cor diferente ao passar o mouse sobre o link */
+    }
 
 /* Logo da Home*/
 
@@ -155,11 +155,10 @@ body {
     font-style: normal;
     font-weight: bold;
     line-height: 0%; /* 0px */
-
 }
 
 .container {
-/*    display:block;*/  
+    /*    display:block;*/
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
@@ -222,6 +221,7 @@ body {
     margin-left: -20px;
     margin-top: -17px;
 }
+
     .detalhesVeiculos a {
         color: #080708;
         font-family: 'Baloo 2';
@@ -311,7 +311,6 @@ body {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     margin-left: 25px;
     margin-top: 42px;
-
 }
 
 .iconVendas {
@@ -385,7 +384,11 @@ body {
     }
 
 .btn-delete {
-    background-color:white; /* Cor de fundo específica para o botão de delete */
+    background-color: white; /* Cor de fundo específica para o botão de delete */
     color: red;
 }
 
+.chart {
+    margin-left: 25px;
+    margin-top: 40px;
+}
