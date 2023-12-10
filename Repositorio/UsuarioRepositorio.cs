@@ -14,11 +14,6 @@ namespace CarZone.Repositorio
             _userManager = userManager;
         }
 
-        public LoginVM Editar(LoginVM loginVM)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<LoginVM> ListarPorId(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -30,10 +25,8 @@ namespace CarZone.Repositorio
 
             var loginVM = new LoginVM
             {
-                // Mapeie os dados do IdentityUser para o LoginVM aqui
                 UserName = user.UserName,
                 Email = user.Email,
-                // ... outras propriedades do LoginVM
             };
 
             return loginVM;

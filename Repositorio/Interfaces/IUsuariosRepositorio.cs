@@ -1,10 +1,10 @@
 ﻿using CarZone.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
 
 namespace CarZone.Repositorio.Interfaces
 {
     public interface IUsuariosRepositorio
     {
         Task<LoginVM> ListarPorId (string id);
-        LoginVM Editar(LoginVM loginVM);
     }
 }

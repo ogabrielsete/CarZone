@@ -40,12 +40,6 @@ namespace CarZone.Controllers
             return View(cliente);
         }
 
-        //public IActionResult ApagarConfirmacao(int id)
-        //{
-        //    Cliente cliente = _clienteRepositorio.ListarPorId(id);
-        //    return View(cliente);
-        //}
-
         public IActionResult Apagar(int id)
         {
 

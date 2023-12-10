@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using CarZone.Services;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 namespace CarZone
 {
@@ -22,7 +24,25 @@ namespace CarZone
             var connectionString = builder.Configuration.GetConnectionString("DataBase");
             builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(options =>
                 options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True"));
-            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            builder.Services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[] { new CultureInfo("pt-BR") };
+                options.DefaultRequestCulture = new RequestCulture("pt-BR");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>(
+                options =>
+                {
+                    options.Password.RequireDigit = true;
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequireNonAlphanumeric = true;
+                    options.Password.RequireUppercase = true;
+                    options.Password.RequireLowercase = true;
+                })
                 .AddRoles<IdentityRole>()
                 .AddRoleManager<RoleManager<IdentityRole>>()
                 .AddEntityFrameworkStores<BancoContext>()
@@ -50,6 +70,7 @@ namespace CarZone
                 options.AccessDeniedPath = new PathString("/Account/AccessDenied");
             });
 
+            // API Mailgun
             var secret = builder.Configuration["SecretsStuff:codeA"];
             var otherSecret = builder.Configuration["SecretsStuff:codeD"];
 
@@ -62,6 +83,7 @@ namespace CarZone
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseRequestLocalization();
 
             app.UseHttpsRedirection();
 

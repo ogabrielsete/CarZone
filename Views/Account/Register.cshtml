@@ -4,9 +4,28 @@
     ViewData["Title"] = "Registrar";
 }
 
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+
+
 <div class="d-flex justify-content-center" style="text-align:center;">
     <div class="form-box" style="background-color: white; padding: 100px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
         <form class="col-12 text-align-center" asp-controller="Account" asp-action="Register" method="post">
+
 
             <p style="font-size: 25px; margin-bottom: 30px; font-family:'Baloo 2';">
                 Cadastrar usuário
@@ -16,24 +35,54 @@
             <div class="form-group">
                 <label asp-for="UserName"> </label>
                 <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
+                @Html.ValidationMessageFor(x => x.UserName)
+                </div>
             <div class="form-group">
                 <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <input asp-for="Password" class="form-control" autocomplete="current-password" />
+                @Html.ValidationMessageFor(x => x.Password) 
             </div>
+
             <div class="form-group">
                 <label asp-for="Email"></label>
                 <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+               @Html.ValidationMessageFor(x => x.Email) 
             </div>
+
 
             <div class="form-group">
                 <br />
                 <input type="submit" class="btn btn-success " value="Registrar" />
             </div>
 
+
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Método personalizado para verificar a força da senha
+            $.validator.addMethod("pwcheck", function (value) {
+                // Verifica se a senha tem pelo menos um número, um caractere especial,
+                // uma letra maiúscula e uma letra minúscula
+                var isNumberPresent = /\d/.test(value);
+                var isSpecialCharPresent = /[\W_]/.test(value);
+                var isUppercasePresent = /[A-Z]/.test(value);
+                var isLowercasePresent = /[a-z]/.test(value);
+
+                return isNumberPresent && isSpecialCharPresent &&
+                    isUppercasePresent && isLowercasePresent;
+            }, "Sua senha deve conter pelo menos um número, um caractere especial, uma letra maiúscula e uma letra minúscula.");
+
+            // Ativa a validação ao alterar o valor do campo de senha
+            $("#Password").on('input', function () {
+                $(this).valid();
+            });
+        });
+    </script>
+}

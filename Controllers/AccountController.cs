@@ -1,11 +1,8 @@
-﻿using CarZone.Models;
-using CarZone.Models.ViewModels;
-using FluentEmail.Core;
+﻿using CarZone.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Org.BouncyCastle.Crypto.Generators;
 
 namespace CarZone.Controllers
 {
@@ -27,7 +24,7 @@ namespace CarZone.Controllers
             _roleManager = roleManager;
         }
 
-        public IActionResult Login(string returnUrl)
+        public async Task<IActionResult> Login(string? returnUrl = null)
         {
             return View(new LoginVM()
             {
@@ -35,89 +32,13 @@ namespace CarZone.Controllers
             });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginVM loginVM)
+        [HttpGet]
+        public async Task<ActionResult> Register(string returnUrl = null)
         {
-            var user = await _userManager.FindByNameAsync(loginVM.UserName);
-            if (user != null)
+            return View(new LoginVM()
             {
-                // Se os dados do usuário estão corretos, o acesso é confirmado
-                var result = await _signInManager.PasswordSignInAsync(user.UserName, loginVM.Password, false, false);
-                if (result.Succeeded)
-                {
-                    // Encontra o usuário pelo Username
-                    var usuario = await _userManager.FindByNameAsync(loginVM.UserName);
-
-                    // Se confirmou o e-mail, acesso é liberado, se não, acesso é rejeitado e reportado uma mensagem 
-                    if (user.EmailConfirmed)
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        // Caso o e-mail não seja confirmado, não permite acesso e reporta o erro
-                        TempData["MensagemErro"] = $"Por favor, confirme sua conta antes de fazer o login e tente novamente.";
-                        await _signInManager.SignOutAsync();
-                    }
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    TempData["MensagemErro"] = "Usuário ou senha incorreto, verifique e tente novamente.";
-                }
-            }
-            ModelState.AddModelError("", "Falha ao realizar login!");
-            return View(loginVM);
-        }
-
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(LoginVM registroVM)
-        {
-            if (!ModelState.IsValid)
-            {
-
-                var user = new IdentityUser { UserName = registroVM.UserName, Email = registroVM.Email };
-                var result = await _userManager.CreateAsync(user, registroVM.Password);
-                if (result.Succeeded)
-                {
-                    // Gera um token para a confirmação
-                    var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-
-                    // Envia o e-mail com o link de confirmação
-                    var confirmationLink = Url.Action("ConfirmEmail", "Account",
-                                                     new { userId = user.Id, token = token },
-                                                     Request.Scheme);
-
-                    var subject = "Confirmação de Cadastro";
-                    var body = $"Obrigado por se cadastrar {user.UserName}. Por favor, confirme o seu cadastro clicando <a href='{confirmationLink}'>aqui</a>";
-
-                    await _emailService.SendEmailAsync(user.Email, subject, body);
-
-                    // Se o username tiver o final _admin, ele é admin se não ele é membro
-                    if (user.UserName.Contains("_admin"))
-                    {
-                        await _userManager.AddToRoleAsync(user, "Admin");
-                    }
-                    else
-                    {
-                        await _userManager.AddToRoleAsync(user, "Member");
-                    }
-
-                    // Redireciona para a página de lggin
-                    return RedirectToAction("Login");
-                }
-                else
-                {
-                    this.ModelState.AddModelError("Registro", "Falha ao registrar o usuário");
-                }
-            }
-            return View();
+                ReturnUrl = returnUrl
+            });
         }
 
         [HttpGet]
@@ -142,53 +63,6 @@ namespace CarZone.Controllers
             }
         }
 
-
-        public IActionResult ForgotPassword()
-        {
-            return View();
-
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> ForgotPassword(LoginVM model)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    var user = await _userManager.FindByEmailAsync(model.Email);
-                    var userEmail = await _userManager.IsEmailConfirmedAsync(user);
-                    var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
-
-                    if (userEmail == true)
-                    {
-
-                        string linkReset = Url.Action("ResetPassword", "Account",
-                            new { userid = user.Id, token = resetToken },
-                            protocol: HttpContext.Request.Scheme);
-
-                        var subject = "Redefinição de senha";
-
-                        var corpoEmail = $"Olá {user.UserName}! " +
-                            $"Nós recebemos a solicitação de redefinição de senha da sua conta. " +
-                            $"Para redefinir sua senha, <a href='{linkReset}'>clique aqui!</a>";
-
-                        await _emailService.SendEmailAsync(user.Email, subject, corpoEmail);
-
-                        TempData["MensagemSucesso"] = "O link para redefinir a senha foi enviado.";
-                    }
-                }
-            }
-
-            catch (Exception e)
-            {
-                TempData["MensagemErro"] = $"Antes de solicitar a recuperação de senha, por favor, confirme o seu endereço de e-mail. (Detalhe:{e.Message})";
-            }
-
-            return View();
-
-        }
-
         [HttpGet]
         public IActionResult ResetPassword(string userId, string token)
         {
@@ -203,22 +77,160 @@ namespace CarZone.Controllers
             return View(obj);
         }
 
+
+        // Métodos Post
+
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginVM loginVM)
+        {
+            // Se o usuário não preencher os campos, retorna uma mensagem de erro
+            if (string.IsNullOrEmpty(loginVM.UserName) || string.IsNullOrEmpty(loginVM.Password))
+            {
+                TempData["MensagemErro"] = "Por favor, preencha os campos e tente novamente.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            IdentityUser procuraUsuario = await _userManager.FindByNameAsync(loginVM.UserName);
+
+            if (procuraUsuario != null)
+            {
+                var confirmaUsuarioESenha = await _signInManager.PasswordSignInAsync(procuraUsuario.UserName, loginVM.Password, false, false);
+                if (confirmaUsuarioESenha.Succeeded)
+                {
+                    if (procuraUsuario.EmailConfirmed)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        TempData["MensagemErro"] = $"Por favor, confirme sua conta antes de fazer o login e tente novamente.";
+                        await _signInManager.SignOutAsync();
+                    }
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["MensagemErro"] = "Usuário ou senha incorreto, verifique e tente novamente.";
+                }
+            }
+            ModelState.AddModelError("", "Falha ao realizar login!");
+            return View(loginVM);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(LoginVM registroVM)
+        {
+
+            if (ModelState.IsValid)
+            {
+                IdentityUser novoUsuario = new IdentityUser { UserName = registroVM.UserName, Email = registroVM.Email };
+                IdentityResult resultadoNovoUsuario = await _userManager.CreateAsync(novoUsuario, registroVM.Password);
+
+                if (resultadoNovoUsuario.Succeeded)
+                {
+                    string geraTokenParaConfirmacao = await _userManager.GenerateEmailConfirmationTokenAsync(novoUsuario);
+                    string linkDeConfirmacao = GerarLinkDeEmailDeConfirmacao(novoUsuario.Id, geraTokenParaConfirmacao);
+                    string tituloEmail = "Confirmação de Cadastro";
+                    string corpoEmail = $"Obrigado por se cadastrar {novoUsuario.UserName}. Por favor, confirme o seu cadastro clicando <a href='{linkDeConfirmacao}'>aqui</a>";
+
+                    await _emailService.SendEmailAsync(novoUsuario.Email, tituloEmail, corpoEmail);
+
+                    // Se o username tiver o final _admin, ele é admin se não ele é membro
+                    if (novoUsuario.UserName.Contains("_admin"))
+                    {
+                        await _userManager.AddToRoleAsync(novoUsuario, "Admin");
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(novoUsuario, "Member");
+                    }
+
+                    TempData["MensagemSucesso"] = $"Obrigado por se cadastrar {novoUsuario.UserName}. " +
+                        $"Por favor, confirme o seu cadastro clicando no link que enviamos para o seu e-mail";
+
+                    return View(registroVM);
+                }
+                else
+                {
+                    TempData["MensagemErro"] = $"Ocorreu um erro ao realizar o cadastro. " +
+                                               $"Por favor, tente novamente. (Detalhe: {resultadoNovoUsuario.Errors})";
+                }
+            }
+
+            return View(registroVM);
+        }
+
+        private string GerarLinkDeEmailDeConfirmacao(string userId, string token)
+        {
+            return Url.Action("ConfirmEmail", "Account",
+                new { userId, token },
+                Request.Scheme);
+        }
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM model)
+        {
+            try
+            {
+
+                if (ModelState.IsValid)
+                {
+                    IdentityUser procurarUsuarioPorEmail = await _userManager.FindByEmailAsync(model.Email);
+                    bool emailConfirmado = await _userManager.IsEmailConfirmedAsync(procurarUsuarioPorEmail);
+                    string tokenRedefinicaoSenha = await _userManager.GeneratePasswordResetTokenAsync(procurarUsuarioPorEmail);
+
+                    if (emailConfirmado == true)
+                    {
+
+                        string linkReset = Url.Action("ResetPassword", "Account",
+                        new { userid = procurarUsuarioPorEmail.Id, token = tokenRedefinicaoSenha },
+                        protocol: HttpContext.Request.Scheme);
+
+                        var subject = "Redefinição de senha";
+
+                        var corpoEmail = $"Olá {procurarUsuarioPorEmail.UserName}! " +
+                        $"Nós recebemos a solicitação de redefinição de senha da sua conta. " +
+                        $"Para redefinir sua senha, <a href='{linkReset}'>clique aqui!</a>";
+
+                        await _emailService.SendEmailAsync(procurarUsuarioPorEmail.Email, subject, corpoEmail);
+
+                        TempData["MensagemSucesso"] = "O link para redefinir a senha foi enviado.";
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                TempData["MensagemErro"] = $"Antes de solicitar a recuperação de senha, por favor, confirme o seu endereço de e-mail";
+            }
+
+            return View();
+
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordVM model)
         {
-            // Encontra o usuário
-            var user = await _userManager.FindByIdAsync(model.UserId);
-            // Redefinição de senha em 3 parametros
-            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            IdentityUser buscaUsuarioPorId = await _userManager.FindByIdAsync(model.UserId);
+            IdentityResult redefinirSenha = await _userManager.ResetPasswordAsync(buscaUsuarioPorId, model.Token, model.Password);
 
-            if (result.Succeeded)
+            if (redefinirSenha.Succeeded)
             {
-                //Se tiver sucesso, mostra que a senha foi redefinida.
-                ViewBag.Msg = "Senha redefinida com sucesso!";
+                TempData["MensagemSucesso"] = "Senha redefinida com sucesso!";
             }
             else
             {
-                ViewBag.Msg = "Redefinição de senha falhou!";
+                TempData["MensagemErro"] = "Ocorreu um erro ao redefinir a senha. Por favor, tente novamente.";
             }
 
             return View();
@@ -239,39 +251,38 @@ namespace CarZone.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
-            var users = _userManager.Users.ToList();
-            var userRoles = new Dictionary<string, string>();
+            List<IdentityUser> listaUsuarios = _userManager.Users.ToList();
+            var funcaoUsuario = new Dictionary<string, string>();
 
-            foreach (var user in users)
+            foreach (var usuario in listaUsuarios)
             {
-                var roles = _userManager.GetRolesAsync(user).Result;
-                var role = roles.FirstOrDefault();
-                userRoles[user.Id] = role;
+                var roles = _userManager.GetRolesAsync(usuario).Result;
+                var funcao = roles.FirstOrDefault();
+                funcaoUsuario[usuario.Id] = funcao;
             }
 
-            ViewBag.UserRoles = userRoles;
-            return View(users);
-
+            ViewBag.UserRoles = funcaoUsuario;
+            return View(listaUsuarios);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditUser(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            var usuarioEncontrado = await _userManager.FindByIdAsync(id);
 
-            if (user == null)
+            if (usuarioEncontrado == null)
             {
                 return NotFound();
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
+            var roles = await _userManager.GetRolesAsync(usuarioEncontrado);
 
             var model = new EditUserVM
             {
-                UserId = user.Id,
-                UserName = user.UserName,
-                Email = user.Email,
-                Role = roles.FirstOrDefault(), // Defina o papel atual aqui
+                UserId = usuarioEncontrado.Id,
+                UserName = usuarioEncontrado.UserName,
+                Email = usuarioEncontrado.Email,
+                Role = roles.FirstOrDefault(), 
                 AvailableRoles = _roleManager.Roles
                     .Select(r => new SelectListItem { Value = r.Name, Text = r.Name })
                     .ToList()
@@ -281,38 +292,39 @@ namespace CarZone.Controllers
         }
 
 
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> EditUser(EditUserVM model)
         {
-            var user = await _userManager.FindByIdAsync(model.UserId);
+            IdentityUser usuarioEncontrado = await _userManager.FindByIdAsync(model.UserId);
 
-            if (user == null)
+            if (usuarioEncontrado == null)
             {
                 return NotFound();
             }
 
-            user.UserName = model.UserName;
-            user.Email = model.Email;
+            usuarioEncontrado.UserName = model.UserName;
+            usuarioEncontrado.Email = model.Email;
 
-            // Verifique se o usuário tem a "Admin"
-            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+            await _userManager.UpdateAsync(usuarioEncontrado);
+
+            bool isAdmin = await _userManager.IsInRoleAsync(usuarioEncontrado, "Admin");
 
             if (isAdmin)
             {
-                if (!user.UserName.Contains("_admin"))
+                if (!usuarioEncontrado.UserName.Contains("_admin"))
                 {
-                    // Remove "Admin" e adiciona a "Member"
-                    await _userManager.RemoveFromRoleAsync(user, "Admin");
-                    await _userManager.AddToRoleAsync(user, "Member");
+                    await _userManager.RemoveFromRoleAsync(usuarioEncontrado, "Admin");
+                    await _userManager.AddToRoleAsync(usuarioEncontrado, "Member");
                 }
             }
             else
             {
-                // Se conter regra para ser admin, remove "Member" e adiciona a "Admin"
-                if (user.UserName.Contains("_admin"))
+                if (usuarioEncontrado.UserName.Contains("_admin"))
                 {
-                    await _userManager.RemoveFromRoleAsync(user, "Member");
-                    await _userManager.AddToRoleAsync(user, "Admin");
+                    await _userManager.RemoveFromRoleAsync(usuarioEncontrado, "Member");
+                    await _userManager.AddToRoleAsync(usuarioEncontrado, "Admin");
                 }
             }
 
