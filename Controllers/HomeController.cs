@@ -56,22 +56,22 @@ namespace CarZone.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetTotalVendas(DateTime? startDate, DateTime? endDate)
+        public JsonResult GetTotalVendas(DateTime? dataInicial, DateTime? dataFinal)
         {
-            var vendasQuery = _bancoContext.VendasDB.AsQueryable();
+            var consultarVendas = _bancoContext.VendasDB.AsQueryable();
 
             // Aplica os filtros de data se foram fornecidos
-            if (startDate != null && endDate != null)
+            if (dataInicial != null && dataFinal != null)
             {
-                vendasQuery = vendasQuery.Where(x => x.DataVenda >= startDate && x.DataVenda <= endDate);
+                consultarVendas = consultarVendas.Where(x => x.DataVenda >= dataInicial && x.DataVenda <= dataFinal);
             }
 
-            var vendas = vendasQuery.ToList();
-            var clientes = _bancoContext.ClientesDB.ToList();
+            var listarVendas = consultarVendas.ToList();
+            var listarClientes = _bancoContext.ClientesDB.ToList();
 
             var data = new
             {
-                labels = vendas.OrderBy(x => x.DataVenda)
+                labels = listarVendas.OrderBy(x => x.DataVenda)
                                .Select(x => x.DataVenda.ToString("dd/MM/yy", new CultureInfo("pt-BR")))
                                .Distinct()
                                .ToList(),
@@ -80,7 +80,7 @@ namespace CarZone.Controllers
             new
             {
                 label = "Total de Vendas",
-                data = vendas.OrderBy(x => x.DataVenda)
+                data = listarVendas.OrderBy(x => x.DataVenda)
                               .GroupBy(x => x.DataVenda)
                               .Select(x => x.Count())
                               .ToList(),
@@ -91,7 +91,7 @@ namespace CarZone.Controllers
             new
             {
                 label = "Valor Financeiro",
-                data = vendas.OrderBy(x => x.DataVenda)
+                data = listarVendas.OrderBy(x => x.DataVenda)
                               .GroupBy(x => x.DataVenda)
                               .Select(x => x.Sum(v => v.ValorVenda))
                               .ToList(),
@@ -102,7 +102,7 @@ namespace CarZone.Controllers
             new
             {
                 label = "Clientes",
-                data = CalcularTodosOsClientes(clientes.Select(x => x.Id)
+                data = CalcularTodosOsClientes(listarClientes.Select(x => x.Id)
                                                         .ToList()),
                 borderColor = "red",
                 borderWidth = 2,
@@ -120,7 +120,7 @@ namespace CarZone.Controllers
             List<int> todosOsClientes = new List<int>();
             int total = 0;
 
-            foreach (var cliente in clientes)
+            foreach (var numeroCliente in clientes)
             {
                 total++;
                 todosOsClientes.Add(total);

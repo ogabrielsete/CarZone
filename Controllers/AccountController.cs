@@ -123,7 +123,6 @@ namespace CarZone.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(LoginVM registroVM)
         {
-
             if (ModelState.IsValid)
             {
                 IdentityUser novoUsuario = new IdentityUser { UserName = registroVM.UserName, Email = registroVM.Email };
@@ -181,7 +180,6 @@ namespace CarZone.Controllers
         {
             try
             {
-
                 if (ModelState.IsValid)
                 {
                     IdentityUser procurarUsuarioPorEmail = await _userManager.FindByEmailAsync(model.Email);
@@ -190,13 +188,11 @@ namespace CarZone.Controllers
 
                     if (emailConfirmado == true)
                     {
-
                         string linkReset = Url.Action("ResetPassword", "Account",
                         new { userid = procurarUsuarioPorEmail.Id, token = tokenRedefinicaoSenha },
                         protocol: HttpContext.Request.Scheme);
 
                         var subject = "Redefinição de senha";
-
                         var corpoEmail = $"Olá {procurarUsuarioPorEmail.UserName}! " +
                         $"Nós recebemos a solicitação de redefinição de senha da sua conta. " +
                         $"Para redefinir sua senha, <a href='{linkReset}'>clique aqui!</a>";
@@ -214,7 +210,6 @@ namespace CarZone.Controllers
             }
 
             return View();
-
         }
 
 

@@ -96,7 +96,7 @@
             $('#MarcaId').change(function () {
                 var marcaId = $(this).val();
                 $.ajax({
-                    url: '/Veiculos/ModelosPorMarca',
+                    url: '/Veiculos/ObterModelosPorMarca',
                     type: 'GET',
                     data: { marcaId: marcaId },
                     success: function (data) {

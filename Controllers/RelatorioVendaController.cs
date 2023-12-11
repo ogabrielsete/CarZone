@@ -19,8 +19,8 @@ namespace CarZone.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var vendas = await _relatorioService.FindByDateAsync(null, null);
-            foreach (var venda in vendas)
+            var vendasPorData = await _relatorioService.FindByDateAsync(null, null);
+            foreach (var venda in vendasPorData)
             {
                 if(venda.VendedorId != null)
                 {
@@ -28,7 +28,7 @@ namespace CarZone.Controllers
                     venda.VendedorId = nomeVendedor.UserName;
                 }
             }
-            return View(vendas);
+            return View(vendasPorData);
         }
 
         public async Task<IActionResult> RelatorioVendaSimples(DateTime? minDate, DateTime? maxDate)
@@ -46,8 +46,8 @@ namespace CarZone.Controllers
             ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
             ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
 
-            var result = await _relatorioService.FindByDateAsync(minDate, maxDate);
-            foreach (var venda in result)
+            var resultaConsulta = await _relatorioService.FindByDateAsync(minDate, maxDate);
+            foreach (var venda in resultaConsulta)
             {
                 if (venda.VendedorId != null)
                 {
@@ -55,7 +55,7 @@ namespace CarZone.Controllers
                     venda.VendedorId = nomeVendedor.UserName;
                 }
             }
-            return View(result);
+            return View(resultaConsulta);
 
         }
     }

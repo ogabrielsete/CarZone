@@ -10,7 +10,6 @@ namespace CarZone.Controllers
 {
 
     [Authorize(Roles ="Admin")]
-
     public class MarcasController : Controller
     {
         private readonly IMarcasRepositorio _marcasRepositorio;
@@ -18,10 +17,11 @@ namespace CarZone.Controllers
         {
             _marcasRepositorio = marcasRepositorio;
         }
+
         public IActionResult Index()
         {
-            List<Marca> marcas = _marcasRepositorio.GetAll();
-            return View(marcas);
+            List<Marca> listarMarcas = _marcasRepositorio.GetAll();
+            return View(listarMarcas);
         }
 
         [Authorize("Admin")]
@@ -30,11 +30,13 @@ namespace CarZone.Controllers
             return View();
         }
 
+        [Authorize("Admin")]
         public IActionResult EditarMarca(int id)
         {
             Marca editarMarca = _marcasRepositorio.ListarPorId(id);
             return View(editarMarca);
         }
+
         public IActionResult ApagarConfirmacao(int id)
         {
             Marca marcas = _marcasRepositorio.ListarPorId(id);
@@ -76,9 +78,9 @@ namespace CarZone.Controllers
 
 
         [HttpPost]
+        [Authorize("Admin")]
         public IActionResult Editar (Marca marca)
         {
-
             try
             {
                 if (ModelState.IsValid)
@@ -97,8 +99,6 @@ namespace CarZone.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-
 
     }
 }

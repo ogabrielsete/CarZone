@@ -12,19 +12,22 @@ namespace CarZone.Controllers
     {
         private readonly IModeloVeiculosRepositorio _modeloVeiculosRepositorio;
         private readonly IMarcasRepositorio _marcasRepositorio;
+
         public ModeloVeiculosController(IModeloVeiculosRepositorio modeloVeiculosRepositorio,
             IMarcasRepositorio marcasRepositorio)
         {
             _modeloVeiculosRepositorio = modeloVeiculosRepositorio;
             _marcasRepositorio = marcasRepositorio;
         }
+
         public IActionResult Index()
         {
-            var listarMarcas = _marcasRepositorio.GetAll();
-           
+            var listarMarcas = _marcasRepositorio.GetAll();           
             var listarModelo = new List<ModeloVeiculoVM>();
-            List<ModeloVeiculo> mostrar = _modeloVeiculosRepositorio.GetAll();
-            foreach(var item in mostrar)
+
+            List<ModeloVeiculo> modelos = _modeloVeiculosRepositorio.GetAll();
+
+            foreach(var item in modelos)
             {
                 var listar = new ModeloVeiculoVM();
                 listar.Id = item.Id;
@@ -37,18 +40,19 @@ namespace CarZone.Controllers
 
         public IActionResult Criar()
         {
-            var dropdown = _marcasRepositorio.GetAll();
-            ViewBag.Marcas = new SelectList(dropdown, "Id", "Nome");
+            var listaDropdown = _marcasRepositorio.GetAll();
+            ViewBag.Marcas = new SelectList(listaDropdown, "Id", "Nome");
             return View();
         }
 
         public IActionResult EditarModelo(int id)
         {
-            var dropdown = _marcasRepositorio.GetAll();
-            ViewBag.Marcas = new SelectList(dropdown, "Id", "Nome");
-            ModeloVeiculo editarmodelo = _modeloVeiculosRepositorio.ListarPorId(id);
-            return View(editarmodelo);
+            var listarMarcasDropDown = _marcasRepositorio.GetAll();
+            ViewBag.Marcas = new SelectList(listarMarcasDropDown, "Id", "Nome");
+            ModeloVeiculo editarModelo = _modeloVeiculosRepositorio.ListarPorId(id);
+            return View(editarModelo);
         }
+
         public IActionResult ApagarConfirmacao(int id)
         {
             ModeloVeiculo modelos = _modeloVeiculosRepositorio.ListarPorId(id);
@@ -79,8 +83,8 @@ namespace CarZone.Controllers
                 }
                 else
                 {
-                    var dropdown = _marcasRepositorio.GetAll();
-                    ViewBag.Marcas = new SelectList(dropdown, "Id", "Nome");
+                    var dropDownMarcas = _marcasRepositorio.GetAll();
+                    ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
                     return View(modelo);
                 }
@@ -109,8 +113,8 @@ namespace CarZone.Controllers
                 }
                 else
                 {
-                    var dropdown = _marcasRepositorio.GetAll();
-                    ViewBag.Marcas = new SelectList(dropdown, "Id", "Nome");
+                    var dropDownMarcas = _marcasRepositorio.GetAll();
+                    ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
                     return View(modelo);
                 }

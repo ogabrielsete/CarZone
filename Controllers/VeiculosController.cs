@@ -15,6 +15,7 @@ namespace CarZone.Controllers
         private readonly IMarcasRepositorio _marcasRep;
         private readonly IModeloVeiculosRepositorio _modeloVeiculosRepositorio;
         private readonly IVendasRepositorio _vendasRepositorio;
+
         public VeiculosController(IVeiculosRepositorio veiculosRepositorio,
                                    IMarcasRepositorio marcasRep,
                                    IModeloVeiculosRepositorio modeloVeiculosRepositorio,
@@ -26,12 +27,13 @@ namespace CarZone.Controllers
             _vendasRepositorio = vendasRepositorio;
 
         }
+
         public IActionResult Index()
         {
             var listarMarcas = _marcasRep.GetAll();
             var listarModelo = _modeloVeiculosRepositorio.GetAll();
-
             var listarVeiculos = new List<VeiculosVM>();
+
             List<Veiculo> veiculos = _veiculosRepositorio.GetAll();
             foreach (var item in veiculos)
             {
@@ -69,11 +71,11 @@ namespace CarZone.Controllers
             Veiculo editarVeiculo = _veiculosRepositorio.ListarPorId(id);
             return View(editarVeiculo);
         }
+
         public IActionResult ApagarConfirmacao(int id)
         {
-
-            Veiculo veiculo = _veiculosRepositorio.ListarPorId(id);
-            return View(veiculo);
+            Veiculo listarVeiculo = _veiculosRepositorio.ListarPorId(id);
+            return View(listarVeiculo);
         }
 
         public IActionResult Apagar(int id)
@@ -82,10 +84,10 @@ namespace CarZone.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult ModelosPorMarca(int marcaId)
+        public IActionResult ObterModelosPorMarca(int marcaId)
         {
-            var modelos = _modeloVeiculosRepositorio.ModelosPorMarca(marcaId);
-            return Json(modelos);
+            var filtarModeloPorMarca = _modeloVeiculosRepositorio.ObterModelosPorMarca(marcaId);
+            return Json(filtarModeloPorMarca);
         }
 
 
@@ -101,7 +103,6 @@ namespace CarZone.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Veiculos
                     _veiculosRepositorio.Adicionar(veiculo);
                     TempData["MensagemSucesso"] = "Veiculo cadastrado com sucesso";
 
@@ -138,7 +139,6 @@ namespace CarZone.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Veiculos
                     _veiculosRepositorio.Atualizar(veiculo);
                     TempData["MensagemSucesso"] = "Veiculo alterado com sucesso";
 

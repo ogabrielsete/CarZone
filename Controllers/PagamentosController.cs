@@ -26,20 +26,21 @@ namespace CarZone.Controllers
 
         public IActionResult EditarPagamento(int id)
         {
-            Pagamento editarPag = _pagamentosRepositorio.ListarPorId(id);
-            return View(editarPag);
+            Pagamento listarPagamentos = _pagamentosRepositorio.ListarPorId(id);
+            return View(listarPagamentos);
         }
+
         public IActionResult ApagarConfirmacao(int id)
         {
-            Pagamento pag = _pagamentosRepositorio.ListarPorId(id);
-            return View(pag);
+            Pagamento listarPagamentos = _pagamentosRepositorio.ListarPorId(id);
+            return View(listarPagamentos);
         }
+
         public IActionResult Apagar(int id)
         {
             _pagamentosRepositorio.Apagar(id);
             return RedirectToAction("Index");
         }
-
 
         [HttpPost]
         public IActionResult Criar(Pagamento pagamento)

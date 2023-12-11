@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using CarZone.Services;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using CarZone.Validators;
 
 namespace CarZone
 {
@@ -61,6 +62,7 @@ namespace CarZone
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddScoped<IEmailService, MailgunEmailService>();
             builder.Services.AddScoped<RelatorioVendaService>();
+            builder.Services.AddScoped<ValidadorDeCPF>();
 
             builder.Services.AddAuthorization();
             builder.Services.AddHttpClient();

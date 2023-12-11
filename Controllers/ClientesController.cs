@@ -1,12 +1,6 @@
 ﻿using CarZone.Models;
+using CarZone.Validators;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Text.Json;
-using System.Text.RegularExpressions;
-using static CarZone.Controllers.ClientesController;
-using System.Net.Http;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json;
 using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 
@@ -17,11 +11,15 @@ namespace CarZone.Controllers
     {
         private readonly IClienteRepositorio _clienteRepositorio;
         private readonly IVendasRepositorio _vendasRepositorio;
+        private readonly ValidadorDeCPF _validadorDeCPF;
         public ClientesController(IClienteRepositorio clienteRep,
-                                  IVendasRepositorio vendasRepositorio)
+                                  IVendasRepositorio vendasRepositorio,
+                                  ValidadorDeCPF validadorDeCPF)
         {
             _clienteRepositorio = clienteRep;
             _vendasRepositorio = vendasRepositorio;
+            _validadorDeCPF = validadorDeCPF;
+
         }
         public IActionResult Index()
         {
@@ -42,24 +40,23 @@ namespace CarZone.Controllers
 
         public IActionResult Apagar(int id)
         {
-
             try
             {
-                Cliente cliente = _clienteRepositorio.ListarPorId(id);
+                Cliente listarCliente = _clienteRepositorio.ListarPorId(id);
 
-                bool clienteRelacionado = _vendasRepositorio.VendaRelacionada(cliente.Id);
+                bool clienteRelacionado = _vendasRepositorio.VendaRelacionada(listarCliente.Id);
 
-                if (clienteRelacionado) 
-                    return RedirectToAction
-                        ("Index", TempData["MensagemErro"] = "Não é possível excluir este cliente porque está relacionada a uma venda cadastrada.");
+                if (clienteRelacionado)
+                    return RedirectToAction("Index", 
+                        TempData["MensagemErro"] = "Não é possível excluir este cliente porque está relacionada a uma venda cadastrada.");
 
 
                 _clienteRepositorio.Apagar(id);
                 return RedirectToAction("Index", TempData["MensagemSucesso"] = "Cliente excluído com sucesso!");
             }
+
             catch (Exception error)
             {
-
                 return RedirectToAction("Index", TempData["MensagemErro"] = $"Ocorreu um erro ao tentar excluir a venda. Detalhe: {error.Message}");
             }
 
@@ -78,7 +75,7 @@ namespace CarZone.Controllers
                     cliente.CPF = cliente.CPF.Replace(".", "").Replace("-", "");
                     cliente.Telefone = cliente.Telefone.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
 
-                    if (!ValidarCPF(cliente.CPF))
+                    if (!_validadorDeCPF.ValidarCPF(cliente.CPF))
                     {
 
                         ModelState.AddModelError("CPF", "CPF inválido");
@@ -109,7 +106,7 @@ namespace CarZone.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (!ValidarCPF(cliente.CPF))
+                    if (!_validadorDeCPF.ValidarCPF(cliente.CPF))
                     {
                         ModelState.AddModelError("CPF", "CPF inválido");
                         return View("Criar", cliente);
@@ -126,46 +123,6 @@ namespace CarZone.Controllers
                 TempData["MensagemErro"] = $"Não conseguimos alterar o cliente, tente novamente. Detalhe do erro: {error.Message}";
                 return RedirectToAction("Index");
             }
-        }
-
-
-        public bool ValidarCPF(string cpf)
-        {
-            cpf = cpf.Replace(".", "").Replace("-", ""); // Remove os caracteres especiais do CPF
-
-            // Verifica se o CPF tem 11 dígitos
-            if (cpf.Length != 11)
-                return false;
-
-            // Verifica se todos os dígitos são iguais (caso contrário, é um CPF inválido)
-            if (new string(cpf[0], 11) == cpf)
-                return false;
-
-            // Calcula o primeiro dígito verificador
-            int soma = 0;
-            for (int i = 0; i < 9; i++)
-                soma += int.Parse(cpf[i].ToString()) * (10 - i);
-
-            int resto = soma % 11;
-            int digitoVerificador1 = (resto < 2) ? 0 : 11 - resto;
-
-            // Verifica se o primeiro dígito verificador está correto
-            if (int.Parse(cpf[9].ToString()) != digitoVerificador1)
-                return false;
-
-            // Calcula o segundo dígito verificador
-            soma = 0;
-            for (int i = 0; i < 10; i++)
-                soma += int.Parse(cpf[i].ToString()) * (11 - i);
-
-            resto = soma % 11;
-            int digitoVerificador2 = (resto < 2) ? 0 : 11 - resto;
-
-            // Verifica se o segundo dígito verificador está correto
-            if (int.Parse(cpf[10].ToString()) != digitoVerificador2)
-                return false;
-
-            return true; // CPF válido
         }
     }
 }

@@ -19,12 +19,8 @@ namespace CarZone.Controllers
         private readonly IPagamentosRepositorio _pagamentosRepositorio;
         private readonly IMarcasRepositorio _marcasRepositorio;
         private readonly UserManager<IdentityUser> _userManager;
-        public VendasController(IVendasRepositorio vendasRepositorio,
-                                IClienteRepositorio clienteRepositorio,
-                                   IModeloVeiculosRepositorio modeloVeiculosRepositorio,
-                                    IPagamentosRepositorio pagamentosRepositorio,
-                                    IMarcasRepositorio marcasRepositorio,
-                                    UserManager<IdentityUser> userManager)
+        public VendasController(IVendasRepositorio vendasRepositorio, IClienteRepositorio clienteRepositorio, IModeloVeiculosRepositorio modeloVeiculosRepositorio,
+                                    IPagamentosRepositorio pagamentosRepositorio, IMarcasRepositorio marcasRepositorio, UserManager<IdentityUser> userManager)
         {
             _vendasRepositorio = vendasRepositorio;
             _clienteRepositorio = clienteRepositorio;
@@ -32,8 +28,6 @@ namespace CarZone.Controllers
             _pagamentosRepositorio = pagamentosRepositorio;
             _marcasRepositorio = marcasRepositorio;
             _userManager = userManager;
-
-
         }
         public IActionResult Index()
         {
@@ -107,9 +101,10 @@ namespace CarZone.Controllers
 
         public IActionResult ApagarConfirmacao(int id)
         {
-            Venda vendas = _vendasRepositorio.ListarPorId(id);
-            return View(vendas);
+            Venda listarVendas = _vendasRepositorio.ListarPorId(id);
+            return View(listarVendas);
         }
+
         public IActionResult Apagar(int id)
         {
             _vendasRepositorio.Apagar(id);
@@ -130,10 +125,10 @@ namespace CarZone.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Vendas
                     venda.VendedorId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     _vendasRepositorio.Adicionar(venda);
                     TempData["MensagemSucesso"] = "Venda cadastrada com sucesso";
+
                     return RedirectToAction("Index");
                 }
                 return View(venda);
@@ -159,7 +154,6 @@ namespace CarZone.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Dados válidos, Adiciona ao repositório e redireciona para a Lista de Vendas
                     _vendasRepositorio.Atualizar(venda);
                     TempData["MensagemSucesso"] = "Venda alterada com sucesso";
 
@@ -175,6 +169,5 @@ namespace CarZone.Controllers
                 return RedirectToAction("Index");
             }
         }
-
     }
 }

@@ -55,7 +55,7 @@ namespace CarZone.Repositorio
         }
 
 
-        public IEnumerable<ModeloVeiculo> ModelosPorMarca(int marcaId)
+        public IEnumerable<ModeloVeiculo> ObterModelosPorMarca(int marcaId)
         {
             return _bancoContext.ModeloVeiculosDB.Where(x => x.MarcaId == marcaId).ToList();
         }
