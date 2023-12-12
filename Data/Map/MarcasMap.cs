@@ -14,11 +14,6 @@ namespace CarZone.Data.Map
             // Chave Primaria
             builder.HasKey(x => x.Id);
 
-            // Identity
-            //builder.property(x => x.id)
-            //    .valuegeneratedonadd()
-            //    .useidentitycolumn();
-
             // Propriedades
             builder.Property(x => x.Nome)
                 .IsRequired()

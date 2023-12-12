@@ -36,12 +36,6 @@ namespace CarZone.Data.Map
                 .HasColumnName("VendedorId")
                 .HasColumnType("nvarchar(450)");
 
-            // Relacionamentos com a tabela "Clientes"
-            //builder.HasOne(x => x.Cliente)
-            //    .WithMany()
-            //    .HasForeignKey(x => x.ClienteId)
-            //    .OnDelete(DeleteBehavior.Restrict);
-
             // Relacionamentos com a tabela "Pagamentos"
             builder.HasOne(x => x.Pagamento)
                 .WithMany()

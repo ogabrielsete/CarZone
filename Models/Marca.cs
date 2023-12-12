@@ -15,7 +15,6 @@ namespace CarZone.Models
         [RegularExpression(@"^[a-zA-Z\s-]+$", ErrorMessage = "A marca deve conter apenas letras, espaços e hífens.")]
         public string Nome { get; set; }
 
-
-        public ICollection<ModeloVeiculo> Modelos { get; set; }
+        public virtual ICollection<ModeloVeiculo> Modelos { get; set; }
     }
 }
