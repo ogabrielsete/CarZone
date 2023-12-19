@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A1O9IVsDpul8R/H35+wtPX4vUFOcy+Wv7VAh0eW8Wx4=",
+  "Hash": "pCGxpOB1wFNfPPIK+zvpKW/78Jy5UAFye2uQ24Rb9zI=",
   "Source": "CarZone",
   "BasePath": "_content/CarZone",
   "Mode": "Default",
@@ -270,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\relatorio.png"
+    },
+    {
+      "Identity": "C:\\Users\\Gabriel\\source\\repos\\CarZone\\wwwroot\\js\\chart-script.js",
+      "SourceId": "CarZone",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gabriel\\source\\repos\\CarZone\\wwwroot\\",
+      "BasePath": "_content/CarZone",
+      "RelativePath": "js/chart-script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chart-script.js"
     },
     {
       "Identity": "C:\\Users\\Gabriel\\source\\repos\\CarZone\\wwwroot\\js\\site.js",

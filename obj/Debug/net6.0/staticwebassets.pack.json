@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\images\\relatorio.png"
     },
     {
+      "Id": "C:\\Users\\Gabriel\\source\\repos\\CarZone\\wwwroot\\js\\chart-script.js",
+      "PackagePath": "staticwebassets\\js\\chart-script.js"
+    },
+    {
       "Id": "C:\\Users\\Gabriel\\source\\repos\\CarZone\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -175,8 +175,10 @@ body {
 
 /* Box de veiculos */
 .boxVeiculos {
-    width: 179px;
-    height: 85.85px;
+    width: 100%;
+    max-width: 179px; 
+    height: 100%;
+    max-height:85.85px;
     background-color: #FDCA40;
     border-radius: 5px;
     padding: 20px;
@@ -249,8 +251,10 @@ body {
 
 /* Box de Clientes */
 .boxClientes {
-    width: 179px;
-    height: 85.85px;
+    width: 100%;
+    max-width: 179px;
+    height: 100%;
+    max-height: 85.85px;
     background-color: #DF2935;
     border-radius: 5px;
     padding: 20px;
@@ -303,8 +307,10 @@ body {
 
 /* Box de Vendas */
 .boxVendas {
-    width: 179px;
-    height: 85.85px;
+    width: 100%;
+    max-width: 179px;
+    height: 100%;
+    max-height: 85.85px;
     background-color: #3772FF;
     border-radius: 5px;
     padding: 20px;
