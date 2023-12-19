@@ -16,25 +16,22 @@ namespace CarZone.Controllers
         private readonly IModeloVeiculosRepositorio _modeloVeiculosRepositorio;
         private readonly IVendasRepositorio _vendasRepositorio;
 
-        public VeiculosController(IVeiculosRepositorio veiculosRepositorio,
-                                   IMarcasRepositorio marcasRep,
-                                   IModeloVeiculosRepositorio modeloVeiculosRepositorio,
-                                   IVendasRepositorio vendasRepositorio)
+        public VeiculosController(IVeiculosRepositorio veiculosRepositorio, IMarcasRepositorio marcasRep,
+                                   IModeloVeiculosRepositorio modeloVeiculosRepositorio, IVendasRepositorio vendasRepositorio)
         {
             _veiculosRepositorio = veiculosRepositorio;
             _marcasRep = marcasRep;
             _modeloVeiculosRepositorio = modeloVeiculosRepositorio;
             _vendasRepositorio = vendasRepositorio;
-
         }
 
         public IActionResult Index()
         {
-            var listarMarcas = _marcasRep.GetAll();
-            var listarModelo = _modeloVeiculosRepositorio.GetAll();
+            var listarMarcas = _marcasRep.ObterTodos();
+            var listarModelo = _modeloVeiculosRepositorio.ObterTodos();
             var listarVeiculos = new List<VeiculosVM>();
 
-            List<Veiculo> veiculos = _veiculosRepositorio.GetAll();
+            List<Veiculo> veiculos = _veiculosRepositorio.ObterTodos();
             foreach (var item in veiculos)
             {
                 var listar = new VeiculosVM();
@@ -52,29 +49,29 @@ namespace CarZone.Controllers
 
         public IActionResult Criar()
         {
-            var dropDownMarcas = _marcasRep.GetAll();
+            var dropDownMarcas = _marcasRep.ObterTodos();
             ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
-            var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+            var dropDownModelos = _modeloVeiculosRepositorio.ObterTodos();
             ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
             return View();
         }
 
         public IActionResult Atualizar(int id)
         {
-            var dropDownMarcas = _marcasRep.GetAll();
+            var dropDownMarcas = _marcasRep.ObterTodos();
             ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
-            var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+            var dropDownModelos = _modeloVeiculosRepositorio.ObterTodos();
             ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
 
-            Veiculo editarVeiculo = _veiculosRepositorio.ListarPorId(id);
+            Veiculo editarVeiculo = _veiculosRepositorio.ObterPorId(id);
             return View(editarVeiculo);
         }
 
         public IActionResult ApagarConfirmacao(int id)
         {
-            Veiculo listarVeiculo = _veiculosRepositorio.ListarPorId(id);
+            Veiculo listarVeiculo = _veiculosRepositorio.ObterPorId(id);
             return View(listarVeiculo);
         }
 
@@ -94,7 +91,6 @@ namespace CarZone.Controllers
         [HttpPost]
         public IActionResult Criar(Veiculo veiculo)
         {
-
             ModelState.Remove("Modelo");
             ModelState.Remove("Marca");
             ModelState.Remove("Id");
@@ -110,19 +106,17 @@ namespace CarZone.Controllers
                 }
                 else
                 {
-                    var dropDownMarcas = _marcasRep.GetAll();
+                    var dropDownMarcas = _marcasRep.ObterTodos();
                     ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
-                    var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+                    var dropDownModelos = _modeloVeiculosRepositorio.ObterTodos();
                     ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
 
                     return View(veiculo);
                 }
-
             }
             catch (Exception error)
             {
-
                 TempData["MensagemErro"] = $"Não conseguimos cadastrar seu veiculo, tente novamente. Detalhe: {error.Message}";
                 return RedirectToAction("Index");
             }
@@ -146,19 +140,16 @@ namespace CarZone.Controllers
                 }
                 else
                 {
-                    var dropDownMarcas = _marcasRep.GetAll();
+                    var dropDownMarcas = _marcasRep.ObterTodos();
                     ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
-                    var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+                    var dropDownModelos = _modeloVeiculosRepositorio.ObterTodos();
                     ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
                     return View(veiculo);
                 }
-
-
             }
             catch (Exception error)
             {
-
                 TempData["MensagemErro"] = $"Não conseguimos alterar seu veiculo, tente novamente. Detalhe: {error.Message}";
                 return RedirectToAction("Index");
             }

@@ -20,7 +20,7 @@ namespace CarZone.Controllers
 
         public IActionResult Index()
         {
-            List<Marca> listarMarcas = _marcasRepositorio.GetAll();
+            List<Marca> listarMarcas = _marcasRepositorio.ObterTodos();
             return View(listarMarcas);
         }
 
@@ -33,13 +33,13 @@ namespace CarZone.Controllers
         [Authorize("Admin")]
         public IActionResult EditarMarca(int id)
         {
-            Marca editarMarca = _marcasRepositorio.ListarPorId(id);
+            Marca editarMarca = _marcasRepositorio.ObterPorId(id);
             return View(editarMarca);
         }
 
         public IActionResult ApagarConfirmacao(int id)
         {
-            Marca marcas = _marcasRepositorio.ListarPorId(id);
+            Marca marcas = _marcasRepositorio.ObterPorId(id);
             return View(marcas);
         }
 

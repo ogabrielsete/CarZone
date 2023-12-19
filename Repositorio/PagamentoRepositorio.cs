@@ -11,12 +11,12 @@ namespace CarZone.Repositorio
         {
             _bancoContext = bancoContext;
         }
-        public Pagamento ListarPorId(int id)
+        public Pagamento ObterPorId(int id)
         {
             return _bancoContext.PagamentosDB.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<Pagamento> GetAll()
+        public List<Pagamento> ObterTodos()
         {
             return _bancoContext.PagamentosDB.ToList();
         }
@@ -30,7 +30,7 @@ namespace CarZone.Repositorio
 
         public Pagamento Atualizar(Pagamento pgto)
         {
-            Pagamento pagDB = ListarPorId(pgto.Id);
+            Pagamento pagDB = ObterPorId(pgto.Id);
             if (pagDB == null) throw new Exception("Houve erro na atualização do Pagamento");
 
             pagDB.NomePagamento = pgto.NomePagamento;
@@ -44,7 +44,7 @@ namespace CarZone.Repositorio
 
         public bool Apagar(int id)
         {
-            Pagamento pag = ListarPorId(id);
+            Pagamento pag = ObterPorId(id);
             if (pag == null) throw new Exception("Houve erro na exclusão da Marca");
 
             _bancoContext.PagamentosDB.Remove(pag);

@@ -5,6 +5,6 @@ namespace CarZone.Repositorio.Interfaces
 {
     public interface IUsuariosRepositorio
     {
-        Task<LoginVM> ListarPorId (string id);
+        Task<LoginVM> ObterPorId (string id);
     }
 }

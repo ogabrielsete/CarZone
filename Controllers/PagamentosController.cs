@@ -16,7 +16,7 @@ namespace CarZone.Controllers
 
         public IActionResult Index()
         {
-            List<Pagamento> listarPagamentos = _pagamentosRepositorio.GetAll();
+            List<Pagamento> listarPagamentos = _pagamentosRepositorio.ObterTodos();
             return View(listarPagamentos);
         }
         public IActionResult Criar()
@@ -26,13 +26,13 @@ namespace CarZone.Controllers
 
         public IActionResult EditarPagamento(int id)
         {
-            Pagamento listarPagamentos = _pagamentosRepositorio.ListarPorId(id);
+            Pagamento listarPagamentos = _pagamentosRepositorio.ObterPorId(id);
             return View(listarPagamentos);
         }
 
         public IActionResult ApagarConfirmacao(int id)
         {
-            Pagamento listarPagamentos = _pagamentosRepositorio.ListarPorId(id);
+            Pagamento listarPagamentos = _pagamentosRepositorio.ObterPorId(id);
             return View(listarPagamentos);
         }
 

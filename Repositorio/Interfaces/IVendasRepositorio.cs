@@ -4,8 +4,8 @@ namespace CarZone.Repositorio.Interfaces
 {
     public interface IVendasRepositorio
     {
-        List<Venda> GetAll();
-        Venda ListarPorId(int id);
+        List<Venda> ObterTodos();
+        Venda ObterPorId(int id);
         Venda Adicionar(Venda vendidos);
         Venda Atualizar(Venda vendidos);
         bool Apagar(int id);

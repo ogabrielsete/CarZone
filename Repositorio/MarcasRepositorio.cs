@@ -12,12 +12,12 @@ namespace CarZone.Repositorio
             _bancoContext = bancoContext;
         }
 
-        public List<Marca> GetAll()
+        public List<Marca> ObterTodos()
         {
             return _bancoContext.MarcasDB.ToList();
         }
 
-        public Marca ListarPorId(int id)
+        public Marca ObterPorId(int id)
         {
             return _bancoContext.MarcasDB.FirstOrDefault(x => x.Id == id);
         }
@@ -32,7 +32,7 @@ namespace CarZone.Repositorio
 
         public Marca Atualizar(Marca marcas)
         {
-            Marca marcaDB = ListarPorId(marcas.Id);
+            Marca marcaDB = ObterPorId(marcas.Id);
             if (marcaDB == null) throw new Exception("Houve erro na atualização da marca");
 
             marcaDB.Nome = marcas.Nome;
@@ -45,7 +45,7 @@ namespace CarZone.Repositorio
 
         public bool Apagar(int id)
         {
-            Marca marcas = ListarPorId(id);
+            Marca marcas = ObterPorId(id);
             if (marcas == null) throw new Exception("Houve erro na exclusão da Marca");
 
             _bancoContext.MarcasDB.Remove(marcas);

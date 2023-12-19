@@ -31,13 +31,13 @@ namespace CarZone.Controllers
         }
         public IActionResult Index()
         {
-            var listarPagamento = _pagamentosRepositorio.GetAll();
-            var listarModelo = _modeloVeiculosRepositorio.GetAll();
-            var listarCliente = _clienteRepositorio.GetAll();
-            var listarMarca = _marcasRepositorio.GetAll();
+            var listarPagamento = _pagamentosRepositorio.ObterTodos();
+            var listarModelo = _modeloVeiculosRepositorio.ObterTodos();
+            var listarCliente = _clienteRepositorio.ObterTodos();
+            var listarMarca = _marcasRepositorio.ObterTodos();
 
             var listarVendas = new List<VendasVM>();
-            List<Venda> vendas = _vendasRepositorio.GetAll();            
+            List<Venda> vendas = _vendasRepositorio.ObterTodos();            
             foreach (var item in vendas)
             {
                 var listar = new VendasVM();
@@ -54,28 +54,26 @@ namespace CarZone.Controllers
                 if(item.VendedorId != null)
                 {
                     var nomeVendedor = _userManager.FindByIdAsync(item.VendedorId).Result;
-                    listar.VendedorId = nomeVendedor.UserName;
-                    
+                    listar.VendedorId = nomeVendedor.UserName;                    
                 }
 
                 listarVendas.Add(listar);
             }
-
             return View(listarVendas);
         }
 
         public IActionResult Criar()
         {
-            var dropDownCliente = _clienteRepositorio.GetAll();
+            var dropDownCliente = _clienteRepositorio.ObterTodos();
             ViewBag.Clientes = new SelectList(dropDownCliente, "Id", "Nome");
 
-            var dropDownMarcas = _marcasRepositorio.GetAll();
+            var dropDownMarcas = _marcasRepositorio.ObterTodos();
             ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
-            var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+            var dropDownModelos = _modeloVeiculosRepositorio.ObterTodos();
             ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
 
-            var dropDownPagamentos = _pagamentosRepositorio.GetAll();
+            var dropDownPagamentos = _pagamentosRepositorio.ObterTodos();
             ViewBag.Pag = new SelectList(dropDownPagamentos, "Id", "NomePagamento");
 
             return View();
@@ -83,25 +81,25 @@ namespace CarZone.Controllers
 
         public IActionResult Editar(int id)
         {
-            var dropDownCliente = _clienteRepositorio.GetAll();
+            var dropDownCliente = _clienteRepositorio.ObterTodos();
             ViewBag.Clientes = new SelectList(dropDownCliente, "Id", "Nome");
 
-            var dropDownMarcas = _marcasRepositorio.GetAll();
+            var dropDownMarcas = _marcasRepositorio.ObterTodos();
             ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome"); 
 
-            var dropDownModelos = _modeloVeiculosRepositorio.GetAll();
+            var dropDownModelos = _modeloVeiculosRepositorio.ObterTodos();
             ViewBag.Modelos = new SelectList(dropDownModelos, "Id", "NomeModelo");
 
-            var dropDownPagamentos = _pagamentosRepositorio.GetAll();
+            var dropDownPagamentos = _pagamentosRepositorio.ObterTodos();
             ViewBag.Pag = new SelectList(dropDownPagamentos, "Id", "NomePagamento");
 
-            Venda editarVenda = _vendasRepositorio.ListarPorId(id);
+            Venda editarVenda = _vendasRepositorio.ObterPorId(id);
             return View(editarVenda);
         }
 
         public IActionResult ApagarConfirmacao(int id)
         {
-            Venda listarVendas = _vendasRepositorio.ListarPorId(id);
+            Venda listarVendas = _vendasRepositorio.ObterPorId(id);
             return View(listarVendas);
         }
 
@@ -131,11 +129,11 @@ namespace CarZone.Controllers
 
                     return RedirectToAction("Index");
                 }
+
                 return View(venda);
             }
             catch (Exception error)
             {
-
                 TempData["MensagemErro"] = $"Não conseguimos cadastrar sua venda, tente novamente. Detalhe: {error.Message}"; 
                 return RedirectToAction("Index");
             }
@@ -159,12 +157,11 @@ namespace CarZone.Controllers
 
                     return RedirectToAction("Index");
                 }
-                return View(venda);
 
+                return View(venda);
             }
             catch (Exception error)
             {
-
                 TempData["MensagemErro"] = $"Não conseguimos alterar sua venda, tente novamente. Detalhe: {error.Message}";
                 return RedirectToAction("Index");
             }

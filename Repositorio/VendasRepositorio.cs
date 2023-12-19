@@ -13,12 +13,12 @@ namespace CarZone.Repositorio
             _bancoContext = bancoContext;
         }
 
-        public List<Venda> GetAll()
+        public List<Venda> ObterTodos()
         {
             return _bancoContext.VendasDB.ToList();
         }
 
-        public Venda ListarPorId(int id)
+        public Venda ObterPorId(int id)
         {
             return _bancoContext.VendasDB.FirstOrDefault(x => x.Id == id);
         }
@@ -32,7 +32,7 @@ namespace CarZone.Repositorio
 
         public Venda Atualizar(Venda vendidos)
         {
-            Venda sellDB = ListarPorId(vendidos.Id);
+            Venda sellDB = ObterPorId(vendidos.Id);
             if (sellDB == null) throw new Exception("Houve erro na atualização da venda");
 
             sellDB.PagamentoId = vendidos.PagamentoId;
@@ -49,7 +49,7 @@ namespace CarZone.Repositorio
 
         public bool Apagar(int id)
         {
-            Venda vendas = ListarPorId(id);
+            Venda vendas = ObterPorId(id);
             if (vendas == null) throw new Exception("Houve erro na exclusão da Marca");
 
             _bancoContext.VendasDB.Remove(vendas);

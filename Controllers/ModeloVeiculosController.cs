@@ -22,10 +22,10 @@ namespace CarZone.Controllers
 
         public IActionResult Index()
         {
-            var listarMarcas = _marcasRepositorio.GetAll();           
+            var listarMarcas = _marcasRepositorio.ObterTodos();           
             var listarModelo = new List<ModeloVeiculoVM>();
 
-            List<ModeloVeiculo> modelos = _modeloVeiculosRepositorio.GetAll();
+            List<ModeloVeiculo> modelos = _modeloVeiculosRepositorio.ObterTodos();
 
             foreach(var item in modelos)
             {
@@ -40,22 +40,22 @@ namespace CarZone.Controllers
 
         public IActionResult Criar()
         {
-            var listaDropdown = _marcasRepositorio.GetAll();
+            var listaDropdown = _marcasRepositorio.ObterTodos   ();
             ViewBag.Marcas = new SelectList(listaDropdown, "Id", "Nome");
             return View();
         }
 
         public IActionResult EditarModelo(int id)
         {
-            var listarMarcasDropDown = _marcasRepositorio.GetAll();
+            var listarMarcasDropDown = _marcasRepositorio.ObterTodos();
             ViewBag.Marcas = new SelectList(listarMarcasDropDown, "Id", "Nome");
-            ModeloVeiculo editarModelo = _modeloVeiculosRepositorio.ListarPorId(id);
+            ModeloVeiculo editarModelo = _modeloVeiculosRepositorio.ObterPorId(id);
             return View(editarModelo);
         }
 
         public IActionResult ApagarConfirmacao(int id)
         {
-            ModeloVeiculo modelos = _modeloVeiculosRepositorio.ListarPorId(id);
+            ModeloVeiculo modelos = _modeloVeiculosRepositorio.ObterPorId(id);
             return View(modelos);
         }
 
@@ -83,7 +83,7 @@ namespace CarZone.Controllers
                 }
                 else
                 {
-                    var dropDownMarcas = _marcasRepositorio.GetAll();
+                    var dropDownMarcas = _marcasRepositorio.ObterTodos();
                     ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
                     return View(modelo);
@@ -113,7 +113,7 @@ namespace CarZone.Controllers
                 }
                 else
                 {
-                    var dropDownMarcas = _marcasRepositorio.GetAll();
+                    var dropDownMarcas = _marcasRepositorio.ObterTodos();
                     ViewBag.Marcas = new SelectList(dropDownMarcas, "Id", "Nome");
 
                     return View(modelo);

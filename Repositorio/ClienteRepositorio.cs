@@ -12,12 +12,12 @@ namespace CarZone.Repositorio
             _bancoContext = bancoContext;
         }
 
-        public Cliente ListarPorId(int id)
+        public Cliente ObterPorId(int id)
         {
             return _bancoContext.ClientesDB.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<Cliente> GetAll()
+        public List<Cliente> ObterTodos()
         {
             return _bancoContext.ClientesDB.ToList();
         }
@@ -31,7 +31,7 @@ namespace CarZone.Repositorio
 
         public Cliente Atualizar(Cliente attCliente)
         {
-            Cliente clienteDB = ListarPorId(attCliente.Id);
+            Cliente clienteDB = ObterPorId(attCliente.Id);
 
             if (clienteDB == null) throw new Exception("Houve erro na atualização do Cliente");
 
@@ -49,7 +49,7 @@ namespace CarZone.Repositorio
 
         public bool Apagar(int id)
         {
-            Cliente clienteDB = ListarPorId(id);
+            Cliente clienteDB = ObterPorId(id);
             if (clienteDB == null) throw new Exception("Houve erro na exclusão do Cliente");
 
             _bancoContext.ClientesDB.Remove(clienteDB);

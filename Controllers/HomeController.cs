@@ -1,14 +1,10 @@
 ﻿using CarZone.Data;
 using CarZone.Models;
 using CarZone.Models.ViewModels;
-using CarZone.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Globalization;
-using System.Security.Claims;
 
 namespace CarZone.Controllers
 {
@@ -60,7 +56,6 @@ namespace CarZone.Controllers
         {
             var consultarVendas = _bancoContext.VendasDB.AsQueryable();
 
-            // Aplica os filtros de data se foram fornecidos
             if (dataInicial != null && dataFinal != null)
             {
                 consultarVendas = consultarVendas.Where(x => x.DataVenda >= dataInicial && x.DataVenda <= dataFinal);

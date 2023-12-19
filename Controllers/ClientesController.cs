@@ -23,7 +23,7 @@ namespace CarZone.Controllers
         }
         public IActionResult Index()
         {
-            List<Cliente> mostrarClientes = _clienteRepositorio.GetAll();
+            List<Cliente> mostrarClientes = _clienteRepositorio.ObterTodos();
             return View(mostrarClientes);
         }
 
@@ -34,7 +34,7 @@ namespace CarZone.Controllers
 
         public IActionResult AlterarCliente(int id)
         {
-            Cliente cliente = _clienteRepositorio.ListarPorId(id);
+            Cliente cliente = _clienteRepositorio.ObterPorId(id);
             return View(cliente);
         }
 
@@ -42,7 +42,7 @@ namespace CarZone.Controllers
         {
             try
             {
-                Cliente listarCliente = _clienteRepositorio.ListarPorId(id);
+                Cliente listarCliente = _clienteRepositorio.ObterPorId(id);
 
                 bool clienteRelacionado = _vendasRepositorio.VendaRelacionada(listarCliente.Id);
 

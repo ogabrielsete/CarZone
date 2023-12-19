@@ -14,7 +14,7 @@ namespace CarZone.Repositorio
             _userManager = userManager;
         }
 
-        public async Task<LoginVM> ListarPorId(string id)
+        public async Task<LoginVM> ObterPorId(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
 
