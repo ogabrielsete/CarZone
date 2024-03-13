@@ -4,69 +4,58 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <div class="container-fluid">
-        <div class="logo-container align-items-center">
-            <a class="logotipo" href="@Url.Action("Index", "Home" )">C</a>
-
-        </div>
-        <p class="carzonelogo">CarZone</p>
-        <a class="navbar-usuario" asp-area="" asp-controller="Home" asp-action="Index">Olá, @User.Identity.Name</a>
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target=".navbar-collapse"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-collapse collapse justify-content-center">
-            <ul class="navbar-nav flex-center sair-nav">
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Veiculos" asp-action="Index">Disponíveis</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Vendas" asp-action="Index">Vendas</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Pagamentos" asp-action="Index">Pagamentos</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="ModeloVeiculos" asp-action="Index">Modelos</a>
-                </li>
-                @if (User.IsInRole("Admin"))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">Usuários</a>
-                    </li>
-                    
-                }
-            </ul>
-        </div>
-    </div>
-
-    <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="navbar-nav flex-center sair">
-        <ul class="nav navbar-nav navbar-left">
-            <button type="submit" style="width:auto; height:auto;" class="nav-link btn btn-link">
-                Sair
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="fundologo">
+                <a class="letraC" href="@Url.Action("Index", "Home")">C</a>
+            </div>
+            <div class="nomeusuario">Olá, @(User?.Identity?.Name)</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </ul>
-    </form>
+
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav flex-center">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Veiculos" asp-action="Index">Disponíveis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Vendas" asp-action="Index">Vendas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Pagamentos" asp-action="Index">Pagamentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="ModeloVeiculos" asp-action="Index">Modelos</a>
+                    </li>
+                    @if (User?.IsInRole("Admin") == true)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">Usuários</a>
+                        </li>
+                    }
+                </ul>
+                <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="navbar-nav flex-center">
+                    <ul class="nav navbar-nav navbar-left">
+                        <button type="submit" class="nav-link btn btn-link" id="sair">
+                            Sair
+                        </button>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    
 }
 else
 {
@@ -75,3 +64,4 @@ else
         <a class="nav-link text-light" asp-controller="Account" asp-action="Register">&nbsp;Registrar&nbsp;&nbsp;&nbsp; </a>
     </ul>
 }
+

@@ -24,7 +24,7 @@ namespace CarZone
 
             var connectionString = builder.Configuration.GetConnectionString("DataBase");
             builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(options =>
-                options.UseSqlServer("Data Source = GABRIEL\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True"));
+                options.UseSqlServer("Data Source = GABRIELPC\\SQLEXPRESS; Initial Catalog = DB_Carzone; Integrated Security = True"));
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
             builder.Services.Configure<RequestLocalizationOptions>(options =>

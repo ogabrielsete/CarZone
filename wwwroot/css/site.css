@@ -30,6 +30,12 @@ body {
     color: red;
 }
 
+.header {
+    background-color: #080708;
+    height: 100px;
+    width: 100%;
+    margin-bottom: 30px;
+}
 
 .table-centered th {
     text-align: center;
@@ -46,47 +52,53 @@ body {
     text-align: center;
 }
 
-/*Texto da navbar  */
 .navbar-nav .nav-link {
     color: #FBFBFF !important;
     margin-right: 35px;
     text-align: center;
 }
 
-
-.navbar-usuario {
-    flex-shrink: 0;
-    color: #FBFBFF;
+.nomeusuario {
+    margin-left: 10px;
+    color: #d9d9db;
     font-family: 'Baloo 2', cursive;
     text-decoration: none;
+    font-size: 12px;
 }
 
-    .navbar-usuario:hover {
-        color: lemonchiffon;
+    .nomeusuario:hover {
+        color: lightblue;
     }
-
 
 #navbaredit {
     background: #1E1E1E;
     height: 40px;
 }
 
-.carzonelogo {
+/*.letraC {
     color: #FFF;
-    font-kerning: none;
     font-family: Lawyer Gothic;
     font-size: 16px;
     font-weight: 500;
-    line-height: 0%; /* 0px */
+    line-height: 0%;
     width: 130.184px;
     text-decoration: none;
     margin-left: 5px;
     margin-top: 16px;
+}*/
+
+.letraC:hover {
+    cursor: default;
 }
 
-    .carzonelogo:hover {
-        cursor: default;
-    }
+.logout-button {
+    width: auto;
+    height: auto;
+}
+
+#sair {
+    margin-left: 200px;
+}
 
 .logologin {
     background: #080708;
@@ -102,15 +114,15 @@ body {
     flex-shrink: 0;
     color: #FFF;
     font-kerning: none;
-    font-family: Lawyer Gothic;
+    font-family: Lawyer Gothic !important;
     font-size: 74px;
     font-style: normal;
     font-weight: 700;
-    line-height: 0%; /* 0px */
+    line-height: 0%;
 }
 
 /* Estilos para o contêiner da logo */
-.logo-container {
+.fundologo {
     position: relative;
     display: flex;
     background-color: #ffffff;
@@ -122,7 +134,7 @@ body {
 }
 
 /* Estilos para o link da logo */
-.logotipo {
+.letraC {
     color: #000;
     margin-top: auto;
     text-align: center;
@@ -133,17 +145,12 @@ body {
     font-weight: 700;
     line-height: 30px;
     letter-spacing: 1.7px;
-    text-decoration: none !important; /* Remova o sublinhado padrão do link */
-    transition-duration: 2s;
+    text-decoration: none !important;
 }
-    /*.logotipo a {
-        text-decoration: none;
-        transition: color 1.3s;*/ /* Adiciona uma transição suave de cor ao link */
-    /*}*/
 
-    .logotipo:hover {
-        color: rgb(0, 23, 0, 0.80); /* Cor diferente ao passar o mouse sobre o link */
-    }
+.logotipo:hover {
+    color: rgb(0, 23, 0, 0.80);
+}
 
 /* Logo da Home*/
 
@@ -154,11 +161,10 @@ body {
     font-size: 72px;
     font-style: normal;
     font-weight: bold;
-    line-height: 0%; /* 0px */
+    line-height: 0%;
 }
 
 .container {
-    /*    display:block;*/
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
@@ -173,18 +179,75 @@ body {
     width: 80%;
 }
 
-/* Box de veiculos */
-.boxVeiculos {
+/*
+    ====COMEÇO BOXES====
+*/
+.box {
     width: 100%;
-    max-width: 179px; 
+    max-width: 179px;
     height: 100%;
-    max-height:85.85px;
-    background-color: #FDCA40;
+    max-height: 85.85px;
     border-radius: 5px;
     padding: 20px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-left: 25px;
-    margin-top: 42px;
+    margin-left: 49px;
+    margin-top: 50px;
+}
+
+.boxVeiculos {
+    background-color: #FDCA40;
+}
+
+.boxClientes {
+    background-color: #DF2935;
+}
+
+.boxVendas {
+    background-color: #3772FF;
+}
+
+/* Detalhes */
+.detalhes {
+    color: #080708;
+    font-family: 'Baloo 2';
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    width: 179px;
+    height: 18px;
+    border-radius: 0px 0px 5px 5px;
+    margin-left: -20px;
+    margin-top: -17px;
+}
+
+    .detalhes a {
+        color: #080708;
+        font-family: 'Baloo 2';
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+        .detalhes a:hover {
+            color: floralwhite;
+        }
+
+.detalhesVeiculos {
+    background-color: #FFD971;
+}
+
+.detalhesClientes {
+    background-color: #E44B55;
+}
+
+.detalhesVendas {
+    background-color: #5889FF;
 }
 
 .numerosBox {
@@ -208,168 +271,13 @@ body {
     margin-top: -8px;
 }
 
-.detalhesVeiculos {
-    color: #080708;
-    font-family: 'Baloo 2';
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-    width: 179px;
-    height: 18px;
-    background-color: #FFD971;
-    border-radius: 0px 0px 5px 5px;
-    margin-left: -20px;
-    margin-top: -17px;
-}
-
-    .detalhesVeiculos a {
-        color: #080708;
-        font-family: 'Baloo 2';
-        font-size: 11px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-align: center;
-        text-decoration: none;
-        transition: color 0.3s; /* Adiciona uma transição suave de cor ao link */
-    }
-
-        .detalhesVeiculos a:hover {
-            color: floralwhite; /* Cor diferente ao passar o mouse sobre o link */
-        }
-
-
-.imagebox {
-    width: 51.279px;
-    height: 51.042px;
-    flex-shrink: 0;
-    margin-left: 100px;
-    margin-top: -100px;
-}
-
-/* Box de Clientes */
-.boxClientes {
-    width: 100%;
-    max-width: 179px;
-    height: 100%;
-    max-height: 85.85px;
-    background-color: #DF2935;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-left: 25px;
-    margin-top: 42px;
-}
-
-.iconcliente {
+.icons {
     width: 60px;
     height: 50px;
     flex-shrink: 0;
     margin-left: 93px;
     margin-top: -93px;
 }
-
-.detalhesClientes {
-    color: #080708;
-    font-family: 'Baloo 2';
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-    width: 179px;
-    height: 18px;
-    background-color: #E44B55;
-    border-radius: 0px 0px 5px 5px;
-    margin-left: -20px;
-    margin-top: -17px;
-    text-align: center;
-}
-
-    .detalhesClientes a {
-        color: #080708;
-        font-family: 'Baloo 2';
-        font-size: 11px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-align: center;
-        text-decoration: none;
-        transition: color 0.3s; /* Adiciona uma transição suave de cor ao link */
-    }
-
-        .detalhesClientes a:hover {
-            color: floralwhite; /* Cor diferente ao passar o mouse sobre o link */
-        }
-
-
-/* Box de Vendas */
-.boxVendas {
-    width: 100%;
-    max-width: 179px;
-    height: 100%;
-    max-height: 85.85px;
-    background-color: #3772FF;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-left: 25px;
-    margin-top: 42px;
-}
-
-.iconVendas {
-    width: 60px;
-    height: 50px;
-    flex-shrink: 0;
-    margin-left: 93px;
-    margin-top: -93px;
-}
-
-.detalhesVendas {
-    color: #080708;
-    font-family: 'Baloo 2';
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-    width: 179px;
-    height: 18px;
-    background-color: #5889FF;
-    border-radius: 0px 0px 5px 5px;
-    margin-left: -20px;
-    margin-top: -17px;
-    text-align: center;
-}
-
-
-    .detalhesVendas a {
-        color: #080708;
-        font-family: 'Baloo 2';
-        font-size: 11px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-align: center;
-        text-decoration: none;
-        transition: color 0.3s; /* Adiciona uma transição suave de cor ao link */
-    }
-
-        .detalhesVendas a:hover {
-            color: floralwhite; /* Cor diferente ao passar o mouse sobre o link */
-        }
-
-.form-box {
-    background-color: white;
-    padding: 100px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    position: relative;
-    max-width: 500px; /* Ajuste conforme necessário */
-    margin: 0 ; /* Centraliza o formulário na tela */
-}
-
 
 .atalhos {
     width: 83px;
@@ -382,23 +290,180 @@ body {
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
-    margin-left: 142px;
+    margin-left: 35px;
     margin-bottom: 95px;
 }
 
-    .atalhos > div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 2px;
+    .atalhos > p {
+        margin-left: 50px;
     }
 
+.icon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+
+/*
+    ====LOGIN, REGISTRO E SENHA ====
+*/
+.form-box {
+    background-color: white;
+    padding: 100px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    position: relative;
+    max-width: 500px;
+    margin: 0;
+}
+
 .btn-delete {
-    background-color: white; /* Cor de fundo específica para o botão de delete */
+    background-color: white;
     color: red;
 }
 
 .chart {
     margin-left: 25px;
-    margin-top: 40px;
+    margin-top: 25px;
 }
+
+/* 
+    ====================
+        MEDIA QUERIES
+    ====================
+*/
+
+
+@media(max-width:425px) {
+    /* NAVBAR */
+
+    #navbaredit {
+        display: flex;
+        height: max-content;
+        justify-content: center;
+        width: 425px;
+    }
+
+    .container-fluid {
+        width: 425px;
+    }
+
+    .fundologo {
+        height: 30px;
+        width: 30px;
+        margin-top: auto;
+    }
+
+    .letraC {
+        position: absolute;
+        top: 45%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+    }
+    .nomeusuario {
+        font-size: 18px;
+    }
+
+    /* HOME */
+    .display-2 {
+        display:flex;
+        font-size: 55px;
+    }
+
+    #sair{
+margin-right: 230px;
+    }
+
+    .containerHome{
+        width: 330px;
+    }
+    .row{
+        margin-left: 30px;
+        margin-top: -20px;
+    }
+
+    .box{       
+        margin-bottom: -30px;
+    }
+
+    .atalhos{
+        margin-top: 45px;
+    }
+    
+    .rowChart{
+        margin-top: 70px;
+    }
+
+    #lineChart {
+        width: 80%;
+        height: 200px;
+    }
+
+}
+
+
+
+/*@media(max-width:425px) {
+    
+    .logo-home{
+        display:none;
+    }
+
+    #navbaredit{
+        
+    }
+
+    .nomeusuario{
+        margin:initial;
+    }
+
+    .letraC {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        letter-spacing: 2px;
+    }
+
+    .fundologo{
+        height: 30px;
+        width: 30px;
+        margin-top:auto;
+        margin-bottom: 10px;
+            
+    }
+
+    .box {
+        width: 100%;
+        max-width: 179px;
+        height: 100%;
+        max-height: 85.85px;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        margin-left: auto;
+        margin-top: 20px;
+    }
+
+    .atalhos {
+        align-content: center;
+        margin-left: 83px;
+        margin-top: 20px;
+    }
+
+        .atalhos > p {
+            display: none;
+        }
+
+    .row{
+        display: flex;
+        align-items: center;
+    }
+
+    .chart {
+        display: none;
+    }
+}
+*/
