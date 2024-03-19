@@ -1,3 +1,10 @@
+﻿let aspectRatio = 2.5;
+
+if (window.matchMedia("(max-width: 425px)").matches) {
+    aspectRatio = 3;
+    document.getElementById('grafico').style.width = '90%'; // Ajuste a largura do contêiner do gráfico
+}
+
 $(document).ready(function () {
     $.ajax({
         type: "POST",
@@ -5,44 +12,36 @@ $(document).ready(function () {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
+            // Adicionando o somat�rio acumulado aos dados
             response.datasets[0].data = calculateCumulativeTotal(response.datasets[0].data);
             response.datasets[1].data = calculateCumulativeTotal(response.datasets[1].data);
 
-            const ctx = document.getElementById('lineChart').getContext('2d');
+            const lineChart = document.getElementById('lineChart').getContext('2d');
 
-            const containerWidth = $('#grafico').width();
-
-            new Chart(ctx, {
+            new Chart(lineChart, {
                 type: 'line',
-                data: response, 
+                data: {
+                    labels: response.labels,
+                    datasets: response.datasets
+                },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false, 
+                    aspectRatio: aspectRatio,
                     scales: {
-                        x: [{
+                        x: {
                             type: 'category',
-                            labels: response.labels,
-                            scaleLabel: {
+                            title: {
                                 display: true,
-                                labelString: 'Data'
                             }
-                        }],
-                        y: [{
-                            ticks: {
-                                beginAtZero: true
-                            },
-                            scaleLabel: {
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
                                 display: true,
-                                labelString: 'Quantidade/Valor Financeiro'
                             }
-                        }]
-                    }
+                        }
+                    }                   
                 }
             });
-
-            const chart = new Chart(ctx);
-            chart.options.width = containerWidth;
-            chart.update();
         },
         error: function (error) {
             console.log(error);
@@ -55,5 +54,3 @@ function calculateCumulativeTotal(values) {
     let cumulativeTotal = 0;
     return values.map(value => cumulativeTotal += value);
 }
-
-

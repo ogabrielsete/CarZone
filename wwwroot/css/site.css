@@ -306,6 +306,13 @@ body {
 }
 
 
+
+#lineChart {
+    margin-top: 30px;
+}
+
+
+
 /*
     ====LOGIN, REGISTRO E SENHA ====
 */
@@ -321,11 +328,6 @@ body {
 .btn-delete {
     background-color: white;
     color: red;
-}
-
-.chart {
-    margin-left: 25px;
-    margin-top: 25px;
 }
 
 /* 
@@ -362,45 +364,66 @@ body {
         transform: translate(-50%, -50%);
         font-size: 25px;
     }
+
     .nomeusuario {
         font-size: 18px;
     }
 
     /* HOME */
     .display-2 {
-        display:flex;
+        display: flex;
         font-size: 55px;
     }
 
-    #sair{
-margin-right: 230px;
+    #sair {
+        margin-right: 230px;
     }
 
-    .containerHome{
+    .containerHome {
         width: 330px;
     }
-    .row{
+
+    .row {
         margin-left: 30px;
         margin-top: -20px;
     }
 
-    .box{       
+
+    .box {
         margin-bottom: -30px;
     }
 
-    .atalhos{
-        margin-top: 45px;
-    }
-    
-    .rowChart{
-        margin-top: 70px;
+    .atalhos {
+        margin-top: 30px;
     }
 
-    #lineChart {
-        width: 80%;
-        height: 200px;
+    .rowChart {
+        display: none;
     }
 
+    /* VEICULOS */
+    #zoom-out {
+        transform: scale(0.81);
+        margin-left: -100px;
+    }
+
+    /* VENDAS */
+    #zoomOutVendas {
+        transform: scale(0.85);
+        margin-left: -80px;
+    }
+
+    /* CLIENTES */
+    #zoomOutClientes {
+        transform: scale(0.95);
+        margin-left: -50px;
+    }
+
+    /* USUÁRIOS */
+    #zoomUsuario {
+        transform: scale(0.95);
+        margin-left: -50px;
+    }
 }
 
 
