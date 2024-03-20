@@ -1,4 +1,117 @@
-﻿html {
+﻿@media(max-width:425px) {
+    /* NAVBAR */
+
+    #navbaredit {
+        display: flex;
+        height: max-content;
+        justify-content: center;
+        width: 425px;
+    }
+
+    .container-fluid {
+        width: 425px;
+    }
+
+    .fundologo {
+        height: 30px;
+        width: 30px;
+        margin-top: auto;
+    }
+
+    .letraC {
+        position: absolute;
+        top: 45%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+    }
+
+    .nomeusuario {
+        font-size: 18px;
+    }
+
+    /* HOME */
+    .display-2 {
+        display: flex;
+        font-size: 55px;
+    }
+
+    #sair {
+        margin-right: 230px;
+    }
+
+    .containerHome {
+        width: 330px;
+    }
+
+    .row {
+        margin-left: 30px;
+        margin-top: -20px;
+    }
+
+
+    .box {
+        margin-bottom: -30px;
+    }
+
+    .atalhos {
+        margin-top: 30px;
+    }
+
+    .rowChart {
+        display: none;
+    }
+
+    /* VEICULOS */
+    #zoom-out {
+        transform: scale(0.81);
+        margin-left: -100px;
+    }
+
+    /* VENDAS */
+    #zoomOutVendas {
+        transform: scale(0.85);
+        margin-left: -80px;
+    }
+
+    /* CLIENTES */
+    #zoomOutClientes {
+        transform: scale(0.95);
+        margin-left: -50px;
+    }
+
+    /* USUÁRIOS */
+    #zoomUsuario {
+        transform: scale(0.95);
+        margin-left: -50px;
+    }
+
+    /*LOGIN*/
+    .logologin{
+        margin-right: 50px;
+    }
+
+    .form-box{
+        transform: scale(0.85);
+    }
+
+    .loginId{
+
+    }
+
+    #loginNav {
+        margin-top: -10px;
+        font-size:10px;
+        color: fuchsia;
+    }
+    #register{
+        margin-top: -10px;
+        font-size: 10px;
+        margin-left: 10px;
+    }
+}
+
+html {
     font-size: 14px;
 }
 
@@ -337,94 +450,7 @@ body {
 */
 
 
-@media(max-width:425px) {
-    /* NAVBAR */
 
-    #navbaredit {
-        display: flex;
-        height: max-content;
-        justify-content: center;
-        width: 425px;
-    }
-
-    .container-fluid {
-        width: 425px;
-    }
-
-    .fundologo {
-        height: 30px;
-        width: 30px;
-        margin-top: auto;
-    }
-
-    .letraC {
-        position: absolute;
-        top: 45%;
-        left: 55%;
-        transform: translate(-50%, -50%);
-        font-size: 25px;
-    }
-
-    .nomeusuario {
-        font-size: 18px;
-    }
-
-    /* HOME */
-    .display-2 {
-        display: flex;
-        font-size: 55px;
-    }
-
-    #sair {
-        margin-right: 230px;
-    }
-
-    .containerHome {
-        width: 330px;
-    }
-
-    .row {
-        margin-left: 30px;
-        margin-top: -20px;
-    }
-
-
-    .box {
-        margin-bottom: -30px;
-    }
-
-    .atalhos {
-        margin-top: 30px;
-    }
-
-    .rowChart {
-        display: none;
-    }
-
-    /* VEICULOS */
-    #zoom-out {
-        transform: scale(0.81);
-        margin-left: -100px;
-    }
-
-    /* VENDAS */
-    #zoomOutVendas {
-        transform: scale(0.85);
-        margin-left: -80px;
-    }
-
-    /* CLIENTES */
-    #zoomOutClientes {
-        transform: scale(0.95);
-        margin-left: -50px;
-    }
-
-    /* USUÁRIOS */
-    #zoomUsuario {
-        transform: scale(0.95);
-        margin-left: -50px;
-    }
-}
 
 
 
