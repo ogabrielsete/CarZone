@@ -1,127 +1,4 @@
-﻿@media(max-width:425px) {
-    /* NAVBAR */
-
-    #navbaredit {
-        display: flex;
-        height: max-content;
-        justify-content: center;
-        width: 425px;
-    }
-
-    .container-fluid {
-        width: 425px;
-    }
-
-    .fundologo {
-        height: 30px;
-        width: 30px;
-        margin-top: auto;
-    }
-
-    .letraC {
-        position: absolute;
-        top: 45%;
-        left: 55%;
-        transform: translate(-50%, -50%);
-        font-size: 25px;
-    }
-
-    .nomeusuario {
-        font-size: 18px;
-    }
-
-    /* HOME */
-    .display-2 {
-        display: flex;
-        font-size: 55px;
-    }
-
-    #sair {
-        margin-right: 230px;
-    }
-
-    .containerHome {
-        width: 330px;
-    }
-
-    .row {
-        margin-left: 30px;
-        margin-top: -20px;
-    }
-
-
-    .box {
-        margin-bottom: -30px;
-    }
-
-    .atalhos {
-        margin-top: 30px;
-    }
-
-    .rowChart {
-        display: none;
-    }
-
-    /* VEICULOS */
-    #zoom-out {
-        transform: scale(0.81);
-        margin-left: -100px;
-    }
-
-    /* VENDAS */
-    #zoomOutVendas {
-        transform: scale(0.85);
-        margin-left: -80px;
-    }
-
-    /* CLIENTES */
-    #zoomOutClientes {
-        transform: scale(0.95);
-        margin-left: -50px;
-    }
-
-    /* USUÁRIOS */
-    #zoomUsuario {
-        transform: scale(0.95);
-        margin-left: -50px;
-    }
-
-    /*LOGIN*/
-    .logologin{
-        margin-right: 50px;
-    }
-
-    .form-box{
-        transform: scale(0.85);
-    }
-
-    .loginId{
-
-    }
-
-    #loginNav {
-        margin-top: -10px;
-        font-size:10px;
-        color: fuchsia;
-    }
-    #register{
-        margin-top: -10px;
-        font-size: 10px;
-        margin-left: 10px;
-    }
-}
-
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-html {
+﻿html {
     position: relative;
     min-height: 100%;
 }
@@ -448,71 +325,217 @@ body {
         MEDIA QUERIES
     ====================
 */
-
-
-
-
-
-
-/*@media(max-width:425px) {
-    
-    .logo-home{
-        display:none;
+@media (max-width: 425px) { /* NAVBAR */
+    #navbaredit {
+        display: flex;
+        height: max-content;
+        justify-content: center;
+        max-width: 100vh;
     }
 
-    #navbaredit{
-        
+    .container-fluid {
+        width: 425px;
     }
 
-    .nomeusuario{
-        margin:initial;
+    .fundologo {
+        height: 30px;
+        width: 30px;
+        margin-top: auto;
     }
 
     .letraC {
         position: absolute;
         top: 45%;
-        left: 50%;
+        left: 55%;
         transform: translate(-50%, -50%);
-        letter-spacing: 2px;
+        font-size: 25px;
     }
 
-    .fundologo{
-        height: 30px;
-        width: 30px;
-        margin-top:auto;
-        margin-bottom: 10px;
-            
+    .nomeusuario {
+        font-size: 18px;
     }
+
+    /* HOME */
+    .display-2 {
+        display: flex;
+        font-size: 55px;
+    }
+
+    #sair {
+        margin-right: 230px;
+    }
+
+    .containerHome {
+        width: 330px;
+    }
+
+    .row {
+        margin-left: 30px;
+        margin-top: -20px;
+    }
+
 
     .box {
-        width: 100%;
-        max-width: 179px;
-        height: 100%;
-        max-height: 85.85px;
-        border-radius: 5px;
-        padding: 20px;
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        margin-left: auto;
-        margin-top: 20px;
+        margin-bottom: -30px;
     }
 
     .atalhos {
-        align-content: center;
-        margin-left: 83px;
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
-        .atalhos > p {
-            display: none;
-        }
-
-    .row{
-        display: flex;
-        align-items: center;
-    }
-
-    .chart {
+    .rowChart {
         display: none;
     }
+
+    /* VEICULOS */
+    #zoom-out {
+        transform: scale(0.81);
+        margin-left: -100px;
+    }
+
+    /* VENDAS */
+    #zoomOutVendas {
+        transform: scale(0.85);
+        margin-left: -80px;
+    }
+
+    /* CLIENTES */
+    #zoomOutClientes {
+        transform: scale(0.95);
+        margin-left: -50px;
+    }
+
+    /* USUÁRIOS */
+    #zoomUsuario {
+        transform: scale(0.95);
+        margin-left: -50px;
+    }
+
+    /*LOGIN*/
+    .logologin {
+        margin-right: 50px;
+    }
+
+    .form-box {
+        transform: scale(0.85);
+    }
+
+    #loginNav {
+        margin-top: -10px;
+        font-size: 10px;
+    }
+
+    #register {
+        margin-top: -10px;
+        font-size: 10px;
+        margin-left: 10px;
+    }
 }
-*/
+
+@media (min-width: 426px) and (max-width: 768px) {
+    /* NAVBAR */
+
+    .navbar {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    #navbaredit {
+        height: max-content;
+        width: 100%;
+    }
+
+    .container-fluid {
+        width: 100%;
+    }
+
+    .nomeusuario {
+        display: none;
+    }
+
+    .fundologo {
+        display: none;
+    }
+
+    #sair {
+        margin-left: 15px;
+    }
+
+    .navbar-left {
+        margin-left: -10px;
+    }
+
+    .nav-item {
+        margin-right: -18px;
+    }
+
+    /* HOME */
+    .display-2 {
+        display: flex;
+        font-size: 105px;
+    }
+
+    .containerHome {
+        flex-direction: column;
+    }
+
+    .row {
+        margin-left: 85px;
+        margin-top: -50px;
+    }
+
+    .atalhos {
+        margin-top: 25px;
+        margin-left: 7px;
+        transform: scale(0.95)
+    }
+
+    .icon-row {
+        margin-right: 0px;
+        margin-bottom: 10px; /* Adicione um espaço entre as linhas de ícones */
+    }
+
+    .box {
+        width:; /* Faz com que os boxes ocupem toda a largura disponível */
+        margin-left: 20px; /* Remove a margem lateral */
+        margin-bottom: 20px;
+        -webkit-justify-content: inherit;
+        justify-content: inherit;
+        /*margin-bottom: -30px;*/
+    }
+
+    #atalho {
+        display: none;
+    }
+
+    .rowChart {
+        display: flex;
+        justify-content: center;
+    }
+
+    /*LOGIN*/
+    .logologin {
+        margin-right: 50px;
+    }
+
+    .form-box {
+        transform: scale(0.85);
+    }
+
+    #loginNav {
+        margin-top: -10px;
+        font-size: 10px;
+    }
+
+    #register {
+        margin-top: -10px;
+        font-size: 10px;
+        margin-left: 10px;
+    }}
+
+@media (max-width: 1440){
+    #grafico {
+        height: 500px;
+        
+    }
+}
