@@ -19,6 +19,7 @@ namespace CarZone.Controllers
             List<Pagamento> listarPagamentos = _pagamentosRepositorio.ObterTodos();
             return View(listarPagamentos);
         }
+
         public IActionResult Criar()
         {
             return View();
@@ -65,7 +66,6 @@ namespace CarZone.Controllers
                 TempData["MensagemErro"] = $"Não conseguimos cadastrar seu pagamento, tente novamente. Detalhe: {error.Message}";
                 return RedirectToAction("Index");
             }
-
         }
 
         [HttpPost]
@@ -92,6 +92,5 @@ namespace CarZone.Controllers
                 return RedirectToAction("Index");
             }
         }
-
     }
 }

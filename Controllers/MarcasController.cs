@@ -43,13 +43,11 @@ namespace CarZone.Controllers
             return View(marcas);
         }
 
-
         public IActionResult Apagar(int id)
         {
             _marcasRepositorio.Apagar(id);
             return RedirectToAction("Index");
         }
-
 
         [HttpPost]
         public IActionResult Criar(Marca marca)
@@ -75,7 +73,6 @@ namespace CarZone.Controllers
                 return RedirectToAction("Index");
             }
         }
-
 
         [HttpPost]
         [Authorize("Admin")]

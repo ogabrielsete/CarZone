@@ -295,12 +295,13 @@ body {
     margin: 10px;
 }
 
-
+#paginacao td {
+    white-space: nowrap;
+}
 
 #lineChart {
     margin-top: 30px;
 }
-
 
 
 /*
@@ -353,6 +354,10 @@ body {
 
     .nomeusuario {
         font-size: 18px;
+    }
+
+    #paginacao td {
+        white-space:normal;
     }
 
     /* HOME */
@@ -538,4 +543,5 @@ body {
         height: 500px;
         
     }
+    
 }

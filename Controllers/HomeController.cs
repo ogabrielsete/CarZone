@@ -26,7 +26,6 @@ namespace CarZone.Controllers
             int totalVeiculos = _bancoContext.VeiculosDB.Count();
             int totalVendas = _bancoContext.VendasDB.Count();
 
-
             HomepageVM viewModel = new HomepageVM
             {
                 TotalClientes = totalClientes,
@@ -35,9 +34,7 @@ namespace CarZone.Controllers
             };
 
             return View(viewModel);
-
         }
-
 
         public IActionResult Privacy()
         {
@@ -51,6 +48,7 @@ namespace CarZone.Controllers
             return View(new ErrorViewModel { RequestId = requestId });
         }
 
+        // Método para retornar os dados para o gráfico de vendas
         [HttpPost]
         public JsonResult GetTotalVendas(DateTime? dataInicial, DateTime? dataFinal)
         {
@@ -110,6 +108,7 @@ namespace CarZone.Controllers
             return Json(data);
         }
 
+        // Método para retornar os dados para o gráfico de vendas
         private List<int> CalcularTodosOsClientes(List<int> clientes)
         {
             List<int> todosOsClientes = new List<int>();
@@ -121,7 +120,6 @@ namespace CarZone.Controllers
                 todosOsClientes.Add(total);
             }
 
-            // Preencha os valores ausentes para que a lista tenha o mesmo comprimento que as datas
             for (int i = 0; i < 12 - clientes.Count; i++)
             {
                 todosOsClientes.Add(total);

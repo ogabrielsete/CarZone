@@ -19,8 +19,8 @@ namespace CarZone.Controllers
             _clienteRepositorio = clienteRep;
             _vendasRepositorio = vendasRepositorio;
             _validadorDeCPF = validadorDeCPF;
-
         }
+
         public IActionResult Index()
         {
             List<Cliente> mostrarClientes = _clienteRepositorio.ObterTodos();
@@ -49,7 +49,6 @@ namespace CarZone.Controllers
                 if (clienteRelacionado)
                     return RedirectToAction("Index", 
                         TempData["MensagemErro"] = "Não é possível excluir este cliente porque está relacionada a uma venda cadastrada.");
-
 
                 _clienteRepositorio.Apagar(id);
                 return RedirectToAction("Index", TempData["MensagemSucesso"] = "Cliente excluído com sucesso!");

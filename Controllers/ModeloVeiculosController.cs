@@ -49,6 +49,7 @@ namespace CarZone.Controllers
         {
             var listarMarcasDropDown = _marcasRepositorio.ObterTodos();
             ViewBag.Marcas = new SelectList(listarMarcasDropDown, "Id", "Nome");
+
             ModeloVeiculo editarModelo = _modeloVeiculosRepositorio.ObterPorId(id);
             return View(editarModelo);
         }
@@ -126,7 +127,5 @@ namespace CarZone.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-
     }
 }
