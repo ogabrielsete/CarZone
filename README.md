@@ -36,3 +36,9 @@ O <b>CarZone</b> é uma aplicação web fullstack desenvolvida para otimizar a g
 
 ## Diagrama UML
  ![Diagrama UML](https://i.imgur.com/dkbbY8m.png)
+
+
+ ## Visualização de Projeto em Execução
+ Clique e veja o projeto em execução
+[![Vídeo](https://i.imgur.com/hPIKTHh.png)](https://www.youtube.com/watch?v=IaSBPx71GgU)
+
