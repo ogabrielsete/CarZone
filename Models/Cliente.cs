@@ -15,7 +15,7 @@ namespace CarZone.Models
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "O CPF é obrigatório.")]
-        [StringLength(11, ErrorMessage = "O CPF deve ter 11 caracteres.")]
+        //[StringLength(11, ErrorMessage = "O CPF deve ter 11 caracteres.")]
         public string CPF { get; set; }
 
         [Required(ErrorMessage = "O endereço é obrigatório.")]
@@ -24,7 +24,7 @@ namespace CarZone.Models
 
         [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "O telefone é obrigatório.")]
-        [StringLength(11, ErrorMessage = "O telefone deve ter no máximo 11 caracteres.")]
+        //[StringLength(11, ErrorMessage = "O telefone deve ter no máximo 11 caracteres.")]
         public string Telefone { get; set; }
 
         public virtual List<Venda> Vendas { get; set; }

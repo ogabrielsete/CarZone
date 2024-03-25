@@ -38,7 +38,7 @@
     <div class="row mb-3">
         <label for="cepCliente" class="col-sm-2 col-form-label">CEP</label>
         <div class="col-sm-10">
-            <input type="text" id="cepCliente" class="form-control" placeholder="Insira apenas o número">           
+            <input type="text" id="cepCliente" class="form-control" placeholder="Insira apenas o número">
         </div>
     </div>
 
@@ -46,7 +46,7 @@
     <div class="row mb-3">
         <label for="enderecoCliente" class="col-sm-2 col-form-label">Endereço</label>
         <div class="col-sm-10">
-            <input type="any" asp-for="Endereco" id="enderecoCliente"  class="form-control" placeholder="Insira o endereço">
+            <input type="any" asp-for="Endereco" id="enderecoCliente" class="form-control" placeholder="Insira o endereço">
             @Html.ValidationMessageFor(x => x.Endereco)
         </div>
     </div>
@@ -57,11 +57,12 @@
         <a class="btn btn-primary" asp-controller="Clientes" asp-action="Index">Voltar</a>
     </div>
 </form>
-@section Scripts{
+
+@section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
-        // API para transformar o CEP em endereço 
+        // API para transformar o CEP em endereço
         $(document).ready(function () {
             $('#cepCliente').on('change', function () {
                 var cep = $(this).val().replace(/\D/g, '');
@@ -73,10 +74,10 @@
                     });
                 }
             });
-        });       
+        });
 
         // Transformar o nome em caixa alta/baixa em capitalização de palavras
-            const nomeInput = document.getElementById('nome');
+        const nomeInput = document.getElementById('nome');
 
         nomeInput.addEventListener('input', function () {
             const texto = nomeInput.value;
@@ -90,7 +91,7 @@
         });
 
 
-        // Mascara de CPF       
+        // Mascara de CPF
         $(document).ready(function () {
             // Aplicar a máscara de CPF no campo de entrada
             $('#cpfCliente').mask('000.000.000-00');
@@ -108,4 +109,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-                    }
+}

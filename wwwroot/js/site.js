@@ -3,6 +3,11 @@
 
 // Write your JavaScript code.
 
+$(document).ready(function () {
+    $('.close-alert').click(function () {
+        $(this).parent('.alert').hide();
+    });
+});
 
 $(document).ready(function () {
     $('#paginacao').DataTable({
@@ -38,6 +43,3 @@ $(document).ready(function () {
 
 
 
-$('.close-alert').click(function () {
-    $('.alert').hide('hide');
-});
