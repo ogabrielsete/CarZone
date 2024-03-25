@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarZone")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02f49e69f91b5cbb3a4564fb6e7fc24553732f51")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c6a0d0076671e867f2095d7d2f8cc1cddb9772a")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarZone")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarZone")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
