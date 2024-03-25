@@ -59,10 +59,9 @@ namespace CarZone.Repositorio
 
         public bool VendaRelacionada(int vendaId)
         {
-            return _bancoContext.VendasDB
-         .Where(v => v.Id == vendaId)
-         .Join(_bancoContext.ClientesDB, venda => venda.ClienteId, cliente => cliente.Id, (venda, cliente) => cliente)
-         .Any(cliente => cliente.Id != null);
+
+            return _bancoContext.VendasDB.Any(v => v.ClienteId == vendaId);
+          
         }
     }
 }
